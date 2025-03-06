@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор вклада</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 10px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+        h2 {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        input, output {
+            width: 100%;
+            margin-top: 5px;
+        }
+        input[type="range"] {
+            width: 100%;
+            accent-color: #00ff99;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #00ff99;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Калькулятор вклада</h2>
+
+        <label>Сумма вклада: <output id="depositValue">100 000</output> руб.</label>
+        <input type="range" id="deposit" min="10000" max="1000000" step="10000" value="100000">
+
+        <label>Ежемесячное пополнение: <output id="additionValue">5 000</output> руб.</label>
+        <input type="range" id="addition" min="0" max="50000" step="1000" value="5000">
+
+        <label>Срок вклада: <output id="termValue">12</output> мес.</label>
+        <input type="range" id="term" min="1" max="60" step="1" value="12">
+
+        <label>Процентная ставка: <output id="rateValue">8</output>% годовых</label>
+        <input type="range" id="rate" min="1" max="50" step="1" value="8">
+
+        <div class="result">Итоговая сумма: <span id="result">0</span> руб.</div>
+    </div>
+
+    <script>
+        function updateValues() {
+            let deposit = parseInt(document.getElementById("deposit").value);
+            let addition = parseInt(document.getElementById("addition").value);
+            let term = parseInt(document.getElementById("term").value);
+            let rate = parseFloat(document.getElementById("rate").value) / 100 / 12; // месячная ставка
+
+            document.getElementById("depositValue").textContent = deposit.toLocaleString();
+            document.getElementById("additionValue").textContent = addition.toLocaleString();
+            document.getElementById("termValue").textContent = term;
+            document.getElementById("rateValue").textContent = (rate * 12 * 100).toFixed(0);
+
+            // Расчёт вклада с капитализацией
+            let total = deposit;
+            for (let i = 0; i < term; i++) {
+                total = total * (1 + rate) + addition;
+            }
+
+            document.getElementById("result").textContent = Math.round(total).toLocaleString();
+        }
+
+        // Привязываем обновление к изменениям ползунков
+        document.querySelectorAll("input[type='range']").forEach(input => {
+            input.addEventListener("input", updateValues);
+        });
+
+        // Первичный расчёт
+        updateValues();
+    </script>
+</body>
+</html>
