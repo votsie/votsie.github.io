@@ -12,12 +12,21 @@
             font-family: Arial, sans-serif;
         }
         body {
-            background: #121212;
+            background: black;
             color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
         .container {
             background: rgba(255, 255, 255, 0.1);
@@ -53,6 +62,7 @@
     </style>
 </head>
 <body>
+    <canvas id="stars"></canvas>
     <div class="container">
         <h2>Калькулятор вклада</h2>
 
@@ -76,29 +86,85 @@
             let deposit = parseInt(document.getElementById("deposit").value);
             let addition = parseInt(document.getElementById("addition").value);
             let term = parseInt(document.getElementById("term").value);
-            let rate = parseFloat(document.getElementById("rate").value) / 100 / 12; // месячная ставка
+            let rate = parseFloat(document.getElementById("rate").value) / 100 / 12;
 
             document.getElementById("depositValue").textContent = deposit.toLocaleString();
             document.getElementById("additionValue").textContent = addition.toLocaleString();
             document.getElementById("termValue").textContent = term;
             document.getElementById("rateValue").textContent = (rate * 12 * 100).toFixed(0);
 
-            // Расчёт вклада с капитализацией
             let total = deposit;
             for (let i = 0; i < term; i++) {
                 total = total * (1 + rate) + addition;
             }
 
             document.getElementById("result").textContent = Math.round(total).toLocaleString();
+
+            // Меняем фон в зависимости от суммы вклада
+            let starSpeed = Math.min(0.5 + deposit / 2000000, 2);
+            let starColor = `rgba(${Math.min(deposit / 10000, 255)}, ${Math.min(addition / 200, 255)}, 255, 1)`;
+            updateStars(starSpeed, starColor);
         }
 
-        // Привязываем обновление к изменениям ползунков
         document.querySelectorAll("input[type='range']").forEach(input => {
             input.addEventListener("input", updateValues);
         });
 
-        // Первичный расчёт
         updateValues();
+
+        // --- Фон: Анимация звёзд NASA ---
+        const canvas = document.getElementById("stars");
+        const ctx = canvas.getContext("2d");
+
+        let stars = [];
+        let speedFactor = 0.5;
+        let starColor = "rgba(255, 255, 255, 1)";
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        function createStars(count) {
+            stars = [];
+            for (let i = 0; i < count; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    radius: Math.random() * 2,
+                    speed: Math.random() * speedFactor,
+                });
+            }
+        }
+
+        function updateStars(speed, color) {
+            speedFactor = speed;
+            starColor = color;
+            createStars(150);
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = starColor;
+
+            for (let star of stars) {
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fill();
+                star.y += star.speed;
+
+                if (star.y > canvas.height) {
+                    star.y = 0;
+                    star.x = Math.random() * canvas.width;
+                }
+            }
+            requestAnimationFrame(drawStars);
+        }
+
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+        createStars(150);
+        drawStars();
     </script>
 </body>
 </html>
