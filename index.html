@@ -45,9 +45,15 @@
             margin-bottom: 10px;
         }
         .subtitle {
-            color: #00ff99;
+            color: #00ffc8;
             font-size: 16px;
             margin: 5px 0;
+            white-space: nowrap; /* Prevent text from wrapping */
+            overflow: hidden;    /* Hide overflowed content */
+            width: 100%;        /* Ensure it takes full width */
+            animation: marquee 20s linear infinite; /* Animation name, duration, timing, repeat */
+            padding-left: 100%; /* Start off-screen to the right */
+
         }
         .projects {
             display: flex;
@@ -72,17 +78,30 @@
             background: rgba(255, 255, 255, 0.2);
             cursor: default;
         }
+
+        /* Keyframes for the marquee animation */
+        @keyframes marquee {
+            0%   { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); } /* Move to the left, off-screen */
+        }
+        .marquee-content{
+          display: inline-block; /* Important for consistent width calculation */
+           padding-right: 20px; /*optional, spacing after elements in marquee*/
+
+        }
     </style>
 </head>
 <body>
     <canvas id="stars"></canvas>
-    
+
     <div class="container">
         <h1>Феклистов Алексей</h1>
-        <div class="subtitle">Системный Администратор</div>
-        <div class="subtitle">Программный инженер</div>
-        <div class="subtitle">DevOps</div>
-        <div class="subtitle">Backend Developer</div>
+        <div class="subtitle">
+            <span class="marquee-content">Системный Администратор</span>
+            <span class="marquee-content">Программный инженер</span>
+            <span class="marquee-content">DevOps</span>
+            <span class="marquee-content">Backend Developer</span>
+        </div>
     </div>
 
     <div class="container">
