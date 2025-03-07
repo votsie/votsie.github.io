@@ -3,163 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Портфолио - Феклистов Алексей</title>
+    <title>GitHub Профиль</title>
     <style>
-        * {
-            box-sizing: border-box;
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap');
+
+        body {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'JetBrains Mono', monospace;
+            background: url('https://apod.nasa.gov/apod/image/1901/NGC6357_HubblePestana_1824.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
         }
-        body {
-            background: black;
-            color: #ffffff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-        }
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
+
         .container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 10px;
-            width: 400px;
-            text-align: center;
-            margin-bottom: 20px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        h1 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        .subtitle {
-            color: #00ffc8;
-            font-size: 16px;
-            margin: 5px 0;
-            white-space: nowrap; /* Prevent text from wrapping */
-            overflow: hidden;    /* Hide overflowed content */
-            width: 100%;        /* Ensure it takes full width */
-            animation: marquee 20s linear infinite; /* Animation name, duration, timing, repeat */
-            padding-left: 100%; /* Start off-screen to the right */
-
-        }
-        .projects {
             display: flex;
-            gap: 10px;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
+            min-height: 100vh;
+            backdrop-filter: blur(8px);
+            background: rgba(0, 0, 0, 0.6);
         }
-        .btn {
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            background: #00ff99;
-            color: black;
+
+        .profile {
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 20px rgba(0, 255, 217, 0.3);
+        }
+
+        h1 {
+            color: #00ffd9;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            width: 80%;
+            max-width: 1200px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 10px rgba(0, 255, 153, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-title {
+            font-size: 18px;
             font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #00cc77;
-        }
-        .btn.disabled {
-            background: rgba(255, 255, 255, 0.2);
-            cursor: default;
+            color: #00ff99;
         }
 
-        /* Keyframes for the marquee animation */
-        @keyframes marquee {
-            0%   { transform: translate(0, 0); }
-            100% { transform: translate(-100%, 0); } /* Move to the left, off-screen */
-        }
-        .marquee-content{
-          display: inline-block; /* Important for consistent width calculation */
-           padding-right: 20px; /*optional, spacing after elements in marquee*/
-
+        .project-desc {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #ccc;
         }
     </style>
 </head>
 <body>
-    <canvas id="stars"></canvas>
 
     <div class="container">
-        <h1>Феклистов Алексей</h1>
-        <div class="subtitle">
-            <span class="marquee-content">Системный Администратор</span>
-            <span class="marquee-content">Программный инженер</span>
-            <span class="marquee-content">DevOps</span>
-            <span class="marquee-content">Backend Developer</span>
+        <div class="profile">
+            <h1>Феклистов Алексей</h1>
+            <p>votsie</p>
         </div>
-    </div>
 
-    <div class="container">
-        <h1>Проекты (Mini-Apps)</h1>
         <div class="projects">
-            <a href="https://votsie.github.io/miniapps_html/deposit_calc/main.html" class="btn">Калькулятор вкладов</a>
-            <button class="btn disabled">В разработке</button>
+            <div class="project-card">
+                <div class="project-title">Проект 1</div>
+                <div class="project-desc">Описание проекта...</div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Проект 2</div>
+                <div class="project-desc">Описание проекта...</div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-title">Проект 3</div>
+                <div class="project-desc">Описание проекта...</div>
+            </div>
         </div>
     </div>
 
-    <script>
-        // --- Фон: Анимация звёзд ---
-        const canvas = document.getElementById("stars");
-        const ctx = canvas.getContext("2d");
-
-        let stars = [];
-        let speedFactor = 0.5;
-        let starColor = "rgba(255, 255, 255, 1)";
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        function createStars(count) {
-            stars = [];
-            for (let i = 0; i < count; i++) {
-                stars.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    radius: Math.random() * 2,
-                    speed: Math.random() * speedFactor,
-                });
-            }
-        }
-
-        function drawStars() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = starColor;
-
-            for (let star of stars) {
-                ctx.beginPath();
-                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-                ctx.fill();
-                star.y += star.speed;
-
-                if (star.y > canvas.height) {
-                    star.y = 0;
-                    star.x = Math.random() * canvas.width;
-                }
-            }
-            requestAnimationFrame(drawStars);
-        }
-
-        window.addEventListener("resize", resizeCanvas);
-        resizeCanvas();
-        createStars(150);
-        drawStars();
-    </script>
 </body>
 </html>
