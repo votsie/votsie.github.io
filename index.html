@@ -23,7 +23,7 @@
             justify-content: center;
             min-height: 100vh;
             backdrop-filter: blur(8px);
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 24, 18, 0.6);
         }
 
         .profile {
@@ -39,8 +39,25 @@
             color: #00ffd9;
         }
 
-        p2 {
-            color: #09ffb5;
+        .rotating-slash {
+            display: inline-block;
+            font-size: 20px;
+            font-weight: bold;
+            color: #00ff99;
+            animation: spin-slash 0.9s infinite linear;
+        }
+
+        @keyframes spin-slash {
+            0% { content: "\\"; }
+            25% { content: "|"; }
+            50% { content: "/"; }
+            75% { content: "|"; }
+            100% { content: "\\"; }
+        }
+
+        .dynamic-slash::after {
+            content: "\\";
+            animation: spin-slash 0.9s infinite linear;
         }
 
         .projects {
@@ -85,8 +102,7 @@
         <div class="profile">
             <h1>Феклистов Алексей</h1>
             <p>votsie</p>
-            <p2>DevOps, Support Engineer</p2>
-            <p2>Architect, Software Developer</p2>
+            <p>DevOps && Architect && Software Developer <span class="dynamic-slash"></span></p>
         </div>
 
         <div class="projects">
@@ -94,12 +110,10 @@
                 <div class="project-title">Проект 1</div>
                 <div class="project-desc">Описание проекта...</div>
             </div>
-
             <div class="project-card">
                 <div class="project-title">Проект 2</div>
                 <div class="project-desc">Описание проекта...</div>
             </div>
-
             <div class="project-card">
                 <div class="project-title">Проект 3</div>
                 <div class="project-desc">Описание проекта...</div>
