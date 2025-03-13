@@ -57,12 +57,12 @@
     <input type="number" id="exchangeRate" step="0.01" value="5.45" onchange="calculateProfit()">
     <div class="container" id="profitContainer"></div>
     <script>
-        const items = [
-            { name: "546+390", price: 546, costKZT: 1931, listing: 25 },
+        let items = [
+            { name: "105+75", price: 134, costKZT: 386, listing: 19 },
             { name: "326+233", price: 331, costKZT: 1158, listing: 19 },
-            { name: "2398+1635", price: 1995, costKZT: 7734, listing: 37 },  // Установим fee: 0 для примера
+            { name: "546+390", price: 546, costKZT: 1931, listing: 25 },
             { name: "1113+795", price: 1034, costKZT: 3867, listing: 37 },
-            { name: "105+75", price: 134, costKZT: 386, listing: 19 }
+            { name: "2398+1635", price: 1995, costKZT: 7734, listing: 37 }
         ];
         
         function calculateProfit() {
@@ -71,19 +71,10 @@
             container.innerHTML = "";
             items.forEach((item, index) => {
                 const costRUB = (item.costKZT / exchangeRate).toFixed(2);
-                
-                // 10% комиссия площадки
-                const platformFee = (item.price * 0.10).toFixed(2); 
-                
-                // Итоговая сумма после вычета комиссии площадки
+                const platformFee = (item.price * 0.10).toFixed(2);
                 const amountAfterPlatformFee = item.price - parseFloat(platformFee);
-                
-                // 10% комиссия на вывод от суммы после комиссии площадки
-                const withdrawalFee = (amountAfterPlatformFee * 0.10).toFixed(2); 
-
-                // Общая комиссия (площадка + вывод + выставление товара)
+                const withdrawalFee = (amountAfterPlatformFee * 0.10).toFixed(2);
                 const totalFee = parseFloat(platformFee) + parseFloat(withdrawalFee) + item.listing;
-
                 const profit = (item.price - costRUB - totalFee).toFixed(2);
                 container.innerHTML += `
                     <div class="card">
