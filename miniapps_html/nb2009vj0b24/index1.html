@@ -75,9 +75,11 @@
                 // 10% комиссия площадки
                 const platformFee = (item.price * 0.10).toFixed(2); 
                 
-                // После вычета комиссии площадки, 10% на вывод
-                const amountAfterPlatformFee = item.price - platformFee;
-                const withdrawalFee = (amountAfterPlatformFee * 0.10).toFixed(2); // 10% на вывод
+                // Итоговая сумма после вычета комиссии площадки
+                const amountAfterPlatformFee = item.price - parseFloat(platformFee);
+                
+                // 10% комиссия на вывод от суммы после комиссии площадки
+                const withdrawalFee = (amountAfterPlatformFee * 0.10).toFixed(2); 
 
                 // Общая комиссия (площадка + вывод + выставление товара)
                 const totalFee = parseFloat(platformFee) + parseFloat(withdrawalFee) + item.listing;
