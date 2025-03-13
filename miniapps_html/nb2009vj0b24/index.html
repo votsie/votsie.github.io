@@ -58,11 +58,11 @@
     <div class="container" id="profitContainer"></div>
     <script>
         const items = [
-            { name: "546+390", price: 546, costKZT: 1931, fee: 109.2, listing: 25 },
-            { name: "326+233", price: 331, costKZT: 1158, fee: 66.2, listing: 19 },
-            { name: "2398+1635", price: 1995, costKZT: 7734, fee: 0, listing: 37 },
-            { name: "1113+795", price: 1034, costKZT: 3867, fee: 206.8, listing: 37 },
-            { name: "105+75", price: 134, costKZT: 386, fee: 26.8, listing: 19 }
+            { name: "546+390", price: 546, costKZT: 1931, listing: 25 },
+            { name: "326+233", price: 331, costKZT: 1158, listing: 19 },
+            { name: "2398+1635", price: 1995, costKZT: 7734, listing: 37 },  // Установим fee: 0 для примера
+            { name: "1113+795", price: 1034, costKZT: 3867, listing: 37 },
+            { name: "105+75", price: 134, costKZT: 386, listing: 19 }
         ];
         
         function calculateProfit() {
@@ -71,14 +71,26 @@
             container.innerHTML = "";
             items.forEach((item, index) => {
                 const costRUB = (item.costKZT / exchangeRate).toFixed(2);
-                const profit = (item.price - costRUB - item.fee - item.listing).toFixed(2);
+                
+                // 10% комиссия площадки
+                const platformFee = (item.price * 0.10).toFixed(2); 
+                
+                // После вычета комиссии площадки, 10% на вывод
+                const amountAfterPlatformFee = item.price - platformFee;
+                const withdrawalFee = (amountAfterPlatformFee * 0.10).toFixed(2); // 10% на вывод
+
+                // Общая комиссия (площадка + вывод + выставление товара)
+                const totalFee = parseFloat(platformFee) + parseFloat(withdrawalFee) + item.listing;
+
+                const profit = (item.price - costRUB - totalFee).toFixed(2);
                 container.innerHTML += `
                     <div class="card">
                         <h3>${item.name}</h3>
                         <p>Цена продажи: <input type="number" value="${item.price}" onchange="updatePrice(${index}, this.value)"> ₽</p>
                         <p>Себестоимость: ${item.costKZT} KZT</p>
                         <p>Себестоимость (₽): ${costRUB}</p>
-                        <p>Комиссия: ${item.fee} ₽</p>
+                        <p>Комиссия площадки (10%): ${platformFee} ₽</p>
+                        <p>Комиссия на вывод (10% от оставшейся суммы): ${withdrawalFee} ₽</p>
                         <p>Выставление: ${item.listing} ₽</p>
                         <div class="profit-box">
                             <p><strong>Прибыль: ${profit} ₽</strong></p>
