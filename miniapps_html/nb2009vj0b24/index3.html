@@ -89,7 +89,7 @@
         <button id="download-button" onclick="downloadScreenshot()">Сохранить скриншот</button>
     </div>
     <button onclick="generateScreenshot()">Создать скриншот</button>
-
+    
     <script>
         let items = [
             { name: "105+75", price: 134, costKZT: 386, listing: 19 },
@@ -99,7 +99,7 @@
             { name: "2398+1635", price: 1995, costKZT: 7734, listing: 37 },
             { name: "6160+4200", price: 4680, costKZT: 19340, listing: 75 }
         ];
-
+    
         function calculateProfit() {
             const exchangeRate = parseFloat(document.getElementById("exchangeRate").value);
             const container = document.getElementById("profitContainer");
@@ -126,6 +126,56 @@
                     </div>`;
             });
         }
+    
+        function updatePrice(index, value) {
+            items[index].price = parseFloat(value);
+            calculateProfit();
+        }
+    
+        function generateScreenshot() {
+            const screenshotContainer = document.getElementById('screenshot-container');
+            screenshotContainer.classList.add('show-button');
+            html2canvas(screenshotContainer, {
+                backgroundColor: '#121212',
+                logging: false,
+                scale: window.devicePixelRatio,
+            }).then(canvas => {
+                // готово
+            });
+        }
+    
+        function downloadScreenshot() {
+            const screenshotContainer = document.getElementById('screenshot-container');
+            html2canvas(screenshotContainer, {
+                backgroundColor: '#121212',
+                logging: false,
+                scale: window.devicePixelRatio,
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'profit_calculator_screenshot.png';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                screenshotContainer.classList.remove('show-button');
+            });
+        }
+    
+        // Получаем курс при загрузке
+        fetch('https://www.cbr-xml-daily.ru/daily_json.js')
+            .then(response => response.json())
+            .then(data => {
+                const kzt = data.Valute.KZT;
+                const rate = 100 / kzt.Value;
+                document.getElementById('exchangeRate').value = rate.toFixed(2);
+                calculateProfit();
+            })
+            .catch(error => {
+                console.error('Ошибка получения курса:', error);
+                calculateProfit(); // даже если курс не получен, посчитаем с дефолтным
+            });
+    </script>
+    
 
         function updatePrice(index, value) {
             items[index].price = parseFloat(value);

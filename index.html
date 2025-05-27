@@ -1,125 +1,230 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Профиль</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&display=swap');
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'JetBrains Mono', monospace;
-            background: url('https://apod.nasa.gov/apod/image/1901/NGC6357_HubblePestana_1824.jpg') no-repeat center center fixed;
-            background-size: cover;
-            color: white;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            backdrop-filter: blur(8px);
-            background: rgba(0, 24, 18, 0.6);
-        }
-
-        .profile {
-            text-align: center;
-            padding: 20px;
-            border-radius: 15px;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 0 20px rgba(0, 255, 217, 0.3);
-        }
-
-        h1 {
-            color: #00ffd9;
-        }
-
-        .rotating-slash {
-            display: inline-block;
-            font-size: 20px;
-            font-weight: bold;
-            color: #00ff99;
-            animation: spin-slash 0.9s infinite linear;
-        }
-
-        @keyframes spin-slash {
-            0% { content: "\\"; }
-            25% { content: "|"; }
-            50% { content: "/"; }
-            75% { content: "|"; }
-            100% { content: "\\"; }
-        }
-
-        .dynamic-slash::after {
-            content: "\\";
-            animation: spin-slash 0.9s infinite linear;
-        }
-
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            width: 80%;
-            max-width: 1200px;
-            margin-top: 30px;
-        }
-
-        .project-card {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 15px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 10px rgba(0, 255, 153, 0.3);
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: scale(1.05);
-        }
-
-        .project-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #00ff99;
-        }
-
-        .project-desc {
-            font-size: 14px;
-            margin-top: 5px;
-            color: #ccc;
-        }
-    </style>
+    <title>Futuristic Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <div class="container">
-        <div class="profile">
-            <h1>Феклистов Алексей</h1>
-            <p>votsie</p>
-            <p>DevOps && Architect && Software Developer <span class="dynamic-slash"></span></p>
+    <div class="gradient-bg">
+        <svg viewBox="0 0 100vw 100vw" xmlns='http://www.w3.org/2000/svg' class="noiseBg">
+            <filter id='noiseFilterBg'>
+                <feTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch' />
+            </filter>
+            <rect width='100%' height='100%' preserveAspectRatio="xMidYMid meet" filter='url(#noiseFilterBg)' />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="gradients-container">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="g4"></div>
+            <div class="g5"></div>
+            <div class="interactive"></div>
         </div>
+    </div>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Портфолио</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#info">Подробнее</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Проекты</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-        <div class="projects">
-            <div class="project-card">
-                <div class="project-title">Проект 1</div>
-                <div class="project-desc">Описание проекта...</div>
+    <section id="about" class="section">
+        <div class="container">
+            <h1 class="glitch-text">VOTSI_E</h1>
+            <p class="lead name">Алексей Феклистов</p>
+            <p class="lead position">Системный администратор, разработчик на Python</p>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card" data-project="project1">
+                        <img src="projects/project-images/project1.png" alt="AI Dashboard" class="project-image">
+                        <div class="project-info">
+                            <h3>AI Dashboard</h3>
+                            <div class="tech-stack">
+                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                                <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+                                <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
+                            </div>
+                            <p>AI-powered dashboard for real-time analytics</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card" data-project="project2">
+                        <img src="projects/project-images/project2.png" alt="Network Monitoring System" class="project-image">
+                        <div class="project-info">
+                            <h3>Network Monitoring System</h3>
+                            <div class="tech-stack">
+                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                                <img src="https://img.shields.io/badge/Zabbix-FF0000?style=for-the-badge&logo=zabbix&logoColor=white" alt="Zabbix">
+                                <img src="https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white" alt="Grafana">
+                            </div>
+                            <p>Comprehensive network monitoring solution</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card" data-project="project3">
+                        <img src="projects/project-images/project3.png" alt="Database Management Tool" class="project-image">
+                        <div class="project-info">
+                            <h3>Database Management Tool</h3>
+                            <div class="tech-stack">
+                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                                <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+                                <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
+                            </div>
+                            <p>Database management and optimization tool</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card" data-project="project4">
+                        <img src="projects/project-images/project4.png" alt="Server Automation Platform" class="project-image">
+                        <div class="project-info">
+                            <h3>Server Automation Platform</h3>
+                            <div class="tech-stack">
+                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                                <img src="https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white" alt="Ansible">
+                                <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+                            </div>
+                            <p>Advanced server automation platform</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card" data-project="project5">
+                        <img src="projects/project-images/project5.png" alt="Security Monitoring System" class="project-image">
+                        <div class="project-info">
+                            <h3>Security Monitoring System</h3>
+                            <div class="tech-stack">
+                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                                <img src="https://img.shields.io/badge/Elastic_Search-005571?style=for-the-badge&logo=elasticsearch&logoColor=white" alt="Elastic Search">
+                                <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+                            </div>
+                            <p>Comprehensive security monitoring system</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card" data-project="project6">
+                        <img src="projects/project-images/project6.png" alt="Cloud Infrastructure Manager" class="project-image">
+                        <div class="project-info">
+                            <h3>Cloud Infrastructure Manager</h3>
+                            <div class="tech-stack">
+                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                                <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform">
+                                <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS">
+                            </div>
+                            <p>Cloud infrastructure management platform</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="project-card">
-                <div class="project-title">Проект 2</div>
-                <div class="project-desc">Описание проекта...</div>
+        </div>
+    </section>
+
+    <section id="info" class="section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card full-width">
+                    <h3 class="info-title">Профессиональные навыки</h3>
+                    <div class="info-content skills">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">FastAPI</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">REST</span>
+                    </div>
+                </div>
+
+                <div class="info-card full-width about-me">
+                    <h3 class="info-title">О себе</h3>
+                    <div class="info-content">
+                        <p>Системный администратор с практическими навыками администрирования серверов на базе Linux и Windows, а также управления локальными вычислительными сетями и сетевыми операционными системами. Имею опыт настройки и поддержки кассового программного обеспечения, администрирования и оптимизации баз данных PostgreSQL и MySQL.</p>
+                        <p>Занимаюсь разработкой прикладного программного обеспечения и систем мониторинга на Flask, а также внедрением и сопровождением решений на базе Zabbix и Grafana. Обладаю аналитическим мышлением, умею быстро находить и устранять неисправности, оптимизировать работу сервисов и автоматизировать рутинные задачи.</p>
+                    </div>
+                </div>
             </div>
-            <div class="project-card">
-                <div class="project-title">Проект 3</div>
-                <div class="project-desc">Описание проекта...</div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Контакты</h2>
+            <div class="contact-info">
+                <p><i class="fas fa-link"></i> <a href="https://career.habr.com/votsi" target="_blank">Хабр Карьера</a></p>
+                <p><i class="fab fa-telegram"></i> <a href="https://t.me/votsi_e" target="_blank">@votsi_e</a></p>
+                <p><i class="fab fa-vk"></i> <a href="https://vk.com/votsi_e" target="_blank">votsi_e</a></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:aafeklisto@gmail.com">aafeklisto@gmail.com</a></p>
+                <p><i class="fab fa-github"></i> <a href="https://github.com/votsie" target="_blank">github.com/votsie</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="" alt="Project Full Size" class="modal-image">
+                    <div class="project-description">
+                        <h3 class="project-title"></h3>
+                        <p class="project-text"></p>
+                        <h4>Features</h4>
+                        <ul class="features-list"></ul>
+                        <h4>Technologies Used</h4>
+                        <ul class="technologies-list"></ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="projects/projects-data.js"></script>
 </body>
-</html>
+</html> 

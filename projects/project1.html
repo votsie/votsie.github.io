@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Dashboard - Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+    <div class="gradient-bg">
+        <svg viewBox="0 0 100vw 100vw" xmlns='http://www.w3.org/2000/svg' class="noiseBg">
+            <filter id='noiseFilterBg'>
+                <feTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch' />
+            </filter>
+            <rect width='100%' height='100%' preserveAspectRatio="xMidYMid meet" filter='url(#noiseFilterBg)' />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="gradients-container">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="g4"></div>
+            <div class="g5"></div>
+            <div class="interactive"></div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Portfolio</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#info">Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <div class="project-detail">
+                <h1 class="project-title">AI Dashboard</h1>
+                <div class="project-meta">
+                    <div class="tech-stack">
+                        <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
+                        <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
+                        <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn btn-outline-primary"><i class="fab fa-github"></i> GitHub</a>
+                        <a href="#" class="btn btn-outline-primary"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <img src="https://via.placeholder.com/1280x720" alt="AI Dashboard Screenshot" class="project-image">
+                    <div class="project-description">
+                        <h2>Overview</h2>
+                        <p>An innovative dashboard that leverages artificial intelligence to provide real-time insights and analytics. The project incorporates machine learning algorithms to process and visualize complex data sets, making it easier for users to make data-driven decisions.</p>
+                        
+                        <h2>Features</h2>
+                        <ul>
+                            <li>Real-time data processing and visualization</li>
+                            <li>Machine learning-powered analytics</li>
+                            <li>Interactive dashboard with customizable widgets</li>
+                            <li>Automated report generation</li>
+                            <li>User authentication and role-based access control</li>
+                        </ul>
+                        
+                        <h2>Technologies Used</h2>
+                        <ul>
+                            <li>Python for backend and data processing</li>
+                            <li>React for frontend development</li>
+                            <li>Node.js for API development</li>
+                            <li>TensorFlow for machine learning</li>
+                            <li>MongoDB for data storage</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../script.js"></script>
+</body>
+</html> 
