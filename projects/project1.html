@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Dashboard - Portfolio</title>
+    <title>Badge Generator - Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../styles.css">
@@ -63,12 +63,14 @@
     <section class="section">
         <div class="container">
             <div class="project-detail">
-                <h1 class="project-title">AI Dashboard</h1>
+                <h1 class="project-title">Badge Generator</h1>
                 <div class="project-meta">
                     <div class="tech-stack">
                         <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-                        <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React">
-                        <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js">
+                        <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
+                        <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+                        <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
+                        <img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white" alt="Nginx">
                     </div>
                     <div class="project-links">
                         <a href="#" class="btn btn-outline-primary"><i class="fab fa-github"></i> GitHub</a>
@@ -76,27 +78,28 @@
                     </div>
                 </div>
                 <div class="project-content">
-                    <img src="https://via.placeholder.com/1280x720" alt="AI Dashboard Screenshot" class="project-image">
+                    <img src="projects/project-images/project1.png" alt="Badge Generator Screenshot" class="project-image">
                     <div class="project-description">
                         <h2>Overview</h2>
-                        <p>An innovative dashboard that leverages artificial intelligence to provide real-time insights and analytics. The project incorporates machine learning algorithms to process and visualize complex data sets, making it easier for users to make data-driven decisions.</p>
+                        <p>Система генерации и управления бейджами с QR-кодами для продавцов. Проект включает в себя веб-интерфейс для создания бейджей, систему аутентификации, автоматическую генерацию QR-кодов и интеграцию с базой данных продавцов. Система обеспечивает безопасное хранение данных и удобный процесс верификации.</p>
                         
                         <h2>Features</h2>
                         <ul>
-                            <li>Real-time data processing and visualization</li>
-                            <li>Machine learning-powered analytics</li>
-                            <li>Interactive dashboard with customizable widgets</li>
-                            <li>Automated report generation</li>
-                            <li>User authentication and role-based access control</li>
+                            <li>Генерация уникальных QR-кодов для бейджей</li>
+                            <li>Интеграция с базой данных продавцов</li>
+                            <li>Безопасная аутентификация и авторизация</li>
+                            <li>Автоматическое создание и сохранение бейджей</li>
+                            <li>HTTPS-защита и SSL-сертификация</li>
+                            <li>Контейнеризация с Docker для простого развертывания</li>
                         </ul>
                         
                         <h2>Technologies Used</h2>
                         <ul>
-                            <li>Python for backend and data processing</li>
-                            <li>React for frontend development</li>
-                            <li>Node.js for API development</li>
-                            <li>TensorFlow for machine learning</li>
-                            <li>MongoDB for data storage</li>
+                            <li>Python (Flask) для бэкенда</li>
+                            <li>PostgreSQL для хранения данных</li>
+                            <li>Docker для контейнеризации</li>
+                            <li>Nginx для проксирования и SSL</li>
+                            <li>qrcode для генерации QR-кодов</li>
                         </ul>
                     </div>
                 </div>
@@ -107,4 +110,4 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../script.js"></script>
 </body>
-</html> 
+</html>

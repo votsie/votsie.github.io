@@ -1,26 +1,29 @@
 const projects = {
     project1: {
-        title: "AI Dashboard",
-        description: "An innovative dashboard that leverages artificial intelligence to provide real-time insights and analytics. The project incorporates machine learning algorithms to process and visualize complex data sets, making it easier for users to make data-driven decisions.",
-        image: "projects/project-images/project1.png",
+        title: "Badge Generator",
+        description: "Система генерации и управления бейджами с QR-кодами для продавцов. Проект включает в себя веб-интерфейс для создания бейджей, систему аутентификации, автоматическую генерацию QR-кодов и интеграцию с базой данных продавцов. Система обеспечивает безопасное хранение данных и удобный процесс верификации.",
+        image: "projects/project-images/badge-generator.png",
         technologies: [
-            "Python for backend and data processing",
-            "React for frontend development",
-            "Node.js for API development",
-            "TensorFlow for machine learning",
-            "MongoDB for data storage"
+            "Python (Flask) для бэкенда",
+            "PostgreSQL для хранения данных",
+            "Docker для контейнеризации",
+            "Nginx для проксирования и SSL",
+            "qrcode для генерации QR-кодов"
         ],
         features: [
-            "Real-time data processing and visualization",
-            "Machine learning-powered analytics",
-            "Interactive dashboard with customizable widgets",
-            "Automated report generation",
-            "User authentication and role-based access control"
+            "Генерация уникальных QR-кодов для бейджей",
+            "Интеграция с базой данных продавцов",
+            "Безопасная аутентификация и авторизация",
+            "Автоматическое создание и сохранение бейджей",
+            "HTTPS-защита и SSL-сертификация",
+            "Контейнеризация с Docker для простого развертывания"
         ],
         badges: [
             "https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white",
-            "https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB",
-            "https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white"
+            "https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white",
+            "https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white",
+            "https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white",
+            "https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=nginx&logoColor=white"
         ]
     },
     project2: {
