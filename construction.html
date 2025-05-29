@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Under Construction - VOTSI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .construction-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .construction-icons {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+        }
+
+        .construction-icon {
+            position: absolute;
+            color: var(--primary-color);
+            font-size: 5rem;
+        }
+
+        .construction-icon:first-child {
+            top: 0;
+            left: 0;
+            animation: spin-clockwise 4s linear infinite;
+        }
+
+        .construction-icon:last-child {
+            bottom: 0;
+            right: 0;
+            font-size: 3.5rem;
+            animation: spin-counter-clockwise 3s linear infinite;
+        }
+
+        .construction-text {
+            color: var(--text-color);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .construction-subtext {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .progress-bar {
+            width: 300px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0 auto;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar::after {
+            content: '';
+            display: block;
+            width: 40%;
+            height: 100%;
+            background: var(--primary-color);
+            animation: progress 2s ease-in-out infinite;
+        }
+
+        @keyframes spin-clockwise {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes spin-counter-clockwise {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        @keyframes progress {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(350%); }
+        }
+
+        @media (max-width: 768px) {
+            .construction-text {
+                font-size: 1.5rem;
+            }
+            .construction-subtext {
+                font-size: 1rem;
+            }
+            .construction-icon:first-child {
+                font-size: 4rem;
+            }
+            .construction-icon:last-child {
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg">
+        <svg viewBox="0 0 100vw 100vw" xmlns='http://www.w3.org/2000/svg' class="noiseBg">
+            <filter id='noiseFilterBg'>
+                <feTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch' />
+            </filter>
+            <rect width='100%' height='100%' preserveAspectRatio="xMidYMid meet" filter='url(#noiseFilterBg)' />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
+            <defs>
+                <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+                    <feBlend in="SourceGraphic" in2="goo" />
+                </filter>
+            </defs>
+        </svg>
+        <div class="gradients-container">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="g4"></div>
+            <div class="g5"></div>
+            <div class="interactive"></div>
+        </div>
+    </div>
+
+    <div class="construction-content">
+        <div class="construction-icons">
+            <i class="fas fa-cogs construction-icon"></i>
+            <i class="fas fa-cogs construction-icon"></i>
+        </div>
+        <h1 class="construction-text">Сайт в разработке</h1>
+        <div class="progress-bar"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 
