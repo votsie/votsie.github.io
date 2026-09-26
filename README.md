@@ -1,0 +1,46 @@
+# votsie.github.io
+
+Портфолио Алексея Феклистова (VOTSI): AI-инженер, fullstack, DevOps.
+Статический сайт без сборки, хостится на GitHub Pages: https://votsie.github.io/
+
+## Структура
+
+| Файл | Что внутри |
+|---|---|
+| `index.html` | Разметка страницы. Текст берётся из `content.js` по атрибуту `data-i18n`. |
+| `content.js` | **Весь контент**: переводы RU/EN, проекты, стек, строки «терминала» в hero, контакты. |
+| `styles.css` | Стили. Цвета и шрифты заданы переменными в `:root`. |
+| `script.js` | Переключение языка, рендер проектов и стека, фильтры, живые звёзды с GitHub API, анимации. |
+| `assets/` | Фавикон, OG-картинка, обложки проектов. |
+| `miniapps_html/` | Старые мини-приложения, к сайту не относятся. |
+
+## Как редактировать
+
+**Добавить проект** — дописать объект в массив `projects` в `content.js`:
+
+```js
+{
+  id: "my-project",
+  featured: false,            // true — карточка на 3 колонки с highlights
+  cat: ["ai", "web", "ops"],  // категории для фильтров
+  kind: "oss",                // oss | private | commercial
+  repo: "votsie/my-project",  // для живых звёзд (только публичные)
+  url: "https://github.com/votsie/my-project",
+  image: "assets/img/my.png", // необязательно; без картинки рисуется обложка
+  tags: ["Python", "Docker"],
+  ru: { title: "...", tagline: "...", text: "...", highlights: ["..."] },
+  en: { title: "...", tagline: "...", text: "...", highlights: ["..."] },
+}
+```
+
+**Изменить текст** — найти ключ в `i18n.ru` / `i18n.en`.
+
+**Язык по умолчанию** определяется по браузеру, запоминается в `localStorage`,
+принудительно задаётся параметром `?lang=en`.
+
+## Локальный запуск
+
+```bash
+python3 -m http.server 8000
+# открыть http://localhost:8000
+```

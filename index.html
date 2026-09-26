@@ -1,266 +1,260 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VOTSI Portfolio</title>
-    <meta http-equiv="refresh" content="0; url=construction.html">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Алексей Феклистов — AI-инженер, Fullstack и DevOps</title>
+  <meta name="description" content="Строю продукты от идеи до продакшена: MCP-серверы для AI-агентов, веб-платформы, платёжные интеграции и инфраструктура. Открыт к проектам и офферам.">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#07090b">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Алексей Феклистов (VOTSI) — AI Engineer · Fullstack · DevOps">
+  <meta property="og:description" content="MCP-серверы для AI-агентов, веб-платформы, платежи, инфраструктура. Полный цикл: от идеи до прода.">
+  <meta property="og:url" content="https://votsie.github.io/">
+  <meta property="og:image" content="https://votsie.github.io/assets/img/og.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aleksei Feklistov",
+    "alternateName": "VOTSI",
+    "url": "https://votsie.github.io/",
+    "email": "mailto:aafeklisto@gmail.com",
+    "jobTitle": "AI Engineer, Fullstack Developer, DevOps",
+    "sameAs": [
+      "https://github.com/votsie",
+      "https://t.me/votsi_e",
+      "https://career.habr.com/votsi",
+      "https://vk.com/votsi_e"
+    ],
+    "knowsAbout": ["MCP", "AI agents", "Python", "TypeScript", "Go", "React", "Docker", "PostgreSQL", "DevOps"]
+  }
+  </script>
 </head>
 <body>
-    <div class="gradient-bg">
-        <svg viewBox="0 0 100vw 100vw" xmlns='http://www.w3.org/2000/svg' class="noiseBg">
-            <filter id='noiseFilterBg'>
-                <feTurbulence type='fractalNoise' baseFrequency='0.6' stitchTiles='stitch' />
-            </filter>
-            <rect width='100%' height='100%' preserveAspectRatio="xMidYMid meet" filter='url(#noiseFilterBg)' />
-        </svg>
-        <svg xmlns="http://www.w3.org/2000/svg" class="svgBlur">
-            <defs>
-                <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
-                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
-                    <feBlend in="SourceGraphic" in2="goo" />
-                </filter>
-            </defs>
-        </svg>
-        <div class="gradients-container">
-            <div class="g1"></div>
-            <div class="g2"></div>
-            <div class="g3"></div>
-            <div class="g4"></div>
-            <div class="g5"></div>
-            <div class="interactive"></div>
+  <a class="skip" href="#work">Skip to content</a>
+
+  <div class="bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow--1"></div>
+    <div class="bg-glow bg-glow--2"></div>
+    <div class="bg-cursor" id="bgCursor"></div>
+    <svg class="bg-noise" xmlns="http://www.w3.org/2000/svg">
+      <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/></filter>
+      <rect width="100%" height="100%" filter="url(#noise)"/>
+    </svg>
+  </div>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="VOTSI — home">
+        <span class="brand-mark">V</span>
+        <span class="brand-text">VOTSI</span>
+      </a>
+      <nav class="nav-links" id="navLinks" aria-label="Sections">
+        <a href="#work" data-i18n="nav.work">Проекты</a>
+        <a href="#services" data-i18n="nav.services">Услуги</a>
+        <a href="#process" data-i18n="nav.process">Как работаю</a>
+        <a href="#stack" data-i18n="nav.stack">Стек</a>
+        <a href="#contact" data-i18n="nav.contact">Контакты</a>
+      </nav>
+      <div class="nav-actions">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" class="lang-btn" data-lang="ru">RU</button>
+          <button type="button" class="lang-btn" data-lang="en">EN</button>
         </div>
+        <a class="btn btn-sm btn-primary" href="https://t.me/votsi_e" target="_blank" rel="noopener" data-i18n="nav.cta">Написать</a>
+        <button type="button" class="burger" id="burger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
-    
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Портфолио</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="#info">Подробнее</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#projects">Проекты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Контакты</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  </header>
 
-    <section id="about" class="section">
-        <div class="container">
-            <h1 class="glitch-text">VOTSI</h1>
-            <p class="lead name">Алексей Феклистов</p>
-            <p class="lead position">Системный администратор, разработчик на Python</p>
+  <main id="top">
+    <!-- ================= HERO ================= -->
+    <section class="hero wrap" id="hero">
+      <div class="hero-copy reveal">
+        <p class="status"><span class="status-dot"></span><span data-i18n="hero.status">Открыт к проектам и офферам</span></p>
+        <p class="kicker mono" data-i18n="hero.kicker">AI-инженер · Fullstack · DevOps</p>
+        <h1 class="hero-title">
+          <span data-i18n="hero.title.a">Строю продукты</span>
+          <span class="accent" data-i18n="hero.title.b">от идеи до прода</span>
+          <span data-i18n="hero.title.c">с AI-агентами в цикле разработки.</span>
+        </h1>
+        <p class="hero-lead" data-i18n="hero.lead">Меня зовут Алексей Феклистов (VOTSI). Пишу MCP-серверы и инструменты для агентов, собираю веб-платформы и платёжные интеграции, держу инфраструктуру. Один человек — полный цикл: архитектура, код, деплой, поддержка.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://t.me/votsi_e" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.6 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.9-8c.4-.3-.1-.5-.6-.2L6.6 13.4 2 11.9c-1-.3-1-1 .2-1.5l18.4-7.1c.8-.3 1.6.2 1.3 1.3Z"/></svg>
+            <span data-i18n="hero.cta.primary">Обсудить задачу</span>
+          </a>
+          <a class="btn btn-ghost" href="#work"><span data-i18n="hero.cta.secondary">Смотреть проекты</span></a>
+          <a class="btn btn-ghost" href="https://github.com/votsie" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
+            <span data-i18n="hero.cta.github">GitHub</span>
+          </a>
         </div>
+      </div>
+
+      <div class="hero-visual reveal" style="--d:.15s">
+        <div class="terminal" aria-label="Demo: AI agent fixing a server via ssh-mcp">
+          <div class="terminal-bar">
+            <span class="tdot"></span><span class="tdot"></span><span class="tdot"></span>
+            <span class="terminal-title mono" data-i18n="hero.terminal.title">claude — ssh-mcp · prod-nl4</span>
+          </div>
+          <pre class="terminal-body mono" id="terminal"></pre>
+        </div>
+        <div class="orbit orbit--1 mono">MCP</div>
+        <div class="orbit orbit--2 mono">Docker</div>
+        <div class="orbit orbit--3 mono">React</div>
+      </div>
     </section>
 
-    <section id="featured-project" class="section">
-        <div class="container">
-            <h2 class="section-title">Главный проект</h2>
-            <div class="featured-project-card">
-                <div class="featured-project-image">
-                    <img src="projects/project-images/major/otus.png" alt="OTUS Platform">
-                </div>
-                <div class="featured-project-content">
-                    <h3>OTUS-CMS</h3>
-                    <div class="tech-stack">
-                        <img src="https://img.shields.io/badge/Python-0a5c0a?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-                        <img src="https://img.shields.io/badge/Flask-0a5c0a?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
-                        <img src="https://img.shields.io/badge/PostgreSQL-0a5c0a?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
-                        <img src="https://img.shields.io/badge/Docker-0a5c0a?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
-                        <img src="https://img.shields.io/badge/Nginx-0a5c0a?style=for-the-badge&logo=nginx&logoColor=white" alt="Nginx">
-                        <img src="https://img.shields.io/badge/Redis-0a5c0a?style=for-the-badge&logo=redis&logoColor=white" alt="Redis">
-                        <img src="https://img.shields.io/badge/Gunicorn-0a5c0a?style=for-the-badge&logo=gunicorn&logoColor=white" alt="Gunicorn">
-                        <img src="https://img.shields.io/badge/Zabbix-0a5c0a?style=for-the-badge&logo=zabbix&logoColor=white" alt="Zabbix">
-                        <img src="https://img.shields.io/badge/Grafana-0a5c0a?style=for-the-badge&logo=grafana&logoColor=white" alt="Grafana">
-                        <img src="https://img.shields.io/badge/Webhooks-0a5c0a?style=for-the-badge&logo=webhook&logoColor=white" alt="Webhooks">
-                    </div>
-                    <p class="featured-project-description">
-                        Универсальная CMS Платформа для создания игровых маркетплейсов и систем доната.
-                        <br><br>
-                        Система поддерживает различные модели использования: многопользовательский маркетплейс с независимыми продавцами, магазин услуг с единым продавцом и штатом сотрудников, или интегрированное решение для разработчиков.
-                        <br><br>
-                        Платформа обеспечивает безопасные транзакции, управление аккаунтами пользователей, автоматизацию процессов пополнения игровых балансов и систему аналитики для отслеживания продаж и активности пользователей.
-                        <br><br>
-                        Для установки потребуется выделенный сервер, на котором будет установлен Docker и запущен контейнер с проектом.
-                </div>
-            </div>
-        </div>
+    <!-- ================= STATS ================= -->
+    <section class="wrap stats reveal" aria-label="Key numbers">
+      <div class="stat"><span class="stat-n mono" id="statRepos">50+</span><span class="stat-l" data-i18n="stats.repos">репозиториев на GitHub</span></div>
+      <div class="stat"><span class="stat-n mono">2</span><span class="stat-l" data-i18n="stats.mcp">MCP-сервера для AI-агентов</span></div>
+      <div class="stat"><span class="stat-n mono">5</span><span class="stat-l" data-i18n="stats.sdk">языков в одном SDK</span></div>
+      <div class="stat"><span class="stat-n mono">1</span><span class="stat-l" data-i18n="stats.cycle">полный цикл: идея → прод</span></div>
     </section>
 
-    <section id="projects" class="section">
-        <div class="container">
-            <h2 class="section-title">Проекты</h2>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-4">
-                    <div class="project-card" data-project="project1">
-                        <img src="projects/project-images/project1.png" alt="AI Dashboard" class="project-image">
-                        <div class="project-info">
-                            <h3>Badge Generator</h3>
-                            <div class="tech-stack">
-                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-                                <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
-                                <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
-                                <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
-                            </div>
-                            <p>Badge Generator that takes data from the database and generates a badge with a QR code and text first name, last name on the badge</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="project-card" data-project="project2">
-                        <img src="projects/project-images/project2.png" alt="Network Monitoring System" class="project-image">
-                        <div class="project-info">
-                            <h3>Network Monitoring System</h3>
-                            <div class="tech-stack">
-                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-                                <img src="https://img.shields.io/badge/Zabbix-FF0000?style=for-the-badge&logo=zabbix&logoColor=white" alt="Zabbix">
-                                <img src="https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white" alt="Grafana">
-                            </div>
-                            <p>Comprehensive network monitoring solution</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="project-card" data-project="project3">
-                        <img src="projects/project-images/project3.png" alt="Database Management Tool" class="project-image">
-                        <div class="project-info">
-                            <h3>Database Management Tool</h3>
-                            <div class="tech-stack">
-                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-                                <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
-                                <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL">
-                            </div>
-                            <p>Database management and optimization tool</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="project-card" data-project="project4">
-                        <img src="projects/project-images/project4.png" alt="Server Automation Platform" class="project-image">
-                        <div class="project-info">
-                            <h3>Server Automation Platform</h3>
-                            <div class="tech-stack">
-                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-                                <img src="https://img.shields.io/badge/Ansible-EE0000?style=for-the-badge&logo=ansible&logoColor=white" alt="Ansible">
-                                <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" alt="Docker">
-                            </div>
-                            <p>Advanced server automation platform</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="project-card" data-project="project5">
-                        <img src="projects/project-images/project5.png" alt="Security Monitoring System" class="project-image">
-                        <div class="project-info">
-                            <h3>Security Monitoring System</h3>
-                            <div class="tech-stack">
-                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-                                <img src="https://img.shields.io/badge/Elastic_Search-005571?style=for-the-badge&logo=elasticsearch&logoColor=white" alt="Elastic Search">
-                                <img src="https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
-                            </div>
-                            <p>Comprehensive security monitoring system</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="project-card" data-project="project6">
-                        <img src="projects/project-images/project6.png" alt="Cloud Infrastructure Manager" class="project-image">
-                        <div class="project-info">
-                            <h3>Cloud Infrastructure Manager</h3>
-                            <div class="tech-stack">
-                                <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
-                                <img src="https://img.shields.io/badge/Terraform-7B42BC?style=for-the-badge&logo=terraform&logoColor=white" alt="Terraform">
-                                <img src="https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS">
-                            </div>
-                            <p>Cloud infrastructure management platform</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- ================= SERVICES ================= -->
+    <section class="section wrap" id="services">
+      <div class="section-head reveal">
+        <p class="kicker mono" data-i18n="services.kicker">Что я делаю</p>
+        <h2 data-i18n="services.title">Четыре роли, один человек</h2>
+        <p class="lead" data-i18n="services.lead">Не передаю задачу между отделами: сам проектирую, пишу, разворачиваю и поддерживаю. Поэтому быстро и без потерь на стыках.</p>
+      </div>
+      <div class="grid grid-4">
+        <article class="card svc reveal">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2a4 4 0 0 1 4 4v1h1a3 3 0 0 1 3 3v2a3 3 0 0 1-3 3h-1v1a4 4 0 0 1-8 0v-1H7a3 3 0 0 1-3-3v-2a3 3 0 0 1 3-3h1V6a4 4 0 0 1 4-4Zm-3 9a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Zm6 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z"/></svg></div>
+          <h3 data-i18n="svc.ai.title">AI Engineering</h3>
+          <p data-i18n="svc.ai.text">MCP-серверы, скиллы и агентные пайплайны для Claude Code, Codex, Cursor. Интеграция LLM в продукт: RAG, tool use, автоматизация рутины и поддержки.</p>
+        </article>
+        <article class="card svc reveal" style="--d:.08s">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8.7 16.3 4.4 12l4.3-4.3-1.4-1.4L1.6 12l5.7 5.7 1.4-1.4Zm6.6 0 4.3-4.3-4.3-4.3 1.4-1.4 5.7 5.7-5.7 5.7-1.4-1.4ZM9.9 20l2.8-16 1.9.3-2.8 16-1.9-.3Z"/></svg></div>
+          <h3 data-i18n="svc.web.title">Fullstack Web</h3>
+          <p data-i18n="svc.web.text">React / Vite / TypeScript на фронте, Python (Django, FastAPI, Flask) и Go на бэке, PostgreSQL и Redis. Маркетплейсы, личные кабинеты, Telegram Mini Apps, платежи.</p>
+        </article>
+        <article class="card svc reveal" style="--d:.16s">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm0 10h16a1 1 0 0 1 1 1v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-4a1 1 0 0 1 1-1Zm2-8v2h2V6H6Zm0 10v2h2v-2H6Zm5-10v2h7V6h-7Zm0 10v2h7v-2h-7Z"/></svg></div>
+          <h3 data-i18n="svc.ops.title">DevOps &amp; Infra</h3>
+          <p data-i18n="svc.ops.text">Docker, Nginx, CI/CD, Linux-серверы. Мониторинг на Zabbix и Grafana, VPN-инфраструктура (Xray, AmneziaWG, Marzban), бэкапы, безопасность и SLA.</p>
+        </article>
+        <article class="card svc reveal" style="--d:.24s">
+          <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M13 2 4.5 13.5H11l-1 8.5 8.5-11.5H13l1-8.5Z"/></svg></div>
+          <h3 data-i18n="svc.vibe.title">AI-native delivery</h3>
+          <p data-i18n="svc.vibe.text">Работаю в связке с агентами: спецификация → генерация → тесты → ревью. MVP за дни, а не недели, и код, который потом можно поддерживать.</p>
+        </article>
+      </div>
     </section>
 
-    <section id="info" class="section">
-        <div class="container">
-            <div class="info-grid">
-                <div class="info-card full-width">
-                    <h3 class="info-title">Профессиональные навыки</h3>
-                    <div class="info-content skills">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Linux</span>
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">Flask</span>
-                        <span class="skill-tag">FastAPI</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">REST</span>
-                    </div>
-                </div>
-
-                <div class="info-card full-width about-me">
-                    <h3 class="info-title">О себе</h3>
-                    <div class="info-content">
-                        <p>Системный администратор с практическими навыками администрирования серверов на базе Linux и Windows, а также управления локальными вычислительными сетями и сетевыми операционными системами. Имею опыт настройки и поддержки кассового программного обеспечения, администрирования и оптимизации баз данных PostgreSQL и MySQL.</p>
-                        <p>Занимаюсь разработкой прикладного программного обеспечения и систем мониторинга на Flask, а также внедрением и сопровождением решений на базе Zabbix и Grafana. Обладаю аналитическим мышлением, умею быстро находить и устранять неисправности, оптимизировать работу сервисов и автоматизировать рутинные задачи.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <!-- ================= WORK ================= -->
+    <section class="section wrap" id="work">
+      <div class="section-head reveal">
+        <p class="kicker mono" data-i18n="work.kicker">Проекты</p>
+        <h2 data-i18n="work.title">Избранные работы</h2>
+        <p class="lead" data-i18n="work.lead">Открытый код лежит на GitHub — звёзды подтягиваются живьём. Коммерческие проекты описаны без закрытых деталей.</p>
+      </div>
+      <div class="filters reveal" role="tablist" aria-label="Filter projects">
+        <button type="button" class="chip is-active" data-filter="all" data-i18n="filter.all">Все</button>
+        <button type="button" class="chip" data-filter="ai" data-i18n="filter.ai">AI-агенты</button>
+        <button type="button" class="chip" data-filter="web" data-i18n="filter.web">Web &amp; продукты</button>
+        <button type="button" class="chip" data-filter="ops" data-i18n="filter.ops">DevOps &amp; инфра</button>
+        <button type="button" class="chip" data-filter="oss" data-i18n="filter.oss">Open source</button>
+      </div>
+      <div class="projects" id="projects"></div>
+      <noscript><p class="lead">Проекты: <a href="https://github.com/votsie">github.com/votsie</a></p></noscript>
+      <div class="center reveal">
+        <a class="btn btn-ghost" href="https://github.com/votsie?tab=repositories" target="_blank" rel="noopener"><span data-i18n="work.more">Ещё на GitHub</span> →</a>
+      </div>
     </section>
 
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Контакты</h2>
-            <div class="contact-info">
-                <p><i class="fas fa-link"></i> <a href="https://career.habr.com/votsi" target="_blank">Хабр Карьера</a></p>
-                <p><i class="fab fa-telegram"></i> <a href="https://t.me/votsi_e" target="_blank">@votsi_e</a></p>
-                <p><i class="fab fa-vk"></i> <a href="https://vk.com/votsi_e" target="_blank">votsi_e</a></p>
-                <p><i class="fas fa-envelope"></i> <a href="mailto:aafeklisto@gmail.com">aafeklisto@gmail.com</a></p>
-                <p><i class="fab fa-github"></i> <a href="https://github.com/votsie" target="_blank">github.com/votsie</a></p>
-            </div>
-        </div>
+    <!-- ================= PROCESS ================= -->
+    <section class="section wrap" id="process">
+      <div class="section-head reveal">
+        <p class="kicker mono" data-i18n="process.kicker">Как работаю</p>
+        <h2 data-i18n="process.title">Прозрачный процесс без сюрпризов</h2>
+        <p class="lead" data-i18n="process.lead">Для заказчиков — чёткие этапы и понятная стоимость. Для команд — привычный инженерный ритм: PR, ревью, CI.</p>
+      </div>
+      <ol class="steps">
+        <li class="card step reveal"><span class="step-n mono">01</span><h3 data-i18n="step1.title">Созвон и цель</h3><p data-i18n="step1.text">30 минут: что нужно бизнесу, какие ограничения, что уже есть. Говорю честно, если задача решается проще.</p></li>
+        <li class="card step reveal" style="--d:.08s"><span class="step-n mono">02</span><h3 data-i18n="step2.title">Спецификация и оценка</h3><p data-i18n="step2.text">Короткий документ: архитектура, стек, этапы, сроки, цена. Фиксируем, что считаем результатом.</p></li>
+        <li class="card step reveal" style="--d:.16s"><span class="step-n mono">03</span><h3 data-i18n="step3.title">Разработка с демо</h3><p data-i18n="step3.text">Работа в репозитории заказчика, регулярные демо, тесты и CI с первого дня. Никаких «покажу в конце».</p></li>
+        <li class="card step reveal" style="--d:.24s"><span class="step-n mono">04</span><h3 data-i18n="step4.title">Деплой и поддержка</h3><p data-i18n="step4.text">Разворачиваю на вашей инфраструктуре или своей, передаю доступы и документацию, остаюсь на поддержке.</p></li>
+      </ol>
     </section>
 
-    <!-- Project Modal -->
-    <div class="modal fade" id="projectModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <img src="" alt="Project Full Size" class="modal-image">
-                    <div class="project-description">
-                        <h3 class="project-title"></h3>
-                        <p class="project-text"></p>
-                        <h4>Features</h4>
-                        <ul class="features-list"></ul>
-                        <h4>Technologies Used</h4>
-                        <ul class="technologies-list"></ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- ================= STACK ================= -->
+    <section class="section wrap" id="stack">
+      <div class="section-head reveal">
+        <p class="kicker mono" data-i18n="stack.kicker">Стек</p>
+        <h2 data-i18n="stack.title">Инструменты, в которых я уверен</h2>
+      </div>
+      <div class="stack-grid" id="stackGrid"></div>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-    <script src="projects/projects-data.js"></script>
+    <!-- ================= ABOUT ================= -->
+    <section class="section wrap about" id="about">
+      <div class="about-text reveal">
+        <p class="kicker mono" data-i18n="about.kicker">О себе</p>
+        <h2 data-i18n="about.title">От системного администратора до AI-инженера</h2>
+        <p data-i18n="about.p1"></p>
+        <p data-i18n="about.p2"></p>
+        <p data-i18n="about.p3"></p>
+      </div>
+      <aside class="card about-facts reveal" style="--d:.1s">
+        <dl>
+          <div><dt data-i18n="about.now">Сейчас</dt><dd data-i18n="about.now.text">Открыт к проектам и full-time</dd></div>
+          <div><dt data-i18n="about.location">Локация</dt><dd data-i18n="about.location.text">Россия · удалённо · готов к релокации</dd></div>
+          <div><dt data-i18n="about.langs">Языки</dt><dd data-i18n="about.langs.text">Русский — родной, английский — рабочий</dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/votsie" target="_blank" rel="noopener">github.com/votsie</a></dd></div>
+          <div><dt>Habr Career</dt><dd><a href="https://career.habr.com/votsi" target="_blank" rel="noopener">career.habr.com/votsi</a></dd></div>
+        </dl>
+      </aside>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section wrap" id="contact">
+      <div class="card contact reveal">
+        <div class="contact-copy">
+          <p class="kicker mono" data-i18n="contact.kicker">Контакты</p>
+          <h2 data-i18n="contact.title">Давайте сделаем что-то полезное</h2>
+          <p class="lead" data-i18n="contact.lead">Быстрее всего — Telegram. Опишите задачу в двух предложениях, отвечу в тот же день.</p>
+        </div>
+        <div class="contact-actions">
+          <a class="btn btn-primary btn-lg" href="https://t.me/votsi_e" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.6 18.7 19.5c-.2 1-.9 1.3-1.7.8l-4.8-3.5-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.8 8.9-8c.4-.3-.1-.5-.6-.2L6.6 13.4 2 11.9c-1-.3-1-1 .2-1.5l18.4-7.1c.8-.3 1.6.2 1.3 1.3Z"/></svg>
+            <span data-i18n="contact.tg">Написать в Telegram</span>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="mailto:aafeklisto@gmail.com"><span data-i18n="contact.mail">Написать на почту</span></a>
+          <button type="button" class="btn btn-ghost btn-lg" id="copyMail" data-mail="aafeklisto@gmail.com"><span class="mono">aafeklisto@gmail.com</span></button>
+          <div class="socials">
+            <a href="https://github.com/votsie" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+            <a href="https://career.habr.com/votsi" target="_blank" rel="noopener" aria-label="Habr Career">Habr Career</a>
+            <a href="https://vk.com/votsi_e" target="_blank" rel="noopener" aria-label="VK">VK</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer wrap">
+    <p><span class="mono">© <span id="year"></span> VOTSI</span> · <span data-i18n="footer.text">Сделано вручную и с агентами. Код сайта открыт на GitHub.</span> <a href="https://github.com/votsie/votsie.github.io" target="_blank" rel="noopener">votsie.github.io</a></p>
+    <a href="#top" class="mono" data-i18n="footer.top">Наверх</a>
+  </footer>
+
+  <script src="content.js"></script>
+  <script src="script.js"></script>
 </body>
-</html> 
+</html>
