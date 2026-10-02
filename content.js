@@ -961,7 +961,7 @@ window.SITE = {
       "id": "dpiexe",
       "featured": false,
       "cat": [
-        "web"
+        "ops"
       ],
       "kind": "private",
       "tags": [
@@ -974,7 +974,7 @@ window.SITE = {
       ],
       "ru": {
         "title": "DPI EXE — прототип Windows GUI для zapret/winws",
-        "tagline": "Прототипы",
+        "tagline": "Сети и инфраструктура",
         "text": "Документация проектирует auto-tune sweep, скоринг доступности Telegram/YouTube/Discord и классификацию ошибок TLS/HTTPS/gRPC/WebSocket.",
         "problem": "Автоматизировать сравнение профилей по доступности сервисов.",
         "solution": "Документация проектирует auto-tune sweep, скоринг доступности Telegram/YouTube/Discord и классификацию ошибок TLS/HTTPS/gRPC/WebSocket.",
@@ -986,7 +986,7 @@ window.SITE = {
       },
       "en": {
         "title": "DPI EXE",
-        "tagline": "Web products",
+        "tagline": "Networking & infrastructure",
         "text": "An early Windows network-diagnostics GUI prototype. Automatic profile comparison remains part of the design specification.",
         "problem": null,
         "solution": null,
@@ -1628,7 +1628,7 @@ window.SITE = {
       "id": "nanogeneration",
       "featured": false,
       "cat": [
-        "web"
+        "ai"
       ],
       "kind": "private",
       "tags": [
@@ -1641,7 +1641,7 @@ window.SITE = {
       ],
       "ru": {
         "title": "NanoGeneration — AI-примерка одежды и фотосессии",
-        "tagline": "Прототипы",
+        "tagline": "ИИ и автоматизация",
         "text": "Каталог референсов → загрузка фотографии → экран генерации и результата. Клиент включает историю, баланс, paywall и админку; API пока представлен mock-клиентом и seed-данными.",
         "problem": "Показать примерку одежды, новые образы и аватары без физической фотосессии.",
         "solution": "Каталог референсов → загрузка фотографии → экран генерации и результата. Клиент включает историю, баланс, paywall и админку; API пока представлен mock-клиентом и seed-данными.",
@@ -1656,7 +1656,7 @@ window.SITE = {
       },
       "en": {
         "title": "NanoGeneration",
-        "tagline": "Web products",
+        "tagline": "AI & automation",
         "text": "A web and Telegram interface for virtual clothing try-on, photo styles and avatars. Generation and payments currently rely on mock API data.",
         "problem": null,
         "solution": null,
@@ -1848,7 +1848,7 @@ window.SITE = {
       ],
       "ru": {
         "title": "Realtime Telegram Mini App — статьи, мониторинг и криптовалюты",
-        "tagline": "Неопознанные",
+        "tagline": "Веб-приложения",
         "text": "React-интерфейс переключает разделы, загружает статьи выбранной папки Drive; Express и ws заявлены в зависимостях серверной части.",
         "problem": "Собрать несколько источников информации в одном интерфейсе Telegram.",
         "solution": "React-интерфейс переключает разделы, загружает статьи выбранной папки Drive; Express и ws заявлены в зависимостях серверной части.",
@@ -1872,7 +1872,7 @@ window.SITE = {
       "id": "defaultproject",
       "featured": false,
       "cat": [
-        "web"
+        "tools"
       ],
       "kind": "private",
       "tags": [
@@ -1884,7 +1884,7 @@ window.SITE = {
       ],
       "ru": {
         "title": "SimpleRequester — клиент HTTP API",
-        "tagline": "Неопознанные",
+        "tagline": "Инструменты разработчика",
         "text": "RequestBuilder, EnvironmentResolver и Validator формируют запрос; NetworkWorker выполняет его в QThreadPool, ResponseParser готовит ответ, JSON-хранилище сохраняет коллекции и историю.",
         "problem": "Работать с API без ручной сборки запросов и блокировки интерфейса во время сетевых операций.",
         "solution": "RequestBuilder, EnvironmentResolver и Validator формируют запрос; NetworkWorker выполняет его в QThreadPool, ResponseParser готовит ответ, JSON-хранилище сохраняет коллекции и историю.",
@@ -1899,7 +1899,7 @@ window.SITE = {
       },
       "en": {
         "title": "SimpleRequester",
-        "tagline": "Web products",
+        "tagline": "Developer & desktop tools",
         "text": "A desktop HTTP API client with request builders, environment variables, collections, history and asynchronous networking.",
         "problem": null,
         "solution": null,
@@ -2090,7 +2090,7 @@ window.SITE = {
       "id": "votn",
       "featured": false,
       "cat": [
-        "web"
+        "ops"
       ],
       "kind": "private",
       "tags": [
@@ -2103,7 +2103,7 @@ window.SITE = {
       ],
       "ru": {
         "title": "VOTN — дизайн и Flutter-прототип VPN-клиента",
-        "tagline": "Прототипы",
+        "tagline": "Сети и инфраструктура",
         "text": "AppState и TransportState отделены от экранов; FakeRepository воспроизводит восемь сценариев отказа. Дизайн-система реализует Liquid Glass через BackdropFilter.",
         "problem": "Проверить интерфейс подключения и отказов до подключения реального сервера.",
         "solution": "AppState и TransportState отделены от экранов; FakeRepository воспроизводит восемь сценариев отказа. Дизайн-система реализует Liquid Glass через BackdropFilter.",
@@ -2118,7 +2118,7 @@ window.SITE = {
       },
       "en": {
         "title": "VOTN",
-        "tagline": "Web products",
+        "tagline": "Networking & infrastructure",
         "text": "A Flutter VPN interface prototype with onboarding, device screens and a Liquid Glass design system. Network behavior is simulated.",
         "problem": null,
         "solution": null,

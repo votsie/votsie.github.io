@@ -54,7 +54,7 @@
   function projectArt(p) {
     if (p.image) return `<img src="${p.image}" alt="" loading="lazy">`;
     const name = p[lang].title.split(/[\s—]/)[0];
-    const label = p.cat.includes("ai") ? "AI" : p.cat.includes("ops") ? "infra" : "web";
+    const label = ({ai:"AI",ops:"infra",tools:"tools",games:"game",design:"design",web:"web"})[p.cat[0]] || "web";
     return `<div class="project-art"><div class="glyph">${esc(name)}<small>${label}</small></div></div>`;
   }
 
