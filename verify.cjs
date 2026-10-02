@@ -45,5 +45,5 @@ assert.equal(cards.filter(c=>!c.hidden).length,S.projects.filter(p=>p.kind==='os
 state.lang='en';state.activeFilter='all';state.applyFilter();
 assert.equal(ids.resultCount.textContent,'Showing 64 of 64');
 assert.equal((html.match(/id="projectSearch"/g)||[]).length,1);
-assert.ok(html.includes('href="projects.json"'));
+assert.ok(/href="projects\.json\?v=[a-f0-9]{12}"/.test(html));
 console.log('OK: 64 projects, 6 featured, safe public links, RU/EN, search, filters and empty state');
