@@ -19,8 +19,15 @@ assert.ok(S.projects.every(p=>p.ru.text.length<500));
 const allowed = new Set(['b24notify','eifavpn-backend','eifavpn-frontend','FTP_SYNC','QR-Barcode-Server-Flask','ssh-mcp','votsie.github.io','wata-mcp','wata-sdk','Work-Time-Tracker']);
 for (const p of S.projects) {
   assert.ok(p.ru.title && p.en.title && p.ru.text && p.en.text);
+  const exported = catalog.projects.find(project=>project.id===p.id);
+  assert.equal(p.ru.title, exported.name);
+  assert.equal(p.ru.text, exported.solution);
+  assert.equal(p.ru.problem, exported.problem);
+  assert.ok(!/[—–]/.test([p.ru.title,p.ru.text,p.ru.problem,...p.ru.highlights].join(' ')));
   for (const link of [p.url,p.url2].filter(Boolean)) assert.ok(allowed.has(new URL(link).pathname.split('/')[2]));
 }
+assert.ok(html.includes('<title>'+S.i18n.ru['meta.title']+'</title>'));
+assert.ok(!/[—–]/.test(Object.values(S.i18n.ru).join(' ')));
 function el() {return {value:'',textContent:'',hidden:false,dataset:{},attrs:{},listeners:{},classList:{toggle(){},add(){},remove(){}},setAttribute(k,v){this.attrs[k]=v},addEventListener(k,v){this.listeners[k]=v},append(){},getAttribute(){return ''}}}
 const ids=Object.fromEntries(['projectSearch','resultCount','emptyResults'].map(id=>[id,el()]));
 const cards=S.projects.map(p=>Object.assign(el(),{dataset:{cat:p.cat.join(' '),kind:p.kind,featured:String(!!p.featured),search:[p.ru.title,p.en.title,p.ru.text,p.en.text,...p.tags].join(' ').toLocaleLowerCase()}}));

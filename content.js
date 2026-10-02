@@ -10,20 +10,20 @@ window.SITE = {
   },
   "i18n": {
     "ru": {
-      "meta.title": "Алексей Феклистов — AI-инженер, Fullstack и DevOps",
-      "meta.desc": "Строю продукты от идеи до продакшена: MCP-серверы для AI-агентов, веб-платформы, платёжные интеграции и инфраструктура. Открыт к проектам и офферам.",
+      "meta.title": "Алексей Феклистов: AI-инженер, Fullstack и DevOps",
+      "meta.desc": "Разрабатываю веб-приложения, MCP-серверы для AI-агентов, платёжные интеграции и инфраструктуру. Открыт к проектам и предложениям о работе.",
       "nav.work": "Проекты",
       "nav.services": "Услуги",
       "nav.process": "Как работаю",
       "nav.stack": "Стек",
       "nav.contact": "Контакты",
       "nav.cta": "Написать",
-      "hero.status": "Открыт к проектам и офферам",
+      "hero.status": "Открыт к проектам и предложениям о работе",
       "hero.kicker": "AI-инженер · Fullstack · DevOps",
-      "hero.title.a": "Строю продукты",
-      "hero.title.b": "от идеи до прода",
-      "hero.title.c": "Веб-продукты. Инструменты. Инфраструктура.",
-      "hero.lead": "Алексей Феклистов (VOTSI). Создаю веб-приложения, интеграции и инструменты для разработчиков. Здесь — продукты, дизайн и инфраструктурные задачи с понятным описанием подхода и ссылками на открытый код.",
+      "hero.title.a": "Разрабатываю продукты",
+      "hero.title.b": "и запускаю их в работу",
+      "hero.title.c": "Веб-приложения, инструменты и инфраструктура",
+      "hero.lead": "Алексей Феклистов (VOTSI). Разрабатываю веб-приложения, интеграции и инструменты для разработчиков. В портфолио собраны проекты с описанием задач, решений и ссылками на открытый код.",
       "hero.cta.primary": "Обсудить задачу",
       "hero.cta.secondary": "Смотреть проекты",
       "hero.cta.github": "GitHub",
@@ -33,23 +33,23 @@ window.SITE = {
       "stats.sdk": "языков в одном SDK",
       "stats.cycle": "полный цикл: идея → прод",
       "services.kicker": "Что я делаю",
-      "services.title": "Четыре роли, один человек",
-      "services.lead": "Не передаю задачу между отделами: сам проектирую, пишу, разворачиваю и поддерживаю. Поэтому быстро и без потерь на стыках.",
-      "svc.ai.title": "AI Engineering",
-      "svc.ai.text": "MCP-серверы, скиллы и агентные пайплайны для Codex, Cursor. Интеграция LLM в продукт: RAG, tool use, автоматизация рутины и поддержки.",
-      "svc.web.title": "Fullstack Web",
-      "svc.web.text": "React / Vite / TypeScript на фронте, Python (Django, FastAPI, Flask) и Go на бэке, PostgreSQL и Redis. Маркетплейсы, личные кабинеты, Telegram Mini Apps, платежи.",
-      "svc.ops.title": "DevOps & Infra",
-      "svc.ops.text": "Docker, Nginx, CI/CD, Linux-серверы. Мониторинг на Zabbix и Grafana, VPN-инфраструктура (Xray, AmneziaWG, Marzban), бэкапы, безопасность и SLA.",
-      "svc.vibe.title": "AI-native delivery",
-      "svc.vibe.text": "Работаю в связке с агентами: спецификация → генерация → тесты → ревью. MVP за дни, а не недели, и код, который потом можно поддерживать.",
+      "services.title": "Четыре направления работы",
+      "services.lead": "Проектирую приложения, пишу код, разворачиваю и поддерживаю их.",
+      "svc.ai.title": "AI-инструменты",
+      "svc.ai.text": "Пишу MCP-серверы, скиллы и цепочки задач для агентов Codex и Cursor. Встраиваю LLM в приложения: поиск по данным через RAG, вызовы инструментов, автоматизация рутины и поддержки.",
+      "svc.web.title": "Веб-разработка",
+      "svc.web.text": "Разрабатываю интерфейсы на React, Vite и TypeScript. На сервере использую Python (Django, FastAPI, Flask), Go, PostgreSQL и Redis. Среди проектов есть маркетплейсы, личные кабинеты, Telegram Mini Apps и платёжные интеграции.",
+      "svc.ops.title": "DevOps и инфраструктура",
+      "svc.ops.text": "Разворачиваю приложения на Linux с Docker и Nginx, настраиваю CI/CD, резервное копирование, безопасность и SLA. Для мониторинга использую Zabbix и Grafana. VPN-инфраструктуру строю на Xray, AmneziaWG и Marzban.",
+      "svc.vibe.title": "Разработка с AI-агентами",
+      "svc.vibe.text": "Использую агентов при разработке: готовлю спецификацию, проверяю сгенерированный код, запускаю тесты и провожу ревью.",
       "work.kicker": "Проекты",
       "work.title": "Избранное и каталог работ",
-      "work.lead": "Веб-продукты, AI-инструменты, дизайн и инфраструктура. В избранном — шесть работ; полный каталог доступен по фильтрам.",
+      "work.lead": "В каталоге собраны веб-приложения, AI-инструменты, сайты и инфраструктурные проекты. Сначала показаны шесть избранных работ. Остальные доступны через поиск и фильтры.",
       "filter.all": "Все",
       "filter.ai": "AI-агенты",
-      "filter.web": "Web & продукты",
-      "filter.ops": "DevOps & инфра",
+      "filter.web": "Веб-приложения",
+      "filter.ops": "Инфраструктура",
       "filter.oss": "Публичный код",
       "work.more": "Ещё на GitHub",
       "badge.oss": "Публичный код",
@@ -58,38 +58,38 @@ window.SITE = {
       "card.repo": "Репозиторий",
       "card.live": "Открыть",
       "process.kicker": "Как работаю",
-      "process.title": "Прозрачный процесс без сюрпризов",
-      "process.lead": "Для заказчиков — чёткие этапы и понятная стоимость. Для команд — привычный инженерный ритм: PR, ревью, CI.",
+      "process.title": "Этапы работы",
+      "process.lead": "Согласуем задачу, оценку и этапы. В ходе разработки показываю результат и проверяю код через PR, ревью и CI.",
       "step1.title": "Созвон и цель",
-      "step1.text": "30 минут: что нужно бизнесу, какие ограничения, что уже есть. Говорю честно, если задача решается проще.",
+      "step1.text": "За 30 минут обсуждаем задачу, ограничения и то, что уже есть. Если задачу можно решить проще, предлагаю этот вариант.",
       "step2.title": "Спецификация и оценка",
       "step2.text": "Короткий документ: архитектура, стек, этапы, сроки, цена. Фиксируем, что считаем результатом.",
       "step3.title": "Разработка с демо",
-      "step3.text": "Работа в репозитории заказчика, регулярные демо, тесты и CI с первого дня. Никаких «покажу в конце».",
+      "step3.text": "Работаю в репозитории заказчика, показываю промежуточные результаты, добавляю тесты и CI.",
       "step4.title": "Деплой и поддержка",
-      "step4.text": "Разворачиваю на вашей инфраструктуре или своей, передаю доступы и документацию, остаюсь на поддержке.",
+      "step4.text": "Разворачиваю приложение на вашей или своей инфраструктуре, передаю доступы и документацию. После запуска продолжаю поддержку.",
       "stack.kicker": "Стек",
-      "stack.title": "Инструменты, в которых я уверен",
+      "stack.title": "Технологии в проектах",
       "stack.ai": "AI & агенты",
       "stack.backend": "Backend",
       "stack.frontend": "Frontend",
       "stack.data": "Данные",
-      "stack.ops": "DevOps & инфра",
+      "stack.ops": "DevOps и инфраструктура",
       "stack.other": "Ещё",
       "about.kicker": "О себе",
-      "about.title": "От системного администратора до AI-инженера",
-      "about.p1": "Начинал с администрирования Linux- и Windows-серверов, сетей и кассового ПО: настраивал мониторинг на Zabbix и Grafana, интегрировал Честный Знак, оптимизировал PostgreSQL и MySQL. Там же научился главному — держать прод живым и понимать, что ломается на самом деле.",
-      "about.p2": "Потом ушёл в разработку: Flask и Django, затем React и TypeScript, Go для нативных приложений. С появлением агентов перестроил процесс целиком — теперь пишу инструменты для самих агентов (MCP-серверы, скиллы) и строю продукты в связке с ними в разы быстрее.",
-      "about.p3": "Ищу: интересные заказы и позицию в сильной инженерной команде — AI engineering, platform или fullstack. Готов к релокации и удалёнке, работаю на русском и английском.",
+      "about.title": "Администрирование и разработка",
+      "about.p1": "Начинал с администрирования Linux- и Windows-серверов, сетей и кассового ПО. Настраивал мониторинг на Zabbix и Grafana, интегрировал Честный Знак, оптимизировал PostgreSQL и MySQL. Эта работа научила поддерживать работающие системы и разбираться в причинах сбоев.",
+      "about.p2": "Затем перешёл в разработку: сначала Flask и Django, позже React и TypeScript, Go для нативных приложений. Сейчас использую AI-агентов и пишу инструменты для них: MCP-серверы и скиллы.",
+      "about.p3": "Открыт к заказам и работе в инженерной команде по направлениям AI engineering, platform и fullstack. Рассматриваю удалённую работу и релокацию. Работаю на русском и английском.",
       "about.now": "Сейчас",
-      "about.now.text": "Открыт к проектам и full-time",
+      "about.now.text": "Открыт к проектам и постоянной работе",
       "about.location": "Локация",
       "about.location.text": "Россия · удалённо · готов к релокации",
       "about.langs": "Языки",
-      "about.langs.text": "Русский — родной, английский — рабочий",
+      "about.langs.text": "Родной язык русский; английским пользуюсь в работе",
       "contact.kicker": "Контакты",
-      "contact.title": "Давайте сделаем что-то полезное",
-      "contact.lead": "Быстрее всего — Telegram. Опишите задачу в двух предложениях, отвечу в тот же день.",
+      "contact.title": "Обсудим ваш проект",
+      "contact.lead": "Напишите в Telegram: опишите задачу, сроки и то, что уже готово.",
       "contact.tg": "Написать в Telegram",
       "contact.mail": "Написать на почту",
       "contact.copy": "Скопировать e-mail",
@@ -133,7 +133,7 @@ window.SITE = {
       "stats.cycle": "full cycle: idea → prod",
       "services.kicker": "What I do",
       "services.title": "Four roles, one engineer",
-      "services.lead": "No hand-offs between departments: I design, build, deploy and support it myself. That's why it's fast and nothing gets lost at the seams.",
+      "services.lead": "I design, build, deploy and support applications.",
       "svc.ai.title": "AI Engineering",
       "svc.ai.text": "MCP servers, skills and agentic pipelines for Codex, Cursor. LLMs inside the product: RAG, tool use, automating routine work and support.",
       "svc.web.title": "Fullstack Web",
@@ -141,7 +141,7 @@ window.SITE = {
       "svc.ops.title": "DevOps & Infra",
       "svc.ops.text": "Docker, Nginx, CI/CD, Linux servers. Monitoring with Zabbix and Grafana, VPN infrastructure (Xray, AmneziaWG, Marzban), backups, security and SLAs.",
       "svc.vibe.title": "AI-native delivery",
-      "svc.vibe.text": "I work with agents in the loop: spec → generate → test → review. MVPs in days, not weeks, and code you can actually maintain afterwards.",
+      "svc.vibe.text": "I use agents in development: prepare a specification, check generated code, run tests and review changes.",
       "work.kicker": "Work",
       "work.title": "Selected work & project catalog",
       "work.lead": "Web products, AI tools, design and infrastructure. Six selected projects, with the complete catalog available through filters.",
@@ -160,11 +160,11 @@ window.SITE = {
       "process.title": "A transparent process, no surprises",
       "process.lead": "For clients: clear stages and a clear price. For teams: the usual engineering rhythm — PRs, reviews, CI.",
       "step1.title": "Call and goal",
-      "step1.text": "30 minutes: what the business needs, the constraints, what already exists. I'll say so if there's a simpler way.",
+      "step1.text": "In a 30-minute call, we discuss the task, constraints and what already exists. If there is a simpler solution, I propose it.",
       "step2.title": "Spec and estimate",
       "step2.text": "A short document: architecture, stack, milestones, timeline, price. We agree on what counts as done.",
       "step3.title": "Build with demos",
-      "step3.text": "Work in your repository, regular demos, tests and CI from day one. No “I'll show you at the end”.",
+      "step3.text": "I work in your repository, share progress and add tests and CI.",
       "step4.title": "Deploy and support",
       "step4.text": "Deployed on your infrastructure or mine, access and docs handed over, and I stay on for support.",
       "stack.kicker": "Stack",
@@ -178,7 +178,7 @@ window.SITE = {
       "about.kicker": "About",
       "about.title": "From sysadmin to AI engineer",
       "about.p1": "I started by administering Linux and Windows servers, networks and point-of-sale software: monitoring with Zabbix and Grafana, integrations with the national product-labeling system, tuning PostgreSQL and MySQL. That's where I learned the essential skill — keeping production alive and understanding what actually breaks.",
-      "about.p2": "Then I moved into development: Flask and Django, later React and TypeScript, Go for native apps. When agents arrived I rebuilt my whole process — now I write tooling for the agents themselves (MCP servers, skills) and build products with them several times faster.",
+      "about.p2": "Then I moved into development: Flask and Django, later React and TypeScript, Go for native apps. I now use AI agents and write tools for them, including MCP servers and skills.",
       "about.p3": "Looking for: interesting contracts and a role in a strong engineering team — AI engineering, platform or fullstack. Open to relocation and remote, working in Russian and English.",
       "about.now": "Now",
       "about.now.text": "Open to projects and full-time roles",
@@ -188,7 +188,7 @@ window.SITE = {
       "about.langs.text": "Russian — native, English — working",
       "contact.kicker": "Contact",
       "contact.title": "Let's build something useful",
-      "contact.lead": "Telegram is fastest. Describe the task in two sentences and I'll reply the same day.",
+      "contact.lead": "Message me on Telegram with the task, timeline and what is already in place.",
       "contact.tg": "Message on Telegram",
       "contact.mail": "Send an email",
       "contact.copy": "Copy e-mail",
@@ -332,7 +332,7 @@ window.SITE = {
         "Win32 API"
       ],
       "ru": {
-        "title": "b24notify — уведомления Bitrix24 для Windows",
+        "title": "b24notify: уведомления Bitrix24 для Windows",
         "tagline": "Приложения Windows",
         "text": "Go-приложение рисует карточки уведомлений и передаёт ссылки Bitrix24 Desktop либо браузеру.",
         "problem": "Показывать уведомления Bitrix24 вне браузера и открывать нужный объект одним кликом.",
@@ -372,11 +372,11 @@ window.SITE = {
         "Python"
       ],
       "ru": {
-        "title": "EIFA VPN — VPN-сервис в Telegram",
+        "title": "EIFA VPN: VPN-сервис в Telegram",
         "tagline": "Сети и инфраструктура",
-        "text": "React Mini App предоставляет тарифы и подписку. Django API связывает оплату, создание аккаунта в панели управления и продление доступа. Отдельные компоненты отвечают за проверку доступности узлов и обслуживание подписок.",
+        "text": "Mini App на React показывает тарифы и подписку. Django API обрабатывает оплату, создаёт аккаунт в панели управления и продлевает доступ. Отдельные компоненты проверяют доступность узлов и обслуживают подписки.",
         "problem": "VLESS + Reality, оплата в Telegram Stars и крипте, автоподбор серверов через SmartRoute AI",
-        "solution": "React Mini App предоставляет тарифы и подписку. Django API связывает оплату, создание аккаунта в панели управления и продление доступа. Отдельные компоненты отвечают за проверку доступности узлов и обслуживание подписок.",
+        "solution": "Mini App на React показывает тарифы и подписку. Django API обрабатывает оплату, создаёт аккаунт в панели управления и продлевает доступ. Отдельные компоненты проверяют доступность узлов и обслуживают подписки.",
         "highlights": [
           "Telegram Mini App",
           "Тарифы и продление",
@@ -411,7 +411,7 @@ window.SITE = {
         "pyte"
       ],
       "ru": {
-        "title": "SSH MCP — управление серверами для ИИ-агентов",
+        "title": "SSH MCP: управление серверами для ИИ-агентов",
         "tagline": "API и SDK",
         "text": "MCP предоставляет SSH-сессии, эмуляцию терминала, обмен файлами и туннели; профиль хоста сохраняется после успешного соединения.",
         "problem": "Управлять SSH-хостами из разных AI-клиентов, включая интерактивные TUI.",
@@ -449,11 +449,11 @@ window.SITE = {
         "TypeScript"
       ],
       "ru": {
-        "title": "WATA SDK — платёжные библиотеки на пяти языках",
+        "title": "WATA SDK: платёжные библиотеки на пяти языках",
         "tagline": "API и SDK",
-        "text": "Клиент принимает токены по продуктам, валидирует наличие нужного токена до запроса и реализует acquiring и digital goods API.",
+        "text": "Библиотеки обращаются к API эквайринга и цифровых товаров WATA. Принимают токены для разных продуктов и проверяют нужный токен перед сетевым запросом.",
         "problem": "Одинаково интегрировать WATA на пяти языках и не путать токены разных продуктов.",
-        "solution": "Клиент принимает токены по продуктам, валидирует наличие нужного токена до запроса и реализует acquiring и digital goods API.",
+        "solution": "Библиотеки обращаются к API эквайринга и цифровых товаров WATA. Принимают токены для разных продуктов и проверяют нужный токен перед сетевым запросом.",
         "highlights": [
           "Платёжные ссылки",
           "Транзакции",
@@ -492,11 +492,11 @@ window.SITE = {
         "next"
       ],
       "ru": {
-        "title": "AI Newsroom — автоматизированная контент-фабрика",
+        "title": "AI Newsroom: автоматизированная контент-фабрика",
         "tagline": "ИИ и автоматизация",
-        "text": "Источники → embeddings/кластеры → фильтр ниши → текст и fact-check → иллюстрация → одобрение человеком → публикация. Одобрение требует источников для абзацев.",
+        "text": "Система собирает источники, группирует похожие материалы с помощью векторных представлений и отбирает новости по теме. Затем готовит текст, проверяет факты и создаёт иллюстрацию. Перед публикацией человек одобряет материал; для абзацев нужны ссылки на источники.",
         "problem": "Сократить ручную подготовку новостных статей и сохранять связь утверждений с источниками.",
-        "solution": "Источники → embeddings/кластеры → фильтр ниши → текст и fact-check → иллюстрация → одобрение человеком → публикация. Одобрение требует источников для абзацев.",
+        "solution": "Система собирает источники, группирует похожие материалы с помощью векторных представлений и отбирает новости по теме. Затем готовит текст, проверяет факты и создаёт иллюстрацию. Перед публикацией человек одобряет материал; для абзацев нужны ссылки на источники.",
         "highlights": [
           "Сбор источников",
           "Кластеризация",
@@ -533,11 +533,11 @@ window.SITE = {
         "Radix UI"
       ],
       "ru": {
-        "title": "EIFASTORE — магазин цифровых товаров",
+        "title": "EIFASTORE: магазин цифровых товаров",
         "tagline": "Веб-приложения",
-        "text": "Витрина на Next.js объединяет каталог, заказы и платежи. Серверная часть синхронизирует товары поставщиков и поддерживает автоматическую выдачу, склад кодов и очередь оператора. Административные инструменты помогают сопровождать заказ от оплаты до завершения.",
-        "problem": "Telegram Stars, Steam и игровой донат: от каталога поставщика до выданного кода",
-        "solution": "Витрина на Next.js объединяет каталог, заказы и платежи. Серверная часть синхронизирует товары поставщиков и поддерживает автоматическую выдачу, склад кодов и очередь оператора. Административные инструменты помогают сопровождать заказ от оплаты до завершения.",
+        "text": "Витрина на Next.js показывает каталог, заказы и платежи. Сервер синхронизирует товары поставщиков, хранит цифровые коды и выдаёт их после оплаты. Заказы, требующие ручной обработки, попадают в очередь оператора.",
+        "problem": "Продавать Telegram Stars, пополнения Steam и игровых счетов, обрабатывать заказы и выдавать цифровые коды.",
+        "solution": "Витрина на Next.js показывает каталог, заказы и платежи. Сервер синхронизирует товары поставщиков, хранит цифровые коды и выдаёт их после оплаты. Заказы, требующие ручной обработки, попадают в очередь оператора.",
         "highlights": [
           "Каталог поставщиков",
           "Платёжные интеграции",
@@ -565,7 +565,7 @@ window.SITE = {
         "Python"
       ],
       "ru": {
-        "title": "FTP Sync — синхронизация файлов для Windows",
+        "title": "FTP Sync: синхронизация файлов для Windows",
         "tagline": "Приложения Windows",
         "text": "Python, pyftpdlib, FastAPI, трей и Inno Setup. Три режима: загрузка при изменении, периодическая синхронизация и зеркалирование. Отдельный watchdog восстанавливает процесс после падения.",
         "problem": "Автоматически передавать файлы с локального FTP-сервера на удалённый и поддерживать синхронизацию в фоне.",
@@ -594,7 +594,7 @@ window.SITE = {
         "Python"
       ],
       "ru": {
-        "title": "QR и Code-128 — API и графический клиент",
+        "title": "QR и Code-128: API и графический клиент",
         "tagline": "API и SDK",
         "text": "Flask API для QR и Code-128, отдельный графический клиент; README описывает поддержку кириллицы, английского и специальных символов.",
         "problem": "Генерировать QR-коды и штрихкоды через единый API и удобный клиент.",
@@ -626,11 +626,11 @@ window.SITE = {
         "TypeScript"
       ],
       "ru": {
-        "title": "WATA MCP — платёжные инструменты для ИИ-агентов",
+        "title": "WATA MCP: платёжные инструменты для ИИ-агентов",
         "tagline": "API и SDK",
-        "text": "Объединить публичный acquiring/digital goods API и сессию кабинета мерчанта; предоставить операции через MCP-инструменты и руководства.",
+        "text": "MCP-инструменты связывают публичный API эквайринга и цифровых товаров с сессией кабинета мерчанта. Для операций подготовлены руководства.",
         "problem": "Дать агенту доступ к операциям WATA, которые не покрывает терминальный API-токен.",
-        "solution": "Объединить публичный acquiring/digital goods API и сессию кабинета мерчанта; предоставить операции через MCP-инструменты и руководства.",
+        "solution": "MCP-инструменты связывают публичный API эквайринга и цифровых товаров с сессией кабинета мерчанта. Для операций подготовлены руководства.",
         "highlights": [
           "Эквайринг",
           "Цифровые товары",
@@ -662,11 +662,11 @@ window.SITE = {
         "Python"
       ],
       "ru": {
-        "title": "Work Time Tracker — учёт рабочего времени",
+        "title": "Work Time Tracker: учёт рабочего времени",
         "tagline": "Приложения Windows",
-        "text": "Python-приложение с сохранением данных в Excel.",
+        "text": "Приложение на Python учитывает рабочее время и сохраняет записи в Excel.",
         "problem": "Учитывать рабочее время и сохранять записи в формат для дальнейшего анализа.",
-        "solution": "Python-приложение с сохранением данных в Excel.",
+        "solution": "Приложение на Python учитывает рабочее время и сохраняет записи в Excel.",
         "highlights": []
       },
       "en": {
@@ -691,11 +691,11 @@ window.SITE = {
         "TypeScript"
       ],
       "ru": {
-        "title": "ABHELP — приложение с изоляцией арендаторов",
+        "title": "ABHELP: приложение с изоляцией арендаторов",
         "tagline": "Веб-приложения",
-        "text": "В авторских PR описаны Tenant/Client, изоляция через RLS, ownership/identity/RBAC/auth и первая Next.js демоверсия с CRUD клиентов, объектов и контактов.",
+        "text": "В авторских PR описаны модели Tenant/Client, изоляция данных через RLS, владение объектами, роли и авторизация. Первая демоверсия на Next.js позволяет создавать, просматривать, изменять и удалять клиентов, объекты и контакты.",
         "problem": "Разделить данные и права нескольких арендаторов в одном приложении.",
-        "solution": "В авторских PR описаны Tenant/Client, изоляция через RLS, ownership/identity/RBAC/auth и первая Next.js демоверсия с CRUD клиентов, объектов и контактов.",
+        "solution": "В авторских PR описаны модели Tenant/Client, изоляция данных через RLS, владение объектами, роли и авторизация. Первая демоверсия на Next.js позволяет создавать, просматривать, изменять и удалять клиентов, объекты и контакты.",
         "highlights": []
       },
       "en": {
@@ -723,11 +723,11 @@ window.SITE = {
         "sentencepiece"
       ],
       "ru": {
-        "title": "AirLLM — локальная интеграция и интерфейс моделей",
+        "title": "AirLLM: локальная интеграция и интерфейс моделей",
         "tagline": "ИИ и автоматизация",
-        "text": "Интерфейс настройки и загрузки локальных моделей поверх сторонней библиотеки AirLLM. Проверка совместимости, загрузка, управление состоянием и генерация через API.",
+        "text": "Веб-интерфейс работает поверх сторонней библиотеки AirLLM: проверяет совместимость локальных моделей, загружает их, показывает состояние и запускает генерацию через API.",
         "problem": "Управлять моделью из веб-интерфейса вместо ручных вызовов библиотеки.",
-        "solution": "Интерфейс настройки и загрузки локальных моделей поверх сторонней библиотеки AirLLM. Проверка совместимости, загрузка, управление состоянием и генерация через API.",
+        "solution": "Веб-интерфейс работает поверх сторонней библиотеки AirLLM: проверяет совместимость локальных моделей, загружает их, показывает состояние и запускает генерацию через API.",
         "highlights": [
           "Список моделей",
           "Проверка совместимости",
@@ -761,10 +761,10 @@ window.SITE = {
         "websockets"
       ],
       "ru": {
-        "title": "AuraPay + Avito — автоматизация продаж",
+        "title": "AuraPay + Avito: автоматизация продаж",
         "tagline": "ИИ и автоматизация",
         "text": "FastAPI обслуживает счета AuraPay, вебхуки, каталог и сделки. Клиент C# WinForms включает WebView2 для Avito и получает живые статусы через WebSocket; Telegram используется как дополнительный интерфейс.",
-        "problem": "Объединить счета, оплату и взаимодействие с покупателем цифровых товаров в одном рабочем процессе.",
+        "problem": "Работать со счетами, оплатой и сообщениями покупателей цифровых товаров в одном приложении.",
         "solution": "FastAPI обслуживает счета AuraPay, вебхуки, каталог и сделки. Клиент C# WinForms включает WebView2 для Avito и получает живые статусы через WebSocket; Telegram используется как дополнительный интерфейс.",
         "highlights": []
       },
@@ -792,7 +792,7 @@ window.SITE = {
         "TypeScript"
       ],
       "ru": {
-        "title": "awghole — туннели AmneziaWG и SOCKS5",
+        "title": "awghole: туннели AmneziaWG и SOCKS5",
         "tagline": "Сети и инфраструктура",
         "text": "Настоящие TUN-интерфейсы и policy routing отделяют туннели; SOCKS5 реализует TCP и UDP, blackhole route предотвращает обход туннеля.",
         "problem": "Поддержать UDP ASSOCIATE при передаче Xray-трафика через AmneziaWG.",
@@ -831,7 +831,7 @@ window.SITE = {
         "sing-box"
       ],
       "ru": {
-        "title": "BGD VPN — корпоративный клиент и платформа",
+        "title": "BGD VPN: корпоративный клиент и платформа",
         "tagline": "Сети и инфраструктура",
         "text": "Десктопный клиент, proxy-компоненты и административные интерфейсы решают задачи офисного доступа. Проект объединяет настройку подключения, управление пользователями и отображение состояния сети.",
         "problem": "От корпоративного VPN-клиента остался только собранный exe без исходников, а на реальных машинах постоянно возникали сетевые конфликты с Tailscale и другими VPN.",
@@ -868,7 +868,7 @@ window.SITE = {
         "golang.org/x/time"
       ],
       "ru": {
-        "title": "Cell — WireGuard relay через Yandex Cloud Functions",
+        "title": "Cell: WireGuard relay через Yandex Cloud Functions",
         "tagline": "Сети и инфраструктура",
         "text": "WireGuard-пакеты инкапсулируются в WSS, проходят Yandex Cloud Function и пересылаются на VPS.",
         "problem": "Дать альтернативный путь UDP-трафику при отсутствии прямого соединения.",
@@ -904,11 +904,11 @@ window.SITE = {
         "scenedetect"
       ],
       "ru": {
-        "title": "ClipForge — локальная нарезка видео и субтитры",
+        "title": "ClipForge: локальная нарезка видео и субтитры",
         "tagline": "ИИ и автоматизация",
-        "text": "Девять стадий сохраняют manifest для возобновления; тяжёлые модели работают последовательно. Faster-whisper распознаёт речь, MediaPipe помогает кадрированию, ffmpeg создаёт 9:16 видео и word-level karaoke subtitles.",
+        "text": "Обработка видео разбита на девять стадий; manifest позволяет продолжить её после остановки. Тяжёлые модели запускаются последовательно. Faster-whisper распознаёт речь, MediaPipe помогает кадрировать изображение, ffmpeg собирает видео 9:16 с субтитрами, подсвечивающими слова.",
         "problem": "Автоматизировать поиск фрагментов, вертикальный кадр и субтитры при ограниченной VRAM.",
-        "solution": "Девять стадий сохраняют manifest для возобновления; тяжёлые модели работают последовательно. Faster-whisper распознаёт речь, MediaPipe помогает кадрированию, ffmpeg создаёт 9:16 видео и word-level karaoke subtitles.",
+        "solution": "Обработка видео разбита на девять стадий; manifest позволяет продолжить её после остановки. Тяжёлые модели запускаются последовательно. Faster-whisper распознаёт речь, MediaPipe помогает кадрировать изображение, ffmpeg собирает видео 9:16 с субтитрами, подсвечивающими слова.",
         "highlights": [
           "Распознавание речи",
           "Ранжирование клипов",
@@ -938,11 +938,11 @@ window.SITE = {
         "typescript"
       ],
       "ru": {
-        "title": "DOENGINE — модульный B2C-движок HoReCa",
+        "title": "DOENGINE: модульный B2C-движок HoReCa",
         "tagline": "Веб-приложения",
-        "text": "Назначение booking/modular зафиксировано в package.json; компоненты представлены исходниками и workspace-модулями.",
+        "text": "В package.json проект описан как модульная основа для приложений бронирования. Общие компоненты находятся в исходниках и модулях workspace.",
         "problem": "Переиспользовать общие компоненты клиентских приложений и бронирования.",
-        "solution": "Назначение booking/modular зафиксировано в package.json; компоненты представлены исходниками и workspace-модулями.",
+        "solution": "В package.json проект описан как модульная основа для приложений бронирования. Общие компоненты находятся в исходниках и модулях workspace.",
         "highlights": [
           "Модульная структура",
           "Бронирование в описании проекта"
@@ -973,11 +973,11 @@ window.SITE = {
         "dnspython"
       ],
       "ru": {
-        "title": "DPI EXE — прототип Windows GUI для zapret/winws",
+        "title": "DPI EXE: прототип Windows GUI для zapret/winws",
         "tagline": "Сети и инфраструктура",
-        "text": "Документация проектирует auto-tune sweep, скоринг доступности Telegram/YouTube/Discord и классификацию ошибок TLS/HTTPS/gRPC/WebSocket.",
+        "text": "В документации описан автоматический перебор профилей с оценкой доступности Telegram, YouTube и Discord. Запланирована классификация ошибок TLS, HTTPS, gRPC и WebSocket. Это проектируемые функции Windows-прототипа.",
         "problem": "Автоматизировать сравнение профилей по доступности сервисов.",
-        "solution": "Документация проектирует auto-tune sweep, скоринг доступности Telegram/YouTube/Discord и классификацию ошибок TLS/HTTPS/gRPC/WebSocket.",
+        "solution": "В документации описан автоматический перебор профилей с оценкой доступности Telegram, YouTube и Discord. Запланирована классификация ошибок TLS, HTTPS, gRPC и WebSocket. Это проектируемые функции Windows-прототипа.",
         "highlights": [
           "План диагностики",
           "План подбора профилей",
@@ -1006,7 +1006,7 @@ window.SITE = {
         "Windows"
       ],
       "ru": {
-        "title": "Dr.Web — настройка политики для VPN",
+        "title": "Dr.Web: настройка политики для VPN",
         "tagline": "Сети и инфраструктура",
         "text": "По прежнему описанию: найдены EXE/DLL и централизованно добавлены исключения Dr.Web.",
         "problem": "Устранить блокировку корпоративных VPN-компонентов антивирусом.",
@@ -1036,11 +1036,11 @@ window.SITE = {
         "Python"
       ],
       "ru": {
-        "title": "EIFA Broadcaster — подготовка и рассылка Telegram-сообщений",
+        "title": "EIFA Broadcaster: подготовка и рассылка Telegram-сообщений",
         "tagline": "ИИ и автоматизация",
-        "text": "В исходниках выделены sender, FSM states, db и handlers create, preview_send, buttons_flow, history.",
+        "text": "В коде разделены отправка сообщений, состояния диалога и база данных. Обработчики отвечают за создание сообщения, предпросмотр, кнопки, отправку и историю.",
         "problem": "Организовать создание сообщения, предпросмотр и отправку.",
-        "solution": "В исходниках выделены sender, FSM states, db и handlers create, preview_send, buttons_flow, history.",
+        "solution": "В коде разделены отправка сообщений, состояния диалога и база данных. Обработчики отвечают за создание сообщения, предпросмотр, кнопки, отправку и историю.",
         "highlights": [
           "Создание сообщения",
           "Предпросмотр",
@@ -1076,11 +1076,11 @@ window.SITE = {
         "S3 (boto3)"
       ],
       "ru": {
-        "title": "EIFA MUSIC — музыкальный сервис",
+        "title": "EIFA MUSIC: музыкальный сервис",
         "tagline": "Веб-приложения",
-        "text": "Веб-интерфейс объединяет поиск, музыкальную библиотеку и воспроизведение. Backend интегрирует источники музыкальных данных и потоковую передачу; приложение доступно как PWA и Telegram Mini App.",
+        "text": "Веб-приложение позволяет искать музыку, собирать библиотеку и слушать треки. Сервер подключает источники музыкальных данных и передаёт аудиопоток. Приложение доступно как PWA и Telegram Mini App.",
         "problem": "Музыкальный стриминг в Telegram: агрегация каталога, синхронное прослушивание и своя прокси-инфраструктура",
-        "solution": "Веб-интерфейс объединяет поиск, музыкальную библиотеку и воспроизведение. Backend интегрирует источники музыкальных данных и потоковую передачу; приложение доступно как PWA и Telegram Mini App.",
+        "solution": "Веб-приложение позволяет искать музыку, собирать библиотеку и слушать треки. Сервер подключает источники музыкальных данных и передаёт аудиопоток. Приложение доступно как PWA и Telegram Mini App.",
         "highlights": [
           "Поиск музыки",
           "Плейлисты и библиотека",
@@ -1109,11 +1109,11 @@ window.SITE = {
         "Python"
       ],
       "ru": {
-        "title": "EIFA Stars — Stars, баланс и сделки в Telegram",
+        "title": "EIFA Stars: Stars, баланс и сделки в Telegram",
         "tagline": "Веб-приложения",
-        "text": "Бот направляет в покупку и баланс; Mini App показывает этапы сделки, поддержку и отзывы. Документация описывает Fragment/CardLink и обработчики результатов платежа, возвратов и chargeback.",
+        "text": "Бот открывает покупку Stars и баланс. Mini App показывает этапы сделки, поддержку и отзывы. Документация описывает интеграции Fragment и CardLink, обработку оплаты, возвратов и оспаривания платежей.",
         "problem": "Автоматизировать покупку Stars и сопровождение сделки в Telegram.",
-        "solution": "Бот направляет в покупку и баланс; Mini App показывает этапы сделки, поддержку и отзывы. Документация описывает Fragment/CardLink и обработчики результатов платежа, возвратов и chargeback.",
+        "solution": "Бот открывает покупку Stars и баланс. Mini App показывает этапы сделки, поддержку и отзывы. Документация описывает интеграции Fragment и CardLink, обработку оплаты, возвратов и оспаривания платежей.",
         "highlights": [
           "Покупка Stars",
           "Баланс",
@@ -1143,7 +1143,7 @@ window.SITE = {
         "TypeScript"
       ],
       "ru": {
-        "title": "EIFAMARKET — P2P-маркетплейс игровых товаров",
+        "title": "EIFAMARKET: P2P-маркетплейс игровых товаров",
         "tagline": "Веб-приложения",
         "text": "React, TypeScript, Three.js. README описывает дизайн-систему, правила владения состоянием и продуктовую модель: эскроу, чат сделки, решение споров поддержкой.",
         "problem": "Спроектировать P2P-площадку игровых товаров с безопасной сделкой, кабинетом продавца и обработкой споров.",
@@ -1177,7 +1177,7 @@ window.SITE = {
         "n8n"
       ],
       "ru": {
-        "title": "EIFANEWS Studio — редакционная платформа",
+        "title": "EIFANEWS Studio: редакционная платформа",
         "tagline": "ИИ и автоматизация",
         "text": "Веб-студия и n8n используют PostgreSQL; LISTEN/NOTIFY и SSE доставляют изменения в браузер.",
         "problem": "Предоставить редактору интерфейс поверх существующих n8n-процессов.",
@@ -1211,7 +1211,7 @@ window.SITE = {
         "TypeScript"
       ],
       "ru": {
-        "title": "EIFASTORE Obby — браузерная игра",
+        "title": "EIFASTORE Obby: браузерная игра",
         "tagline": "Игры и 3D",
         "text": "По серии PR: чекпоинты, комнаты, тематические платформы, модели ловушек, сцены событий, настройка скорости и разгона, саундтреки погони и разделение бандла.",
         "problem": "Добавить браузерную игру с препятствиями и последовательным развитием уровней.",
@@ -1236,7 +1236,7 @@ window.SITE = {
       "kind": "private",
       "tags": [],
       "ru": {
-        "title": "FedorNET — экспериментальная mesh VPN-сеть",
+        "title": "FedorNET: экспериментальная mesh VPN-сеть",
         "tagline": "Сети и инфраструктура",
         "text": "README описывает каталог с подписанным consensus, локальный выбор пути по RTT и потерям, UPnP/NAT-PMP/PCP/STUN, QUIC/TLS/REALITY и гибридную криптографию.",
         "problem": "Исследовать добровольную mesh VPN-сеть с распределённым каталогом и несколькими транспортами.",
@@ -1268,7 +1268,7 @@ window.SITE = {
         "pywebpush"
       ],
       "ru": {
-        "title": "GTABUY — магазин аккаунтов и услуг GTA 6",
+        "title": "GTABUY: магазин аккаунтов и услуг GTA 6",
         "tagline": "Веб-приложения",
         "text": "Django/DRF API предоставляет каталог, пользователей, заказы и оплату; React-витрина использует JWT и Axios. Docker Compose объединяет компоненты.",
         "problem": "Объединить каталог предложений, заказы и выдачу аккаунтов.",
@@ -1306,11 +1306,11 @@ window.SITE = {
         "channels"
       ],
       "ru": {
-        "title": "HorecaEngine — фундамент SaaS для HoReCa",
+        "title": "HorecaEngine: фундамент SaaS для HoReCa",
         "tagline": "Веб-приложения",
-        "text": "Django-tenants изолирует клиентов PostgreSQL-схемами; выделены tenants/accounts/feature flags, venues, sync и mock fiscal_gateway.",
+        "text": "Django-tenants разделяет данные заведений по схемам PostgreSQL. В проекте выделены аккаунты, настройки функций, заведения и синхронизация. Фискальный шлюз пока работает как заглушка.",
         "problem": "Разделить данные заведений и подготовить общие механизмы SaaS.",
-        "solution": "Django-tenants изолирует клиентов PostgreSQL-схемами; выделены tenants/accounts/feature flags, venues, sync и mock fiscal_gateway.",
+        "solution": "Django-tenants разделяет данные заведений по схемам PostgreSQL. В проекте выделены аккаунты, настройки функций, заведения и синхронизация. Фискальный шлюз пока работает как заглушка.",
         "highlights": [
           "Арендаторы",
           "Аккаунты",
@@ -1343,7 +1343,7 @@ window.SITE = {
         "react-dom"
       ],
       "ru": {
-        "title": "IgroPay — магазин игровых пополнений",
+        "title": "IgroPay: магазин игровых пополнений",
         "tagline": "Веб-приложения",
         "text": "Next.js-витрина обращается к Go-сервисам каталога, заказов, оплаты и выдачи; инфраструктура включает PostgreSQL, Redis, Kafka и ClickHouse.",
         "problem": "Организовать продажу пополнений, gift cards и ваучеров с отдельными сервисами.",
@@ -1378,7 +1378,7 @@ window.SITE = {
         "Python"
       ],
       "ru": {
-        "title": "Laya — эксперименты с моделями принятия решений",
+        "title": "Laya: эксперименты с моделями принятия решений",
         "tagline": "ИИ и автоматизация",
         "text": "Laya получает типизированные вопросы и возвращает вероятности действий. Песочницы связывают решения модели с игровым состоянием; шахматный прототип объединяет результаты двух моделей.",
         "problem": "Исследовать принятие игровых решений без генерации текста.",
@@ -1414,7 +1414,7 @@ window.SITE = {
         "PyQt6-WebEngine"
       ],
       "ru": {
-        "title": "LLMBurn — монитор использования AI",
+        "title": "LLMBurn: монитор использования AI",
         "tagline": "Приложения Windows",
         "text": "Настольный виджет с индикаторами пятичасовых и недельных лимитов AI-сервиса.",
         "problem": "Следить за пятичасовым и недельным расходом лимитов AI.",
@@ -1445,11 +1445,11 @@ window.SITE = {
         "Shell"
       ],
       "ru": {
-        "title": "LRMI — установщик модуля Честного Знака",
+        "title": "LRMI: установщик модуля Честного Знака",
         "tagline": "Инструменты разработчика",
-        "text": "Скрипт автоматизирует установку; точные этапы и требования требуют дополнительного чтения.",
+        "text": "Скрипт автоматизирует установку локального модуля Честного Знака. Точные этапы и требования ещё нужно проверить.",
         "problem": "Повторяемо устанавливать локальный модуль Честного Знака.",
-        "solution": "Скрипт автоматизирует установку; точные этапы и требования требуют дополнительного чтения.",
+        "solution": "Скрипт автоматизирует установку локального модуля Честного Знака. Точные этапы и требования ещё нужно проверить.",
         "highlights": [
           "Автоматизация установки"
         ]
@@ -1478,11 +1478,11 @@ window.SITE = {
         "typescript"
       ],
       "ru": {
-        "title": "Lumina Studio — сайт студии автоматизации HoReCa",
+        "title": "Lumina Studio: сайт студии автоматизации HoReCa",
         "tagline": "Сайты и дизайн",
-        "text": "Next.js, TypeScript и Tailwind. Отдельные модели заведений, продуктов, тарифов и болей; валидация целостности модели при сборке. В README описаны тёмная тема, cyan-акцент, Inter и Material Symbols.",
+        "text": "Сайт на Next.js, TypeScript и Tailwind описывает услуги для заведений. Отдельные модели описывают заведения, продукты, тарифы и задачи клиентов; их целостность проверяется при сборке. В README описаны тёмная тема, акцент cyan, шрифт Inter и иконки Material Symbols.",
         "problem": "Представить услуги студии автоматизации для разных сегментов HoReCa и связать офферы с единой моделью продуктов и тарифов.",
-        "solution": "Next.js, TypeScript и Tailwind. Отдельные модели заведений, продуктов, тарифов и болей; валидация целостности модели при сборке. В README описаны тёмная тема, cyan-акцент, Inter и Material Symbols.",
+        "solution": "Сайт на Next.js, TypeScript и Tailwind описывает услуги для заведений. Отдельные модели описывают заведения, продукты, тарифы и задачи клиентов; их целостность проверяется при сборке. В README описаны тёмная тема, акцент cyan, шрифт Inter и иконки Material Symbols.",
         "highlights": []
       },
       "en": {
@@ -1505,11 +1505,11 @@ window.SITE = {
         "Python"
       ],
       "ru": {
-        "title": "Marafett — генератор бейджей сотрудников",
+        "title": "Marafett: генератор бейджей сотрудников",
         "tagline": "Веб-приложения",
-        "text": "Flask и PostgreSQL. Поиск сотрудника по ИНН, построение бейджа с QR-кодом, формирование PDF; адаптивный интерфейс с зелёным акцентом.",
+        "text": "Приложение на Flask и PostgreSQL находит сотрудника по ИНН, создаёт бейдж с QR-кодом и готовит PDF для печати. Интерфейс с зелёным акцентом адаптирован для разных экранов.",
         "problem": "Дать сотрудникам возможность самостоятельно получить печатный бейдж.",
-        "solution": "Flask и PostgreSQL. Поиск сотрудника по ИНН, построение бейджа с QR-кодом, формирование PDF; адаптивный интерфейс с зелёным акцентом.",
+        "solution": "Приложение на Flask и PostgreSQL находит сотрудника по ИНН, создаёт бейдж с QR-кодом и готовит PDF для печати. Интерфейс с зелёным акцентом адаптирован для разных экранов.",
         "highlights": []
       },
       "en": {
@@ -1535,7 +1535,7 @@ window.SITE = {
         "vite"
       ],
       "ru": {
-        "title": "MooGold Arcade — витрина и агрегатор цифровых товаров",
+        "title": "MooGold Arcade: витрина и агрегатор цифровых товаров",
         "tagline": "Веб-приложения",
         "text": "Витрина объединяет наборы игровых данных, удаляет повторы по slug и группирует издателей; серверный проект выделяет адаптеры MooGold, WATA DG и собственных ваучеров.",
         "problem": "Свести каталоги нескольких поставщиков, цены и исполнение заказов в одну систему.",
@@ -1568,11 +1568,11 @@ window.SITE = {
         "PyQt5"
       ],
       "ru": {
-        "title": "MultiWG — Mesh VPN с несколькими выходными узлами",
+        "title": "MultiWG: Mesh VPN с несколькими выходными узлами",
         "tagline": "Сети и инфраструктура",
-        "text": "Coordinator выдаёт карту сети; агенты измеряют RTT и throughput, выбирают прямой или multi-hop путь. WireGuard data plane имеет sim/wgquick backend, transport использует fake-TLS и фрагментацию.",
+        "text": "Координатор передаёт агентам карту сети. Агенты измеряют RTT и пропускную способность, выбирают прямое соединение или путь через несколько узлов. Передача данных WireGuard использует sim/wgquick; транспорт поддерживает fake-TLS и фрагментацию.",
         "problem": "Поддерживать связность устройств и выбирать доступный выход через промежуточные узлы.",
-        "solution": "Coordinator выдаёт карту сети; агенты измеряют RTT и throughput, выбирают прямой или multi-hop путь. WireGuard data plane имеет sim/wgquick backend, transport использует fake-TLS и фрагментацию.",
+        "solution": "Координатор передаёт агентам карту сети. Агенты измеряют RTT и пропускную способность, выбирают прямое соединение или путь через несколько узлов. Передача данных WireGuard использует sim/wgquick; транспорт поддерживает fake-TLS и фрагментацию.",
         "highlights": [
           "Карта узлов",
           "Multi-hop routing",
@@ -1602,11 +1602,11 @@ window.SITE = {
         "Go"
       ],
       "ru": {
-        "title": "MyCell / PageRelay — SOCKS5 через Yandex Cloud Functions",
+        "title": "MyCell / PageRelay: SOCKS5 через Yandex Cloud Functions",
         "tagline": "Сети и инфраструктура",
-        "text": "cmd/client/main.go создаёт crypto context, yandex-cf transport, session и tunnel engine, затем запускает SOCKS5. PSK/salt настраивают derivation; есть server/mobile entrypoints.",
+        "text": "Клиент на Go создаёт криптографический контекст, транспорт через Yandex Cloud Functions, сессию и туннель, затем запускает SOCKS5. Для выработки ключей используются PSK и salt. Есть отдельные точки входа для сервера и мобильного клиента.",
         "problem": "Передавать proxy-трафик через альтернативный транспорт к серверу.",
-        "solution": "cmd/client/main.go создаёт crypto context, yandex-cf transport, session и tunnel engine, затем запускает SOCKS5. PSK/salt настраивают derivation; есть server/mobile entrypoints.",
+        "solution": "Клиент на Go создаёт криптографический контекст, транспорт через Yandex Cloud Functions, сессию и туннель, затем запускает SOCKS5. Для выработки ключей используются PSK и salt. Есть отдельные точки входа для сервера и мобильного клиента.",
         "highlights": [
           "SOCKS5 listener",
           "Yandex CF transport",
@@ -1640,11 +1640,11 @@ window.SITE = {
         "react"
       ],
       "ru": {
-        "title": "NanoGeneration — AI-примерка одежды и фотосессии",
+        "title": "NanoGeneration: AI-примерка одежды и фотосессии",
         "tagline": "ИИ и автоматизация",
-        "text": "Каталог референсов → загрузка фотографии → экран генерации и результата. Клиент включает историю, баланс, paywall и админку; API пока представлен mock-клиентом и seed-данными.",
+        "text": "Пользователь выбирает образ из каталога, загружает фотографию и переходит к экрану генерации и результата. В интерфейсе есть история, баланс, платный доступ и админка. API пока использует заглушки и тестовые данные.",
         "problem": "Показать примерку одежды, новые образы и аватары без физической фотосессии.",
-        "solution": "Каталог референсов → загрузка фотографии → экран генерации и результата. Клиент включает историю, баланс, paywall и админку; API пока представлен mock-клиентом и seed-данными.",
+        "solution": "Пользователь выбирает образ из каталога, загружает фотографию и переходит к экрану генерации и результата. В интерфейсе есть история, баланс, платный доступ и админка. API пока использует заглушки и тестовые данные.",
         "highlights": [
           "Виртуальная примерка",
           "AI-фотосессии",
@@ -1679,7 +1679,7 @@ window.SITE = {
         "typescript"
       ],
       "ru": {
-        "title": "Nastyaland — сайт консультаций и расчётов",
+        "title": "Nastyaland: сайт консультаций и расчётов",
         "tagline": "Сайты и дизайн",
         "text": "Страницы консультаций и клиентские расчёты дополняют информацию о натальной карте, Таро и матрице судьбы.",
         "problem": "Представить консультационные услуги и расчёты в одном сайте.",
@@ -1711,11 +1711,11 @@ window.SITE = {
       "kind": "private",
       "tags": [],
       "ru": {
-        "title": "Nexo — прототип витрины пополнений и подписок",
+        "title": "Nexo: прототип витрины пополнений и подписок",
         "tagline": "Сайты и дизайн",
-        "text": "HTML-прототип показывает каталог, карточку товара и checkout.",
+        "text": "HTML-прототип показывает каталог цифровых товаров, карточку товара и оформление заказа.",
         "problem": "Собрать цифровые товары в каталог с коротким сценарием заказа.",
-        "solution": "HTML-прототип показывает каталог, карточку товара и checkout.",
+        "solution": "HTML-прототип показывает каталог цифровых товаров, карточку товара и оформление заказа.",
         "highlights": [
           "Каталог",
           "Карточка товара",
@@ -1748,11 +1748,11 @@ window.SITE = {
         "systemd"
       ],
       "ru": {
-        "title": "officeproxy — корпоративный SOCKS5-прокси",
+        "title": "officeproxy: корпоративный SOCKS5-прокси",
         "tagline": "Сети и инфраструктура",
-        "text": "Go SOCKS5 обеспечивает authentication/ACL/limits/traffic accounting; Xray leastLoad распределяет выходы, таймеры обновляют подписку.",
-        "problem": "Управлять офисным proxy-доступом с учётом пользователей и выходных узлов.",
-        "solution": "Go SOCKS5 обеспечивает authentication/ACL/limits/traffic accounting; Xray leastLoad распределяет выходы, таймеры обновляют подписку.",
+        "text": "SOCKS5-сервер на Go проверяет пользователей и права доступа, применяет лимиты и учитывает трафик. Xray leastLoad распределяет выходные соединения; таймеры обновляют подписку.",
+        "problem": "Управлять офисным proxy-доступом, правами пользователей и выходными узлами.",
+        "solution": "SOCKS5-сервер на Go проверяет пользователей и права доступа, применяет лимиты и учитывает трафик. Xray leastLoad распределяет выходные соединения; таймеры обновляют подписку.",
         "highlights": [
           "Учёт трафика",
           "ACL",
@@ -1781,7 +1781,7 @@ window.SITE = {
         "Python"
       ],
       "ru": {
-        "title": "ORMS — мониторинг Честного Знака",
+        "title": "ORMS: мониторинг Честного Знака",
         "tagline": "Сети и инфраструктура",
         "text": "Python и Flask; веб-интерфейс на HTML/Bootstrap, интеграция с API локального модуля, периодические проверки, история статусов и список магазинов.",
         "problem": "Централизованно контролировать состояние локальных модулей Честного Знака в магазинах.",
@@ -1808,11 +1808,11 @@ window.SITE = {
         "HTML"
       ],
       "ru": {
-        "title": "PlayTron — интерфейс автоматизации Playerok",
+        "title": "PlayTron: интерфейс автоматизации Playerok",
         "tagline": "Веб-приложения",
-        "text": "Flask/SQLAlchemy кабинет моделирует магазины, товары, заказы, сообщения и шаблоны автоответов; README прямо указывает заглушки Playerok API.",
+        "text": "Кабинет на Flask и SQLAlchemy позволяет работать с магазинами, товарами, заказами, сообщениями и шаблонами автоответов. Интеграция Playerok API пока использует заглушки, что прямо указано в README.",
         "problem": "Собрать управление товарами, заказами, чатами и автоматизацией магазина.",
-        "solution": "Flask/SQLAlchemy кабинет моделирует магазины, товары, заказы, сообщения и шаблоны автоответов; README прямо указывает заглушки Playerok API.",
+        "solution": "Кабинет на Flask и SQLAlchemy позволяет работать с магазинами, товарами, заказами, сообщениями и шаблонами автоответов. Интеграция Playerok API пока использует заглушки, что прямо указано в README.",
         "highlights": [
           "Кабинет",
           "Магазины и товары",
@@ -1847,11 +1847,11 @@ window.SITE = {
         "react-dom"
       ],
       "ru": {
-        "title": "Realtime Telegram Mini App — статьи, мониторинг и криптовалюты",
+        "title": "Realtime Telegram Mini App: статьи, мониторинг и криптовалюты",
         "tagline": "Веб-приложения",
-        "text": "React-интерфейс переключает разделы, загружает статьи выбранной папки Drive; Express и ws заявлены в зависимостях серверной части.",
+        "text": "React-интерфейс переключает разделы и загружает статьи из выбранной папки Google Drive. В зависимостях серверной части заявлены Express и ws.",
         "problem": "Собрать несколько источников информации в одном интерфейсе Telegram.",
-        "solution": "React-интерфейс переключает разделы, загружает статьи выбранной папки Drive; Express и ws заявлены в зависимостях серверной части.",
+        "solution": "React-интерфейс переключает разделы и загружает статьи из выбранной папки Google Drive. В зависимостях серверной части заявлены Express и ws.",
         "highlights": [
           "Чтение статей",
           "Выбор папки Google Drive",
@@ -1883,11 +1883,11 @@ window.SITE = {
         "Pillow"
       ],
       "ru": {
-        "title": "SimpleRequester — клиент HTTP API",
+        "title": "SimpleRequester: клиент HTTP API",
         "tagline": "Инструменты разработчика",
-        "text": "RequestBuilder, EnvironmentResolver и Validator формируют запрос; NetworkWorker выполняет его в QThreadPool, ResponseParser готовит ответ, JSON-хранилище сохраняет коллекции и историю.",
+        "text": "RequestBuilder собирает запрос, EnvironmentResolver подставляет параметры окружения, Validator проверяет его. NetworkWorker выполняет запрос в QThreadPool, не блокируя интерфейс; ResponseParser разбирает ответ. Коллекции и история сохраняются в JSON.",
         "problem": "Работать с API без ручной сборки запросов и блокировки интерфейса во время сетевых операций.",
-        "solution": "RequestBuilder, EnvironmentResolver и Validator формируют запрос; NetworkWorker выполняет его в QThreadPool, ResponseParser готовит ответ, JSON-хранилище сохраняет коллекции и историю.",
+        "solution": "RequestBuilder собирает запрос, EnvironmentResolver подставляет параметры окружения, Validator проверяет его. NetworkWorker выполняет запрос в QThreadPool, не блокируя интерфейс; ResponseParser разбирает ответ. Коллекции и история сохраняются в JSON.",
         "highlights": [
           "Параметры, заголовки и тело",
           "Авторизация и cookies",
@@ -1922,11 +1922,11 @@ window.SITE = {
         "cheroot"
       ],
       "ru": {
-        "title": "SSH Transfer MCP — SSH/SFTP и временные файловые ресурсы",
+        "title": "SSH Transfer MCP: SSH/SFTP и временные файловые ресурсы",
         "tagline": "API и SDK",
-        "text": "AsyncSSH выполняет SSH/SFTP; impacket и WsgiDAV/cheroot поднимают аутентифицированные SMB/WebDAV shares с TTL. JSON audit log маскирует секреты, соединения используют timeout/retry/TOFU.",
+        "text": "AsyncSSH выполняет операции SSH и SFTP. impacket и WsgiDAV/cheroot создают временные SMB- и WebDAV-ресурсы с авторизацией и сроком действия. Журнал в JSON маскирует секреты; соединения используют таймауты, повторные попытки и TOFU.",
         "problem": "Передавать большие наборы файлов с возобновлением и управлять доступом к временным ресурсам.",
-        "solution": "AsyncSSH выполняет SSH/SFTP; impacket и WsgiDAV/cheroot поднимают аутентифицированные SMB/WebDAV shares с TTL. JSON audit log маскирует секреты, соединения используют timeout/retry/TOFU.",
+        "solution": "AsyncSSH выполняет операции SSH и SFTP. impacket и WsgiDAV/cheroot создают временные SMB- и WebDAV-ресурсы с авторизацией и сроком действия. Журнал в JSON маскирует секреты; соединения используют таймауты, повторные попытки и TOFU.",
         "highlights": [
           "SSH exec",
           "SFTP файлы и деревья",
@@ -1960,7 +1960,7 @@ window.SITE = {
         "typescript"
       ],
       "ru": {
-        "title": "SÍVA — сайт консультаций и практик",
+        "title": "SÍVA: сайт консультаций и практик",
         "tagline": "Сайты и дизайн",
         "text": "Сайт организует содержание по семи тематическим блокам; связанный агент и дизайн-материалы сохранены отдельно.",
         "problem": "Объяснить консультации и практики по семи центрам в последовательном интерфейсе.",
@@ -1991,11 +1991,11 @@ window.SITE = {
         "typescript"
       ],
       "ru": {
-        "title": "Telegram Publisher — редактор и публикация постов",
+        "title": "Telegram Publisher: редактор и публикация постов",
         "tagline": "Веб-приложения",
-        "text": "Yjs/AST хранит единый документ для preview и Telegram render; API с idempotency key ставит задачи в BullMQ, worker отправляет и сохраняет message_id.",
+        "text": "Yjs и AST хранят общий документ для предпросмотра и отправки в Telegram. API использует ключ идемпотентности и ставит задачи в BullMQ. Обработчик отправляет сообщение и сохраняет message_id.",
         "problem": "Готовить и публиковать сложные Telegram-сообщения с совместным редактированием.",
-        "solution": "Yjs/AST хранит единый документ для preview и Telegram render; API с idempotency key ставит задачи в BullMQ, worker отправляет и сохраняет message_id.",
+        "solution": "Yjs и AST хранят общий документ для предпросмотра и отправки в Telegram. API использует ключ идемпотентности и ставит задачи в BullMQ. Обработчик отправляет сообщение и сохраняет message_id.",
         "highlights": [
           "RichMessage",
           "HTML preview",
@@ -2029,11 +2029,11 @@ window.SITE = {
         "ZFS"
       ],
       "ru": {
-        "title": "TrueNAS — восстановление сервера хранения",
+        "title": "TrueNAS: восстановление сервера хранения",
         "tagline": "Сети и инфраструктура",
-        "text": "По прежнему кейсу: конфигурация восстановлена из backup с ручными правками; маршруты Tailscale исправлены.",
+        "text": "По прежнему кейсу: конфигурация восстановлена из резервной копии с ручными правками; маршруты Tailscale исправлены.",
         "problem": "Восстановить TrueNAS после деградации boot-пула и падения middlewared.",
-        "solution": "По прежнему кейсу: конфигурация восстановлена из backup с ручными правками; маршруты Tailscale исправлены.",
+        "solution": "По прежнему кейсу: конфигурация восстановлена из резервной копии с ручными правками; маршруты Tailscale исправлены.",
         "highlights": [
           "Восстановление конфигурации",
           "Проверка data pools",
@@ -2065,11 +2065,11 @@ window.SITE = {
         "golang.org/x/sys"
       ],
       "ru": {
-        "title": "Umbra — экспериментальный QUIC-прокси",
+        "title": "Umbra: экспериментальный QUIC-прокси",
         "tagline": "Сети и инфраструктура",
-        "text": "Проект использует реальный HTTP/3/TLS 1.3, ECH для SNI, fingerprint profiles и traffic shaping; redteam harness предназначен для self-detection.",
+        "text": "Проект использует HTTP/3 и TLS 1.3, ECH для защиты SNI, профили сетевого отпечатка и настройку формы трафика. Набор испытаний redteam harness предназначен для проверки обнаружения собственного трафика.",
         "problem": "Исследовать QUIC-прокси, похожий на обычный HTTP/3-трафик.",
-        "solution": "Проект использует реальный HTTP/3/TLS 1.3, ECH для SNI, fingerprint profiles и traffic shaping; redteam harness предназначен для self-detection.",
+        "solution": "Проект использует HTTP/3 и TLS 1.3, ECH для защиты SNI, профили сетевого отпечатка и настройку формы трафика. Набор испытаний redteam harness предназначен для проверки обнаружения собственного трафика.",
         "highlights": [
           "QUIC transport",
           "ECH",
@@ -2102,11 +2102,11 @@ window.SITE = {
         "window_manager"
       ],
       "ru": {
-        "title": "VOTN — дизайн и Flutter-прототип VPN-клиента",
+        "title": "VOTN: дизайн и Flutter-прототип VPN-клиента",
         "tagline": "Сети и инфраструктура",
-        "text": "AppState и TransportState отделены от экранов; FakeRepository воспроизводит восемь сценариев отказа. Дизайн-система реализует Liquid Glass через BackdropFilter.",
+        "text": "AppState и TransportState хранят состояния приложения и транспорта отдельно от экранов. FakeRepository воспроизводит восемь сценариев отказа; сетевое поведение пока имитируется. BackdropFilter создаёт эффект Liquid Glass.",
         "problem": "Проверить интерфейс подключения и отказов до подключения реального сервера.",
-        "solution": "AppState и TransportState отделены от экранов; FakeRepository воспроизводит восемь сценариев отказа. Дизайн-система реализует Liquid Glass через BackdropFilter.",
+        "solution": "AppState и TransportState хранят состояния приложения и транспорта отдельно от экранов. FakeRepository воспроизводит восемь сценариев отказа; сетевое поведение пока имитируется. BackdropFilter создаёт эффект Liquid Glass.",
         "highlights": [
           "Шесть шагов онбординга",
           "VPN и выбор локации",
@@ -2142,11 +2142,11 @@ window.SITE = {
         "pywebview"
       ],
       "ru": {
-        "title": "VOTSI / BGD — VPN-клиент на Xray",
+        "title": "VOTSI / BGD: VPN-клиент на Xray",
         "tagline": "Сети и инфраструктура",
-        "text": "Форк Nabzram адаптируется под Windows и подписки Marzban. Встроенное ядро, служба-помощник, обновления, темы и русификация обозначены в документации как работы текущего этапа.",
+        "text": "Форк Nabzram адаптируется под Windows, бренды VOTSI и BGD и подписки Marzban. Встроенное ядро, служба-помощник, обновления, темы и русификация ещё находятся в работе согласно документации.",
         "problem": "Адаптировать Windows VPN-клиент под два бренда и подписки Marzban.",
-        "solution": "Форк Nabzram адаптируется под Windows и подписки Marzban. Встроенное ядро, служба-помощник, обновления, темы и русификация обозначены в документации как работы текущего этапа.",
+        "solution": "Форк Nabzram адаптируется под Windows, бренды VOTSI и BGD и подписки Marzban. Встроенное ядро, служба-помощник, обновления, темы и русификация ещё находятся в работе согласно документации.",
         "highlights": [
           "Windows-клиент",
           "Подписки Marzban",
@@ -2178,11 +2178,11 @@ window.SITE = {
         "shadcn/ui"
       ],
       "ru": {
-        "title": "VOTSI — портфолио votsi.ru",
+        "title": "VOTSI: портфолио votsi.ru",
         "tagline": "Сайты и дизайн",
-        "text": "Коллектор читает экспорты разговоров, базы Codex и Git, очищает секреты и формирует JSON для Next.js-сайта.",
+        "text": "Коллектор читает локальные экспорты разговоров, базы Codex и Git, удаляет секреты и собирает JSON для сайта на Next.js.",
         "problem": "Собрать портфолио и показатели работы из локальных источников.",
-        "solution": "Коллектор читает экспорты разговоров, базы Codex и Git, очищает секреты и формирует JSON для Next.js-сайта.",
+        "solution": "Коллектор читает локальные экспорты разговоров, базы Codex и Git, удаляет секреты и собирает JSON для сайта на Next.js.",
         "highlights": [
           "Сбор доказательств",
           "Очистка секретов",
@@ -2208,7 +2208,7 @@ window.SITE = {
       "kind": "private",
       "tags": [],
       "ru": {
-        "title": "VOTSINET — VPN, Proxy и офисная Mesh-сеть",
+        "title": "VOTSINET: VPN, Proxy и офисная Mesh-сеть",
         "tagline": "Сети и инфраструктура",
         "text": "Go-компоненты core/agent/pop/control разделяют управление и передачу трафика; JSON-контракт связывает Flutter-клиент и консоль. Документация проектирует AmneziaWG внутри альтернативных транспортов и split tunneling.",
         "problem": "Совместить доступ к офисным подсетям, VPN и выдачу локального proxy другим устройствам.",
@@ -2247,11 +2247,11 @@ window.SITE = {
         "Xray"
       ],
       "ru": {
-        "title": "VPN Multi — две VPN-панели с AmneziaWG",
+        "title": "VPN Multi: две VPN-панели с AmneziaWG",
         "tagline": "Сети и инфраструктура",
-        "text": "VLESS/Reality inbound → локальный SOCKS5 → выделенный AmneziaWG tunnel → exit server; документация прежнего кейса включает IPv6 и миграцию AWG.",
+        "text": "VLESS/Reality передаёт трафик в локальный SOCKS5, затем в выделенный туннель AmneziaWG и на выходной сервер. Документация прежнего кейса также описывает IPv6 и миграцию AWG.",
         "problem": "Поддерживать два VPN-сервиса с отдельными панелями и зарубежными выходами.",
-        "solution": "VLESS/Reality inbound → локальный SOCKS5 → выделенный AmneziaWG tunnel → exit server; документация прежнего кейса включает IPv6 и миграцию AWG.",
+        "solution": "VLESS/Reality передаёт трафик в локальный SOCKS5, затем в выделенный туннель AmneziaWG и на выходной сервер. Документация прежнего кейса также описывает IPv6 и миграцию AWG.",
         "highlights": [
           "Раздельные сервисы",
           "Foreign egress",
@@ -2284,7 +2284,7 @@ window.SITE = {
         "Zabbix 7.0"
       ],
       "ru": {
-        "title": "Zabbix — восстановление и автоматизация мониторинга",
+        "title": "Zabbix: восстановление и автоматизация мониторинга",
         "tagline": "Сети и инфраструктура",
         "text": "Кейс объединяет восстановление Zabbix, настройку уведомлений и скрипты обнаружения устройств. Автоматизация классифицирует оборудование и поддерживает структуру мониторинга и дашборды.",
         "problem": "Мониторинг несколько дней лежал, и никто об этом не знал, так что аварии проходили незамеченными.",
@@ -2316,7 +2316,7 @@ window.SITE = {
         "Python"
       ],
       "ru": {
-        "title": "ZVUCH — музыкальный плеер (FAM Reload)",
+        "title": "ZVUCH: музыкальный плеер (FAM Reload)",
         "tagline": "Веб-приложения",
         "text": "Сервер содержит обработчики поиска, скачивания и потоковой передачи; клиент и серверный HTML используют название ZVUCH.",
         "problem": "Дать единый интерфейс поиска, загрузки и прослушивания треков.",
@@ -2349,9 +2349,9 @@ window.SITE = {
       "ru": {
         "title": "Генератор и проверка доменных имён",
         "tagline": "Инструменты разработчика",
-        "text": "Генерация вариантов по ключевому слову и проверка их доступности.",
+        "text": "Проект генерирует доменные имена по ключевому слову и проверяет их доступность.",
         "problem": "Находить доступные доменные имена по тематике.",
-        "solution": "Генерация вариантов по ключевому слову и проверка их доступности.",
+        "solution": "Проект генерирует доменные имена по ключевому слову и проверяет их доступность.",
         "highlights": [
           "Генерация имён",
           "Проверка доступности"
@@ -2382,11 +2382,11 @@ window.SITE = {
         "typescript"
       ],
       "ru": {
-        "title": "Свадебное приглашение — сайт на Next.js",
+        "title": "Свадебное приглашение: сайт на Next.js",
         "tagline": "Сайты и дизайн",
-        "text": "Next.js-сайт рендерит приглашение из wedding data; связь с отдельным архивом svadba не доказана.",
+        "text": "Сайт на Next.js создаёт приглашение из данных о свадьбе. Связь проекта с отдельным архивом svadba не подтверждена.",
         "problem": "Представить сведения о свадьбе в виде веб-приглашения.",
-        "solution": "Next.js-сайт рендерит приглашение из wedding data; связь с отдельным архивом svadba не доказана.",
+        "solution": "Сайт на Next.js создаёт приглашение из данных о свадьбе. Связь проекта с отдельным архивом svadba не подтверждена.",
         "highlights": [
           "Веб-приглашение"
         ]
@@ -2413,9 +2413,9 @@ window.SITE = {
       "ru": {
         "title": "Сервис курсов USDT, TON и RUB",
         "tagline": "API и SDK",
-        "text": "Небольшой сервер предоставляет получение курсов; точная схема источников требует проверки.",
+        "text": "Небольшой сервер выдаёт курсы USDT, TON и RUB. Точную схему получения курсов ещё нужно проверить.",
         "problem": "Получать курсы USDT, TON и RUB через единый серверный интерфейс.",
-        "solution": "Небольшой сервер предоставляет получение курсов; точная схема источников требует проверки.",
+        "solution": "Небольшой сервер выдаёт курсы USDT, TON и RUB. Точную схему получения курсов ещё нужно проверить.",
         "highlights": [
           "Получение валютных курсов"
         ]
@@ -2440,11 +2440,11 @@ window.SITE = {
         "Python"
       ],
       "ru": {
-        "title": "СибАДИ — Telegram-поиск преподавателей и расписания",
+        "title": "СибАДИ: Telegram-поиск преподавателей и расписания",
         "tagline": "ИИ и автоматизация",
-        "text": "Функции search_teacher/get_teacher_schedule_text читают расписание; обработчики find_teacher_by_subject/schedule/button выводят результат, split_message разбивает длинный ответ.",
+        "text": "Бот читает расписание, ищет преподавателя по предмету и показывает его занятия. Длинные ответы разбиваются на несколько сообщений.",
         "problem": "Сократить ручной поиск преподавателя и его занятий.",
-        "solution": "Функции search_teacher/get_teacher_schedule_text читают расписание; обработчики find_teacher_by_subject/schedule/button выводят результат, split_message разбивает длинный ответ.",
+        "solution": "Бот читает расписание, ищет преподавателя по предмету и показывает его занятия. Длинные ответы разбиваются на несколько сообщений.",
         "highlights": [
           "Поиск преподавателя",
           "Поиск по предмету",
@@ -2510,11 +2510,11 @@ window.SITE = {
         "Python"
       ],
       "ru": {
-        "title": "Стилист — Telegram-запись на услуги",
+        "title": "Стилист: Telegram-запись на услуги",
         "tagline": "Веб-приложения",
-        "text": "Telegram-бот и Mini App для организации визитов стилистов. Диалоги записи через FSM, работа с расписанием и отдельный веб-интерфейс.",
+        "text": "Telegram-бот и Mini App помогают записаться к стилисту. FSM управляет шагами диалога; для расписания предусмотрен отдельный веб-интерфейс.",
         "problem": "Организовать запись и последовательность действий посетителя в Telegram.",
-        "solution": "Telegram-бот и Mini App для организации визитов стилистов. Диалоги записи через FSM, работа с расписанием и отдельный веб-интерфейс.",
+        "solution": "Telegram-бот и Mini App помогают записаться к стилисту. FSM управляет шагами диалога; для расписания предусмотрен отдельный веб-интерфейс.",
         "highlights": [
           "Диалоги записи",
           "Состояния пользовательского сценария",
