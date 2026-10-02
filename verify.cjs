@@ -14,6 +14,8 @@ assert.equal(new Set(S.projects.map(p=>p.id)).size, 64);
 assert.equal(S.projects.filter(p=>p.featured).length, 6);
 assert.ok(!/claude|anthropic|кл[ао]уд/i.test(JSON.stringify(S)+html+JSON.stringify(catalog)));
 assert.ok(!/file:\/\/|[CDG]:[\\/]|github\.com\/votsie\/(?:VOTSI-PROXY|MyCell)|gh[pousr]_[A-Za-z0-9]{25,}|sk-ant-[A-Za-z0-9_-]{25,}|BEGIN .*PRIVATE KEY/.test(JSON.stringify(catalog)));
+assert.ok(!/300\+|8090|1,46|×1,5|80 секунд/.test(JSON.stringify(catalog)));
+assert.ok(S.projects.every(p=>p.ru.text.length<500));
 const allowed = new Set(['b24notify','eifavpn-backend','eifavpn-frontend','FTP_SYNC','QR-Barcode-Server-Flask','ssh-mcp','votsie.github.io','wata-mcp','wata-sdk','Work-Time-Tracker']);
 for (const p of S.projects) {
   assert.ok(p.ru.title && p.en.title && p.ru.text && p.en.text);

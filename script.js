@@ -75,8 +75,9 @@
       ? `<ul class="project-highlights">${L.highlights.map((h) => `<li>${esc(h)}</li>`).join("")}</ul>`
       : "";
     const links = [];
-    if (p.url) links.push(`<a href="${p.url}" target="_blank" rel="noopener">${p.url2 ? "Frontend" : t("card.repo")}</a>`);
-    if (p.url2) links.push(`<a href="${p.url2}" target="_blank" rel="noopener">Backend</a>`);
+    const linkLabel = (url) => /frontend$/i.test(url) ? "Frontend" : /backend$/i.test(url) ? "Backend" : t("card.repo");
+    if (p.url) links.push(`<a href="${p.url}" target="_blank" rel="noopener">${linkLabel(p.url)}</a>`);
+    if (p.url2) links.push(`<a href="${p.url2}" target="_blank" rel="noopener">${linkLabel(p.url2)}</a>`);
     if (p.live) links.push(`<a href="${p.live}" target="_blank" rel="noopener">${t("card.live")}</a>`);
     const details = L.problem ? `<details class="project-case"><summary>${esc(t("case.title"))}</summary><p><strong>${esc(t("case.problem"))}</strong> ${esc(L.problem)}</p><p><strong>${esc(t("case.solution"))}</strong> ${esc(L.solution || L.text)}</p></details>` : "";
     return `
