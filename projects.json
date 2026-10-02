@@ -1,0 +1,1391 @@
+{
+  "schema_version": "1.0",
+  "owner": "VOTSI",
+  "projects": [
+    {
+      "id": "b24notify",
+      "name": "b24notify — уведомления Bitrix24 для Windows",
+      "category": "Приложения Windows",
+      "purpose": "b24notify показывает сообщения и уведомления Битрикс24 карточками в углу экрана; клик по карточке открывает чат или объект в Bitrix24 Desktop или в браузере. Весь интерфейс рисуется на Go самостоятельно, поэтому тёмная тема одинаково выглядит в Windows 7 и Windows 11, а exe не требует никаких runtime-библиотек.",
+      "problem": "Показывать уведомления Bitrix24 вне браузера и открывать нужный объект одним кликом.",
+      "solution": "Go-приложение рисует карточки уведомлений и передаёт ссылки Bitrix24 Desktop либо браузеру.",
+      "technologies": [
+        "Go",
+        "GoReleaser",
+        "Inno Setup",
+        "OAuth 2.0",
+        "Win32 API"
+      ],
+      "features": [
+        "Уведомления",
+        "Открытие чата/объекта",
+        "Тёмная тема"
+      ],
+      "public_repositories": [
+        "https://github.com/votsie/b24notify"
+      ],
+      "summary_en": "A Windows desktop notifier for Bitrix24 that displays message cards and opens the relevant chat or object."
+    },
+    {
+      "id": "eifavpn",
+      "name": "EIFA VPN — VPN-сервис в Telegram",
+      "category": "Сети и инфраструктура",
+      "purpose": "EIFA VPN — коммерческий VPN-сервис, который целиком живёт внутри Telegram: пользователь заходит в Mini App, получает пробный период, покупает тариф и забирает ссылку-подписку для клиента Happ. Бэкенд на Django REST выдаёт и продлевает VPN-аккаунты через панель Remnawave, принимает оплату Telegram Stars и Crypto Pay (TON/USDT) с проверкой webhook-подписи и считает реферальные бонусы двух уровней. Отдельный сервис подписок SmartRoute держит пул из 300+ VLESS-конфигов, каждые 80 секунд пересобирает ТОП-10 серверов под конкретного пользователя и отдаёт их в base64-подписке. Живучесть пула обеспечивает VLESS Checker v2 — асинхронный чекер на Python с circuit breaker, exponential backoff, пулом портов, атомарной записью результатов и метриками Prometheus. Всё разворачивается через Docker Compose: frontend на Nginx, Django + gunicorn, aiogram-бот, PostgreSQL 17 и Redis.",
+      "problem": "VLESS + Reality, оплата в Telegram Stars и крипте, автоподбор серверов через SmartRoute AI",
+      "solution": "EIFA VPN — коммерческий VPN-сервис, который целиком живёт внутри Telegram: пользователь заходит в Mini App, получает пробный период, покупает тариф и забирает ссылку-подписку для клиента Happ. Бэкенд на Django REST выдаёт и продлевает VPN-аккаунты через панель Remnawave, принимает оплату Telegram Stars и Crypto Pay (TON/USDT) с проверкой webhook-подписи и считает реферальные бонусы двух уровней. Отдельный сервис подписок SmartRoute держит пул из 300+ VLESS-конфигов, каждые 80 секунд пересобирает ТОП-10 серверов под конкретного пользователя и отдаёт их в base64-подписке. Живучесть пула обеспечивает VLESS Checker v2 — асинхронный чекер на Python с circuit breaker, exponential backoff, пулом портов, атомарной записью результатов и метриками Prometheus. Всё разворачивается через Docker Compose: frontend на Nginx, Django + gunicorn, aiogram-бот, PostgreSQL 17 и Redis.",
+      "technologies": [
+        "Crypto Pay API",
+        "Django REST Framework",
+        "Docker Compose",
+        "JavaScript",
+        "Nginx",
+        "PostgreSQL 17",
+        "Prometheus",
+        "Python"
+      ],
+      "features": [
+        "Telegram Mini App вместо личного кабинета: React-приложение открывается прямо из бота и авторизует пользователя по initData: подпись HMAC-SHA256 проверяется на бэкенде через заголовок X-Telegram-Init-Data, отдельной регистрации и паролей нет.",
+        "Выдача VPN-аккаунтов через Remnawave: Бэкенд создаёт и обновляет пользователя в панели Remnawave (create/update/enable/disable) и отдаёт ссылку-подписку вида /api/sub/{shortUuid}, которую клиент импортирует в Happ, Hiddify или V2rayNG.",
+        "SmartRoute AI — автоподбор серверов: Сервис подписок на порту 8090 держит пул из 300+ VLESS-конфигов, анализирует пинг, скорость и провайдера и каждые 80 секунд пересобирает персональный ТОП-10 серверов для каждого токена подписки.",
+        "Тарифы, промокоды и бонусные дни: Модели SubscriptionPlan и PromoCode поддерживают два типа промокодов: бонусные дни и процентную скидку с порогом min_plan_days, лимитом использований и сроком действия; партнёрские ссылки вида ?startapp=promo_CODE подставляют код автоматически.",
+        "Оплата Telegram Stars, TON и USDT: Кроме Stars реализована интеграция с Crypto Pay (@CryptoBot): конвертация рублей в крипту по курсу, инвойс со сроком жизни 1 час и webhook invoice_paid с обязательной проверкой подписи Crypto-Pay-Api-Signature.",
+        "Двухуровневая реферальная программа: За оплату прямого реферала начисляется +3 дня, за реферала второго уровня +1 день; история хранится в ReferralBonus, ссылка формируется как t.me/eifavpn_bot?start=ref_{telegram_id}."
+      ],
+      "public_repositories": [
+        "https://github.com/votsie/eifavpn-backend",
+        "https://github.com/votsie/eifavpn-frontend"
+      ],
+      "summary_en": "A Telegram-based service with account provisioning, subscriptions, payment handling and a customer Mini App."
+    },
+    {
+      "id": "sshmcp",
+      "name": "SSH MCP — управление серверами для ИИ-агентов",
+      "category": "API и SDK",
+      "purpose": "MCP-сервер, через который Codex, Cursor и другие агенты управляют серверами по SSH без всякой настройки: пользователь диктует хост и доступы, агент подключается и только потом даёт серверу имя и сохраняет его. Интерактивные сессии идут через эмулятор терминала, так что nano, htop и вендорские TUI возвращаются читаемым экраном, а не кашей из escape-последовательностей.",
+      "problem": "Управлять SSH-хостами из разных AI-клиентов, включая интерактивные TUI.",
+      "solution": "MCP stdio предоставляет SSH-сессии, эмуляцию терминала, обмен файлами и туннели; профиль хоста сохраняется после успешного соединения.",
+      "technologies": [
+        "MCP",
+        "Paramiko",
+        "Python",
+        "pyte"
+      ],
+      "features": [
+        "SSH exec",
+        "Интерактивная консоль",
+        "SFTP",
+        "Local/remote/SOCKS tunnels",
+        "Память о серверах"
+      ],
+      "public_repositories": [
+        "https://github.com/votsie/ssh-mcp"
+      ],
+      "summary_en": "Remote server management for AI agents: SSH sessions, terminal emulation, file transfer and tunnels."
+    },
+    {
+      "id": "watasdk",
+      "name": "WATA SDK — платёжные библиотеки на пяти языках",
+      "category": "API и SDK",
+      "purpose": "SDK для API эквайринга и цифровых товаров wata.pro на Node/TypeScript, Python, Go, Java и .NET — уровня официальных. WATA выдаёт токены на терминал и держит продукты вроде Stars и Steam на разных терминалах, поэтому каждый SDK принимает набор токенов по продуктам и падает с понятной ошибкой ещё до сетевого запроса.",
+      "problem": "Одинаково интегрировать WATA на пяти языках и не путать токены разных продуктов.",
+      "solution": "Клиент принимает токены по продуктам, валидирует наличие нужного токена до запроса и реализует acquiring и digital goods API.",
+      "technologies": [
+        ".NET",
+        "Go",
+        "Java",
+        "Python",
+        "TypeScript"
+      ],
+      "features": [
+        "Платёжные ссылки",
+        "Транзакции",
+        "Возвраты",
+        "Steam",
+        "Stars",
+        "Top-up"
+      ],
+      "public_repositories": [
+        "https://github.com/votsie/wata-sdk"
+      ],
+      "summary_en": "Payment and digital-goods client libraries for TypeScript, Python, Go, Java and .NET, with product-specific token validation."
+    },
+    {
+      "id": "statyi",
+      "name": "AI Newsroom — автоматизированная контент-фабрика",
+      "category": "ИИ и автоматизация",
+      "purpose": "Self-hosted контент-пайплайн для новостного канала: парсит источники, строит эмбеддинги и кластеризует сюжеты, фильтрует их по нише, пишет статьи с проверкой фактов, генерирует иллюстрации и после одобрения человеком публикует на нескольких площадках. Кнопка одобрения заблокирована, пока хоть у одного абзаца нет источника.",
+      "problem": "Сократить ручную подготовку новостных статей и сохранять связь утверждений с источниками.",
+      "solution": "Источники → embeddings/кластеры → фильтр ниши → текст и fact-check → иллюстрация → одобрение человеком → публикация. Одобрение требует источников для абзацев.",
+      "technologies": [
+        "BullMQ",
+        "Caddy",
+        "Next.js",
+        "PostgreSQL",
+        "Redis",
+        "TypeScript",
+        "n8n",
+        "next"
+      ],
+      "features": [
+        "Сбор источников",
+        "Кластеризация",
+        "Проверка фактов",
+        "Иллюстрации",
+        "Редакторское одобрение",
+        "Публикация"
+      ],
+      "public_repositories": [],
+      "summary_en": "A content pipeline connecting source collection, story clustering, fact checks, illustrations and human approval before publication."
+    },
+    {
+      "id": "eifastore",
+      "name": "EIFASTORE — магазин цифровых товаров",
+      "category": "Веб-приложения",
+      "purpose": "EIFASTORE V3 — российский интернет-магазин цифровых товаров на Next.js 15 (App Router, RSC + Server Actions), выросший из P2P-маркетплейса в B2C-витрину. Продаёт Telegram Stars и Premium, пополнение кошелька Steam, прямой донат в игры по игровому ID, карты пополнения, ваучеры и гифт-карты, а также «донат с входом в аккаунт», который вручную выполняет оператор. Товары подтягиваются из каталога поставщика WATA DG (терминалы dg / stars / steam) и публикуются с рассчитанной наценкой поверх поставщицкого «пола» цены; оплата идёт через AuraPay (карта/СБП), эквайринг WATA, CryptoBot и внутренний баланс кэшбэка. Все деньги хранятся целыми копейками, коды и переписка шифруются AES-256-GCM, авторизация — только OAuth (Google/Yandex/VK/Telegram), а админ-панель на 24 раздела покрывает товары, склад, наценки, промокоды, заказы, возвраты, реестр транзакций, споры и очередь операторов.",
+      "problem": "Telegram Stars, Steam и игровой донат: от каталога поставщика до выданного кода",
+      "solution": "EIFASTORE V3 — российский интернет-магазин цифровых товаров на Next.js 15 (App Router, RSC + Server Actions), выросший из P2P-маркетплейса в B2C-витрину. Продаёт Telegram Stars и Premium, пополнение кошелька Steam, прямой донат в игры по игровому ID, карты пополнения, ваучеры и гифт-карты, а также «донат с входом в аккаунт», который вручную выполняет оператор. Товары подтягиваются из каталога поставщика WATA DG (терминалы dg / stars / steam) и публикуются с рассчитанной наценкой поверх поставщицкого «пола» цены; оплата идёт через AuraPay (карта/СБП), эквайринг WATA, CryptoBot и внутренний баланс кэшбэка. Все деньги хранятся целыми копейками, коды и переписка шифруются AES-256-GCM, авторизация — только OAuth (Google/Yandex/VK/Telegram), а админ-панель на 24 раздела покрывает товары, склад, наценки, промокоды, заказы, возвраты, реестр транзакций, споры и очередь операторов.",
+      "technologies": [
+        "Arctic (OAuth)",
+        "Caddy",
+        "Docker",
+        "Next.js 15",
+        "PostgreSQL (Supabase)",
+        "Prisma 6",
+        "Python",
+        "Radix UI"
+      ],
+      "features": [
+        "Параметрические пополнения Stars и Steam: Покупатель вводит Telegram-username или логин Steam и сумму; система запрашивает котировку у WATA, валидирует получателя и считает цену по фиксированному курсу 1,46 ₽ за звезду или +3 % над «полом» для Steam, зажимая результат между минимальной ценой поставщика и его потолком ×1,5.",
+        "Синхронизация каталога поставщика: Снимки товаров WATA DG (себестоимость, minPrice, наличие, схема полей ввода) складываются в отдельную таблицу и публикуются в витрину как товары магазина с собственной ценой, категорией, регионом и оформлением.",
+        "Многослойный движок наценок: Правила наценки задаются на уровне товара, поставщика, продавца, игры, категории, типа лота или глобально; они разрешаются во время чтения по приоритету и никогда не переписывают сохранённую цену, соблюдая минимальную маржу.",
+        "Несколько платёжных рельсов: Оплата через AuraPay (карта и СБП), эквайринг WATA, CryptoBot (USDT/TON/BTC и другие) или списание с баланса кэшбэка; статус платежа приходит вебхуками с проверкой подписи.",
+        "Три сценария выдачи товара: Вызов API поставщика для мгновенного пополнения, выдача кода из собственного зашифрованного пула с резервированием на момент оплаты и ручное выполнение оператором для доната со входом в аккаунт.",
+        "Консоль оператора для доната со входом: Заказ проходит подстатусы от «в очереди» до «выполнено» — ожидание данных входа, кода из почты, 2FA, PIN, создание геймпассов; учётные данные шифруются, доступны только назначенному оператору и стираются после завершения."
+      ],
+      "public_repositories": [],
+      "summary_en": "A digital-goods storefront and marketplace with a product catalog, order lifecycle and payment integrations."
+    },
+    {
+      "id": "ftpsync",
+      "name": "FTP Sync — синхронизация файлов для Windows",
+      "category": "Приложения Windows",
+      "purpose": "Windows-приложение синхронизации FTP: локальный сервер, загрузка на удалённый сервер, мгновенная и периодическая синхронизация, зеркалирование, трей, REST API и watchdog.",
+      "problem": "Автоматически передавать файлы с локального FTP-сервера на удалённый и поддерживать синхронизацию в фоне.",
+      "solution": "Python, pyftpdlib, FastAPI, трей и Inno Setup. Три режима: загрузка при изменении, периодическая синхронизация и зеркалирование. Отдельный watchdog восстанавливает процесс после падения.",
+      "technologies": [
+        "Python"
+      ],
+      "features": [],
+      "public_repositories": [
+        "https://github.com/votsie/FTP_SYNC"
+      ],
+      "summary_en": "A Windows file synchronization service with change monitoring, scheduling, reconnects and a REST interface."
+    },
+    {
+      "id": "qrbarcodeserverflask",
+      "name": "QR и Code-128 — API и графический клиент",
+      "category": "API и SDK",
+      "purpose": "API генерации QR-кодов и штрихкодов Code-128 и графический клиент.",
+      "problem": "Генерировать QR-коды и штрихкоды через единый API и удобный клиент.",
+      "solution": "Flask API для QR и Code-128, отдельный графический клиент; README описывает поддержку кириллицы, английского и специальных символов.",
+      "technologies": [
+        "Python"
+      ],
+      "features": [],
+      "public_repositories": [
+        "https://github.com/votsie/QR-Barcode-Server-Flask"
+      ],
+      "summary_en": "An API and graphical client for generating QR codes and Code-128 barcodes."
+    },
+    {
+      "id": "watamcp",
+      "name": "WATA MCP — платёжные инструменты для ИИ-агентов",
+      "category": "API и SDK",
+      "purpose": "MCP-сервер и набор навыков для агентов под платёжную платформу wata.pro. Публичный API выдаёт токены только на отдельные терминалы, поэтому сервер работает ещё и с сессией личного кабинета мерчанта — так агенту доступны кошелёк, выплаты, чарджбэки и настройки. Ставится одной командой в AI, OpenAI Codex CLI и Google Antigravity.",
+      "problem": "Дать агенту доступ к операциям WATA, которые не покрывает терминальный API-токен.",
+      "solution": "Объединить публичный acquiring/digital goods API и сессию кабинета мерчанта; предоставить операции через MCP-инструменты и руководства.",
+      "technologies": [
+        "MCP",
+        "Node.js",
+        "TypeScript"
+      ],
+      "features": [
+        "Эквайринг",
+        "Цифровые товары",
+        "Кошелёк и выплаты",
+        "Чарджбэки",
+        "Терминалы",
+        "Проверка подписи webhook"
+      ],
+      "public_repositories": [
+        "https://github.com/votsie/wata-mcp"
+      ],
+      "summary_en": "A payment platform integration connecting merchant operations, acquiring and digital goods to MCP clients."
+    },
+    {
+      "id": "worktimetracker",
+      "name": "Work Time Tracker — учёт рабочего времени",
+      "category": "Приложения Windows",
+      "purpose": "Python-приложение учёта рабочего времени с сохранением данных в Excel.",
+      "problem": "Учитывать рабочее время и сохранять записи в формат для дальнейшего анализа.",
+      "solution": "Python-приложение с сохранением данных в Excel.",
+      "technologies": [
+        "Python"
+      ],
+      "features": [],
+      "public_repositories": [
+        "https://github.com/votsie/Work-Time-Tracker"
+      ],
+      "summary_en": "A Python work-time tracker with an Excel export workflow."
+    },
+    {
+      "id": "abhelp",
+      "name": "ABHELP — приложение с изоляцией арендаторов",
+      "category": "Веб-приложения",
+      "purpose": "Многопользовательское веб-приложение: разделение арендаторов, RBAC, авторизация, CRUD клиентов, объектов и контактов. Направление подтверждено заголовками авторских PR.",
+      "problem": "Разделить данные и права нескольких арендаторов в одном приложении.",
+      "solution": "В авторских PR описаны Tenant/Client, изоляция через RLS, ownership/identity/RBAC/auth и первая Next.js демоверсия с CRUD клиентов, объектов и контактов.",
+      "technologies": [
+        "TypeScript"
+      ],
+      "features": [],
+      "public_repositories": [],
+      "summary_en": "A multi-tenant web application with role-based access, CRUD operations, dashboards and isolated customer data."
+    },
+    {
+      "id": "airllm",
+      "name": "AirLLM — локальная интеграция и интерфейс моделей",
+      "category": "ИИ и автоматизация",
+      "purpose": "Интерфейс настройки, загрузки и генерации с локальными языковыми моделями.",
+      "problem": "Управлять моделью из веб-интерфейса вместо ручных вызовов библиотеки.",
+      "solution": "Интерфейс настройки и загрузки локальных моделей поверх сторонней библиотеки AirLLM. Проверка совместимости, загрузка, управление состоянием и генерация через API.",
+      "technologies": [
+        "bitsandbytes",
+        "transformers",
+        "einops",
+        "evaluate",
+        "scikit-learn",
+        "sentencepiece"
+      ],
+      "features": [
+        "Список моделей",
+        "Проверка совместимости",
+        "Загрузка",
+        "Статус загрузки",
+        "Генерация"
+      ],
+      "public_repositories": [],
+      "summary_en": "A local model management interface over a third-party inference library: compatibility checks, downloads, loading status and generation."
+    },
+    {
+      "id": "auraclient",
+      "name": "AuraPay + Avito — автоматизация продаж",
+      "category": "ИИ и автоматизация",
+      "purpose": "Автоматизация продаж цифровых товаров: счета AuraPay, обработка вебхуков, сделки и чаты Avito, Telegram и клиент оператора C# WinForms с WebView2.",
+      "problem": "Объединить счета, оплату и взаимодействие с покупателем цифровых товаров в одном рабочем процессе.",
+      "solution": "FastAPI обслуживает счета AuraPay, вебхуки, каталог и сделки. Клиент C# WinForms включает WebView2 для Avito и получает живые статусы через WebSocket; Telegram используется как дополнительный интерфейс.",
+      "technologies": [
+        "QRCoder",
+        "System.Security.Cryptography.ProtectedData",
+        "Microsoft.Web.WebView2",
+        "fastapi",
+        "uvicorn",
+        "websockets"
+      ],
+      "features": [],
+      "public_repositories": [],
+      "summary_en": "A desktop automation project connecting payment events, marketplace messaging and order operations."
+    },
+    {
+      "id": "awgproxyhole",
+      "name": "awghole — туннели AmneziaWG и SOCKS5",
+      "category": "Сети и инфраструктура",
+      "purpose": "wireproxy-awg молча теряет UDP, потому что в нём так и не реализован SOCKS5 UDP ASSOCIATE, — из-за этого QUIC и DNS за Xray ломаются без единой ошибки. awghole запускает amneziawg-go на настоящих TUN-интерфейсах ядра, настраивает policy routing для каждого туннеля и реализует SOCKS5 полностью: UDP работает, а kill-switch получается сам собой.",
+      "problem": "Поддержать UDP ASSOCIATE при передаче Xray-трафика через AmneziaWG.",
+      "solution": "Настоящие TUN-интерфейсы и policy routing отделяют туннели; SOCKS5 реализует TCP и UDP, blackhole route предотвращает обход туннеля.",
+      "technologies": [
+        "AmneziaWG",
+        "Docker",
+        "Go",
+        "Linux policy routing",
+        "TypeScript"
+      ],
+      "features": [
+        "SOCKS5 TCP/UDP",
+        "Несколько туннелей",
+        "Watchdog",
+        "DNS в туннеле",
+        "MTU diagnostics",
+        "Prometheus"
+      ],
+      "public_repositories": [],
+      "summary_en": "A managed AmneziaWG and SOCKS5 service with UDP support, per-tunnel routing, health checks and an embedded administration panel."
+    },
+    {
+      "id": "bgdvpn",
+      "name": "BGD VPN — корпоративный клиент и платформа",
+      "category": "Сети и инфраструктура",
+      "purpose": "BGD VPN — Windows-клиент, через который сотрудники попадают в корпоративную сеть и на управляемый выход в интернет. Исходники v1.1.1 были утеряны, поэтому клиент восстановили из поставляемого exe, проверили модуль за модулем и довели до v1.2.2 на ядре sing-box. В релиз входят установщик, утилита CleanVPN для удаления конфликтующих VPN и полное руководство пользователя.",
+      "problem": "От корпоративного VPN-клиента остался только собранный exe без исходников, а на реальных машинах постоянно возникали сетевые конфликты с Tailscale и другими VPN.",
+      "solution": "Старый клиент декомпилирован и проверен, затем пересобран на sing-box; добавлены установщик с одним запросом UAC, самостоятельная регистрация через панель officeproxy и утилита для зачистки конкурирующих VPN.",
+      "technologies": [
+        "Go",
+        "Inno Setup",
+        "PowerShell",
+        "Python",
+        "Tailscale",
+        "sing-box"
+      ],
+      "features": [
+        "Утерянные исходники v1.1.1 восстановлены из PyInstaller-сборки и сверены с оригинальным байткодом",
+        "Ядро туннеля переведено на sing-box: самовосстановление, DNS guard и раздельная маршрутизация для локальной сети и tailnet",
+        "169 автотестов (156 на Python, 13 на Go) в клиенте и утилитах",
+        "Иллюстрированное руководство пользователя на 52 страницы в HTML и PDF",
+        "Найдены и исправлены сбои, которые проявлялись только в поле: конфликты с exit node Tailscale и сторонние VPN, перехватывающие маршруты"
+      ],
+      "public_repositories": [],
+      "summary_en": "A corporate network client and platform project connecting desktop access and administrative tools."
+    },
+    {
+      "id": "cell",
+      "name": "Cell — WireGuard relay через Yandex Cloud Functions",
+      "category": "Сети и инфраструктура",
+      "purpose": "Передача WireGuard UDP через WebSocket и serverless relay.",
+      "problem": "Дать альтернативный путь UDP-трафику при отсутствии прямого соединения.",
+      "solution": "WireGuard-пакеты инкапсулируются в WSS, проходят Yandex Cloud Function и пересылаются на VPS.",
+      "technologies": [
+        "github.com/gorilla/websocket",
+        "github.com/google/btree",
+        "golang.org/x/crypto",
+        "golang.org/x/net",
+        "golang.org/x/sys",
+        "golang.org/x/time"
+      ],
+      "features": [
+        "UDP relay",
+        "WSS transport",
+        "Serverless промежуточный узел"
+      ],
+      "public_repositories": [],
+      "summary_en": "A relay project connecting WireGuard traffic to a WebSocket and cloud-function transport."
+    },
+    {
+      "id": "filmfarm",
+      "name": "ClipForge — локальная нарезка видео и субтитры",
+      "category": "ИИ и автоматизация",
+      "purpose": "Пакетная подготовка вертикальных коротких клипов из длинного видео.",
+      "problem": "Автоматизировать поиск фрагментов, вертикальный кадр и субтитры при ограниченной VRAM.",
+      "solution": "Девять стадий сохраняют manifest для возобновления; тяжёлые модели работают последовательно. Faster-whisper распознаёт речь, MediaPipe помогает кадрированию, ffmpeg создаёт 9:16 видео и word-level karaoke subtitles.",
+      "technologies": [
+        "typer",
+        "pydantic",
+        "pyyaml",
+        "numpy",
+        "soundfile",
+        "scenedetect"
+      ],
+      "features": [
+        "Распознавание речи",
+        "Ранжирование клипов",
+        "Вертикальное кадрирование",
+        "Субтитры по словам",
+        "Баннер",
+        "Возобновление обработки"
+      ],
+      "public_repositories": [],
+      "summary_en": "A local, resumable pipeline for converting long videos into vertical clips with speech recognition, reframing and word-level subtitles."
+    },
+    {
+      "id": "doengine",
+      "name": "DOENGINE — модульный B2C-движок HoReCa",
+      "category": "Веб-приложения",
+      "purpose": "Модульная основа B2C-приложений для сферы HoReCa.",
+      "problem": "Переиспользовать общие компоненты клиентских приложений и бронирования.",
+      "solution": "Назначение booking/modular зафиксировано в package.json; компоненты представлены исходниками и workspace-модулями.",
+      "technologies": [
+        "typescript"
+      ],
+      "features": [
+        "Модульная структура",
+        "Бронирование в описании проекта"
+      ],
+      "public_repositories": [],
+      "summary_en": "A modular TypeScript foundation for customer-facing hospitality applications and booking workflows."
+    },
+    {
+      "id": "dpiexe",
+      "name": "DPI EXE — прототип Windows GUI для zapret/winws",
+      "category": "Прототипы",
+      "purpose": "Проект Windows-интерфейса диагностики соединений и подбора настроек DPI-инструмента.",
+      "problem": "Автоматизировать сравнение профилей по доступности сервисов.",
+      "solution": "Документация проектирует auto-tune sweep, скоринг доступности Telegram/YouTube/Discord и классификацию ошибок TLS/HTTPS/gRPC/WebSocket.",
+      "technologies": [
+        "pydantic",
+        "httpx",
+        "psutil",
+        "click",
+        "rich",
+        "dnspython"
+      ],
+      "features": [
+        "План диагностики",
+        "План подбора профилей",
+        "Многопротокольные проверки в спецификации"
+      ],
+      "public_repositories": [],
+      "summary_en": "An early Windows network-diagnostics GUI prototype. Automatic profile comparison remains part of the design specification."
+    },
+    {
+      "id": "endpointsecurityrollout",
+      "name": "Dr.Web — настройка политики для VPN",
+      "category": "Сети и инфраструктура",
+      "purpose": "Офисный антивирус блокировал VPN-клиенты и компоненты Tailscale. Нашли исполняемые файлы и DLL каждого VPN-приложения и централизованно добавили исключения в консоли Dr.Web для всех станций — через веб-интерфейс с помощью браузерной автоматизации.",
+      "problem": "Устранить блокировку корпоративных VPN-компонентов антивирусом.",
+      "solution": "По прежнему описанию: найдены EXE/DLL и централизованно добавлены исключения Dr.Web.",
+      "technologies": [
+        "Dr.Web",
+        "Tailscale",
+        "Windows"
+      ],
+      "features": [
+        "Инвентаризация компонентов",
+        "Централизованные исключения"
+      ],
+      "public_repositories": [],
+      "summary_en": "An infrastructure case on centrally resolving conflicts between endpoint security policies and approved network clients."
+    },
+    {
+      "id": "eifatgbroadcaster",
+      "name": "EIFA Broadcaster — подготовка и рассылка Telegram-сообщений",
+      "category": "ИИ и автоматизация",
+      "purpose": "Бот подготовки публикаций и рассылок в Telegram.",
+      "problem": "Организовать создание сообщения, предпросмотр и отправку.",
+      "solution": "В исходниках выделены sender, FSM states, db и handlers create, preview_send, buttons_flow, history.",
+      "technologies": [
+        "Python"
+      ],
+      "features": [
+        "Создание сообщения",
+        "Предпросмотр",
+        "Кнопки",
+        "Отправка",
+        "История"
+      ],
+      "public_repositories": [],
+      "summary_en": "A Telegram message preparation workflow with previews, buttons, delivery handlers and history."
+    },
+    {
+      "id": "eifamusic",
+      "name": "EIFA MUSIC — музыкальный сервис",
+      "category": "Веб-приложения",
+      "purpose": "EIFA MUSIC — стриминговый сервис, живущий одновременно как PWA и как Telegram Mini App. Каталог собирается из нескольких источников: основной поиск и выдача идут через Звук, метаданные и обложки обогащаются из Deezer, часть треков раздаётся из собственной S3-библиотеки, для отдельных сценариев используется librespot. Бэкенд — один FastAPI-сервис на PostgreSQL, который держит стриминг, очередь скачиваний, лайки, историю, подписки на артистов, платежи и WebSocket-комнаты совместного прослушивания FAM Link. Чтобы дотягиваться до зарубежных CDN, сервис поднимает собственный пул выходов: валидированные HTTP/SOCKS5-прокси и несколько процессов xray-core с VLESS Reality. Отдельным SPA сделана админка: дашборд, пользователи, аналитика, комнаты, очередь загрузок, модерация жалоб на треки, состояние системы и журнал аудита.",
+      "problem": "Музыкальный стриминг в Telegram: агрегация каталога, синхронное прослушивание и своя прокси-инфраструктура",
+      "solution": "EIFA MUSIC — стриминговый сервис, живущий одновременно как PWA и как Telegram Mini App. Каталог собирается из нескольких источников: основной поиск и выдача идут через Звук, метаданные и обложки обогащаются из Deezer, часть треков раздаётся из собственной S3-библиотеки, для отдельных сценариев используется librespot. Бэкенд — один FastAPI-сервис на PostgreSQL, который держит стриминг, очередь скачиваний, лайки, историю, подписки на артистов, платежи и WebSocket-комнаты совместного прослушивания FAM Link. Чтобы дотягиваться до зарубежных CDN, сервис поднимает собственный пул выходов: валидированные HTTP/SOCKS5-прокси и несколько процессов xray-core с VLESS Reality. Отдельным SPA сделана админка: дашборд, пользователи, аналитика, комнаты, очередь загрузок, модерация жалоб на треки, состояние системы и журнал аудита.",
+      "technologies": [
+        "FastAPI",
+        "GitHub Actions",
+        "PostgreSQL",
+        "Python",
+        "React 19",
+        "React Router",
+        "Recharts",
+        "S3 (boto3)"
+      ],
+      "features": [
+        "Агрегация каталога из нескольких источников: Поиск, чарты, новинки и подборки собираются из Звука, а затем параллельно обогащаются данными Deezer — обложками, названиями альбомов, ID артистов и флагом explicit. Ответы главной кешируются, обогащение идёт пачками с ограничением параллелизма.",
+        "Резолвер аудио и собственная S3-библиотека: Модуль s3_music держит in-memory индекс ключей вида double_cup_music_ARTIST - TRACK.mp3 и перестраивает его при старте и ежечасно. Если трек есть в бакете, он отдаётся напрямую, минуя внешние CDN и прокси-пул.",
+        "Пул прокси и VLESS Reality: proxy_manager тянет прокси из нескольких источников и валидирует их в 50 параллельных потоков по реальному эндпоинту Spotify, отслеживая страну и латентность. Параллельно vless_manager поднимает до пяти процессов xray-core, каждый — локальный SOCKS5 поверх VLESS Reality, с ре-валидацией раз в 5 минут.",
+        "«Волна» — бесконечный персональный поток: Когда очередь заканчивается, плеер подтягивает рекомендации по текущему семени, подмешивает их в очередь и сразу запрашивает следующую порцию. Кеш семян и список уже проигранного хранятся в localStorage, поэтому поток не повторяется между сессиями.",
+        "FAM Link — совместное прослушивание: Комната с коротким кодом и TTL, участники соединяются по WebSocket, хост управляет воспроизведением, можно выбрать активное устройство и исключить участника. Клиент помечает применение удалённого состояния флагом синхронизации, чтобы не порождать петли широковещания.",
+        "Авторизация через Telegram: Основной путь — проверка initData Mini App на бэкенде; для веба поддержаны Telegram Login Widget и отдельный флоу со стартом и опросом статуса. Deep link через startapp открывает конкретный трек и разворачивает экран Now Playing."
+      ],
+      "public_repositories": [],
+      "summary_en": "A music application with web/PWA and Telegram Mini App interfaces, search and playback workflows."
+    },
+    {
+      "id": "eifastars",
+      "name": "EIFA Stars — Stars, баланс и сделки в Telegram",
+      "category": "Веб-приложения",
+      "purpose": "Сервис покупки Telegram Stars с ботом и веб-интерфейсами разных версий.",
+      "problem": "Автоматизировать покупку Stars и сопровождение сделки в Telegram.",
+      "solution": "Бот направляет в покупку и баланс; Mini App показывает этапы сделки, поддержку и отзывы. Документация описывает Fragment/CardLink и обработчики результатов платежа, возвратов и chargeback.",
+      "technologies": [
+        "HTML",
+        "Python"
+      ],
+      "features": [
+        "Покупка Stars",
+        "Баланс",
+        "Этапы сделок",
+        "Поддержка и споры",
+        "Отзывы",
+        "Административный интерфейс"
+      ],
+      "public_repositories": [],
+      "summary_en": "A Telegram purchase flow for Stars, balances, deal progress and support, preserved across several frontend and backend versions."
+    },
+    {
+      "id": "eifamarket",
+      "name": "EIFAMARKET — P2P-маркетплейс игровых товаров",
+      "category": "Веб-приложения",
+      "purpose": "Прототип P2P-маркетплейса игровых товаров: React, TypeScript, Three.js, дизайн-система. Эскроу, чат сделки и споры описаны как продуктовая модель; README отмечает Phase 0.",
+      "problem": "Спроектировать P2P-площадку игровых товаров с безопасной сделкой, кабинетом продавца и обработкой споров.",
+      "solution": "React, TypeScript, Three.js. README описывает дизайн-систему, правила владения состоянием и продуктовую модель: эскроу, чат сделки, решение споров поддержкой.",
+      "technologies": [
+        "TypeScript"
+      ],
+      "features": [],
+      "public_repositories": [],
+      "summary_en": "An early-stage peer-to-peer marketplace for game-related digital products, with a React and TypeScript interface."
+    },
+    {
+      "id": "eifanews",
+      "name": "EIFANEWS Studio — редакционная платформа",
+      "category": "ИИ и автоматизация",
+      "purpose": "Веб-студия для редакторов поверх существующих n8n-воркфлоу: найденные новости, черновик статьи в один клик, правки, перегенерация обложки, нативная реклама по шаблонам и публикация. И n8n, и интерфейс пишут в Postgres, а изменения прилетают в браузер в реальном времени через LISTEN/NOTIFY и server-sent events.",
+      "problem": "Предоставить редактору интерфейс поверх существующих n8n-процессов.",
+      "solution": "Веб-студия и n8n используют PostgreSQL; LISTEN/NOTIFY и SSE доставляют изменения в браузер.",
+      "technologies": [
+        "Docker",
+        "Drizzle",
+        "MinIO",
+        "Next.js",
+        "PostgreSQL",
+        "React",
+        "TypeScript",
+        "n8n"
+      ],
+      "features": [
+        "Лента новостей",
+        "Черновик статьи",
+        "Правки",
+        "Обложки",
+        "Нативная реклама",
+        "Публикация"
+      ],
+      "public_repositories": [],
+      "summary_en": "An editorial interface over automation workflows, with drafts, cover editing and real-time updates from PostgreSQL."
+    },
+    {
+      "id": "obby",
+      "name": "EIFASTORE Obby — браузерная игра",
+      "category": "Игры и 3D",
+      "purpose": "Отдельное игровое направление внутри EIFASTORE: уровни с чекпоинтами, тематические платформы, ловушки, сцены событий, звук и управление движением. Найдены исходники и серия авторских PR.",
+      "problem": "Добавить браузерную игру с препятствиями и последовательным развитием уровней.",
+      "solution": "По серии PR: чекпоинты, комнаты, тематические платформы, модели ловушек, сцены событий, настройка скорости и разгона, саундтреки погони и разделение бандла.",
+      "technologies": [
+        "TypeScript"
+      ],
+      "features": [],
+      "public_repositories": [],
+      "summary_en": "A browser obstacle-course game with platforming, checkpoints, collectibles and player progress."
+    },
+    {
+      "id": "upnpnet",
+      "name": "FedorNET — экспериментальная mesh VPN-сеть",
+      "category": "Сети и инфраструктура",
+      "purpose": "FedorNET: экспериментальный mesh VPN с распределённым каталогом узлов, несколькими транспортами, NAT traversal и гибридной криптографией. README обозначает стадию pre-alpha.",
+      "problem": "Исследовать добровольную mesh VPN-сеть с распределённым каталогом и несколькими транспортами.",
+      "solution": "README описывает каталог с подписанным consensus, локальный выбор пути по RTT и потерям, UPnP/NAT-PMP/PCP/STUN, QUIC/TLS/REALITY и гибридную криптографию.",
+      "technologies": [],
+      "features": [],
+      "public_repositories": [],
+      "summary_en": "An experimental mesh networking project with node discovery and multiple transports. The source documentation labels it pre-alpha."
+    },
+    {
+      "id": "gtabuy",
+      "name": "GTABUY — магазин аккаунтов и услуг GTA 6",
+      "category": "Веб-приложения",
+      "purpose": "Магазин игровых аккаунтов и услуг для PlayStation/Xbox.",
+      "problem": "Объединить каталог предложений, заказы и выдачу аккаунтов.",
+      "solution": "Django/DRF API предоставляет каталог, пользователей, заказы и оплату; React-витрина использует JWT и Axios. Docker Compose объединяет компоненты.",
+      "technologies": [
+        "Django",
+        "djangorestframework",
+        "djangorestframework-simplejwt",
+        "django-cors-headers",
+        "django-environ",
+        "pywebpush"
+      ],
+      "features": [
+        "Каталог",
+        "Личный кабинет",
+        "Заказы",
+        "Платежи",
+        "Выдача аккаунтов"
+      ],
+      "public_repositories": [],
+      "summary_en": "A React storefront and Django API for gaming accounts and services, with users, catalog and order workflows."
+    },
+    {
+      "id": "horecaengine",
+      "name": "HorecaEngine — фундамент SaaS для HoReCa",
+      "category": "Веб-приложения",
+      "purpose": "Основа многопользовательской платформы для кафе, ресторанов и отелей.",
+      "problem": "Разделить данные заведений и подготовить общие механизмы SaaS.",
+      "solution": "Django-tenants изолирует клиентов PostgreSQL-схемами; выделены tenants/accounts/feature flags, venues, sync и mock fiscal_gateway.",
+      "technologies": [
+        "django",
+        "djangorestframework",
+        "django-tenants",
+        "djangorestframework-simplejwt",
+        "drf-spectacular",
+        "channels"
+      ],
+      "features": [
+        "Арендаторы",
+        "Аккаунты",
+        "Feature flags",
+        "Заведения",
+        "Фискальный gateway mock",
+        "Синхронизация"
+      ],
+      "public_repositories": [],
+      "summary_en": "A SaaS foundation for hospitality businesses: tenant schemas, accounts, feature flags and venue modules. Fiscal integration is mocked at this stage."
+    },
+    {
+      "id": "domainer",
+      "name": "IgroPay — магазин игровых пополнений",
+      "category": "Веб-приложения",
+      "purpose": "IgroPay: витрина игровых пополнений, гифткарт и ваучеров. Next.js и Go-микросервисы для каталога, заказов, платежей и выдачи; PostgreSQL, Redis, ClickHouse и Kafka. Название подтверждено README.",
+      "problem": "Организовать продажу пополнений, gift cards и ваучеров с отдельными сервисами.",
+      "solution": "Next.js-витрина обращается к Go-сервисам каталога, заказов, оплаты и выдачи; инфраструктура включает PostgreSQL, Redis, Kafka и ClickHouse.",
+      "technologies": [
+        "@igropay/ui",
+        "next",
+        "react",
+        "react-dom"
+      ],
+      "features": [
+        "Каталог",
+        "Заказы",
+        "Платежи",
+        "Выдача цифровых товаров"
+      ],
+      "public_repositories": [],
+      "summary_en": "A digital-goods storefront designed around Next.js and Go services for catalog, orders, payments and fulfilment."
+    },
+    {
+      "id": "layaexperiments",
+      "name": "Laya — эксперименты с моделями принятия решений",
+      "category": "ИИ и автоматизация",
+      "purpose": "Эксперименты с Laya — открытой негенеративной моделью принятия решений: на входе типизированные вопросы, на выходе реальные вероятности, всё за один forward pass. На сайте-песочнице модель сама играет во Flappy, раннер по полосам и тетрис — около 30 решений в секунду, а в прототипе шахмат два чекпоинта Laya голосуют за каждый ход. Всё работает на локальной машине.",
+      "problem": "Исследовать принятие игровых решений без генерации текста.",
+      "solution": "Laya получает типизированные вопросы и вероятности действий; игровые песочницы используют эти ответы, шахматный прототип объединяет голоса двух checkpoint.",
+      "technologies": [
+        "HTML",
+        "JavaScript",
+        "Laya",
+        "Python"
+      ],
+      "features": [
+        "Flappy demo",
+        "Runner demo",
+        "Tetris demo",
+        "Шахматный прототип"
+      ],
+      "public_repositories": [],
+      "summary_en": "Local decision-model experiments in arcade and chess prototypes, using typed inputs and action probabilities."
+    },
+    {
+      "id": "llmburn",
+      "name": "LLMBurn — монитор использования AI",
+      "category": "Приложения Windows",
+      "purpose": "Настольный виджет с индикаторами пятичасовых и недельных лимитов AI-сервиса.",
+      "problem": "Следить за пятичасовым и недельным расходом лимитов AI.",
+      "solution": "Настольный виджет с индикаторами пятичасовых и недельных лимитов AI-сервиса.",
+      "technologies": [
+        "PyQt6",
+        "requests",
+        "PyQt6-WebEngine",
+        "PyQt6",
+        "requests",
+        "PyQt6-WebEngine"
+      ],
+      "features": [
+        "Пятичасовое окно",
+        "Недельное окно",
+        "Виджет"
+      ],
+      "public_repositories": [],
+      "summary_en": "A desktop widget displaying short-term and weekly AI-service usage limits."
+    },
+    {
+      "id": "lrmilocalregimemoduleinstallscript",
+      "name": "LRMI — установщик модуля Честного Знака",
+      "category": "Инструменты разработчика",
+      "purpose": "Скрипт автоматизации установки локального модуля Честного Знака.",
+      "problem": "Повторяемо устанавливать локальный модуль Честного Знака.",
+      "solution": "Скрипт автоматизирует установку; точные этапы и требования требуют дополнительного чтения.",
+      "technologies": [
+        "Shell"
+      ],
+      "features": [
+        "Автоматизация установки"
+      ],
+      "public_repositories": [],
+      "summary_en": "An installation automation script for a local product-marking module."
+    },
+    {
+      "id": "luminastudio",
+      "name": "Lumina Studio — сайт студии автоматизации HoReCa",
+      "category": "Сайты и дизайн",
+      "purpose": "Сайт студии автоматизации HoReCa: витрина услуг, модель сегментов заведений, продуктов и тарифов. Next.js, TypeScript, Tailwind; тёмная тема с cyan-акцентом.",
+      "problem": "Представить услуги студии автоматизации для разных сегментов HoReCa и связать офферы с единой моделью продуктов и тарифов.",
+      "solution": "Next.js, TypeScript и Tailwind. Отдельные модели заведений, продуктов, тарифов и болей; валидация целостности модели при сборке. В README описаны тёмная тема, cyan-акцент, Inter и Material Symbols.",
+      "technologies": [
+        "next",
+        "react",
+        "tailwindcss",
+        "typescript"
+      ],
+      "features": [],
+      "public_repositories": [],
+      "summary_en": "A hospitality automation studio website presenting services, integrations and project information."
+    },
+    {
+      "id": "marafettlogincashcard",
+      "name": "Marafett — генератор бейджей сотрудников",
+      "category": "Веб-приложения",
+      "purpose": "Самостоятельная печать бейджей сотрудниками: поиск по ИНН, генерация QR-кода и скачивание PDF. Flask, PostgreSQL, адаптивный интерфейс.",
+      "problem": "Дать сотрудникам возможность самостоятельно получить печатный бейдж.",
+      "solution": "Flask и PostgreSQL. Поиск сотрудника по ИНН, построение бейджа с QR-кодом, формирование PDF; адаптивный интерфейс с зелёным акцентом.",
+      "technologies": [
+        "Python"
+      ],
+      "features": [],
+      "public_repositories": [],
+      "summary_en": "A web service that creates personalised employee badges, QR codes and printable PDF documents."
+    },
+    {
+      "id": "api-mag",
+      "name": "MooGold Arcade — витрина и агрегатор цифровых товаров",
+      "category": "Веб-приложения",
+      "purpose": "Продажа игровых пополнений и цифровых товаров через общую витрину и API.",
+      "problem": "Свести каталоги нескольких поставщиков, цены и исполнение заказов в одну систему.",
+      "solution": "Витрина объединяет наборы игровых данных, удаляет повторы по slug и группирует издателей; серверный проект выделяет адаптеры MooGold, WATA DG и собственных ваучеров.",
+      "technologies": [
+        "react",
+        "tailwindcss",
+        "typescript",
+        "vite"
+      ],
+      "features": [
+        "Каталог игр",
+        "Нормализация данных поставщиков",
+        "Цены и валютные курсы",
+        "Заказы и исполнение",
+        "Анимированные карточки и фон"
+      ],
+      "public_repositories": [],
+      "summary_en": "A game top-up storefront and supplier aggregation project. The frontend normalizes catalogs; the backend separates pricing, orders and fulfilment adapters."
+    },
+    {
+      "id": "multiwg",
+      "name": "MultiWG — Mesh VPN с несколькими выходными узлами",
+      "category": "Сети и инфраструктура",
+      "purpose": "Частная mesh-сеть с relay/exit/user узлами и настольным дашбордом.",
+      "problem": "Поддерживать связность устройств и выбирать доступный выход через промежуточные узлы.",
+      "solution": "Coordinator выдаёт карту сети; агенты измеряют RTT и throughput, выбирают прямой или multi-hop путь. WireGuard data plane имеет sim/wgquick backend, transport использует fake-TLS и фрагментацию.",
+      "technologies": [
+        "PyQt5"
+      ],
+      "features": [
+        "Карта узлов",
+        "Multi-hop routing",
+        "Мониторинг сервисов",
+        "STUN/NAT discovery",
+        "Relay fallback",
+        "Стабилизация выбора маршрута"
+      ],
+      "public_repositories": [],
+      "summary_en": "A mesh-network project with coordinator and agent components, relay/exit routing and a PyQt dashboard. Deployment limitations remain documented."
+    },
+    {
+      "id": "mycell",
+      "name": "MyCell / PageRelay — SOCKS5 через Yandex Cloud Functions",
+      "category": "Сети и инфраструктура",
+      "purpose": "Локальный SOCKS5-клиент с транспортом через промежуточную serverless-инфраструктуру.",
+      "problem": "Передавать proxy-трафик через альтернативный транспорт к серверу.",
+      "solution": "cmd/client/main.go создаёт crypto context, yandex-cf transport, session и tunnel engine, затем запускает SOCKS5. PSK/salt настраивают derivation; есть server/mobile entrypoints.",
+      "technologies": [
+        "Go"
+      ],
+      "features": [
+        "SOCKS5 listener",
+        "Yandex CF transport",
+        "Клиент/сервер",
+        "Mobile entrypoint",
+        "Ротация логов"
+      ],
+      "public_repositories": [],
+      "summary_en": "A local SOCKS5 client connected to a cloud-function transport, with separate client, server and mobile entry points."
+    },
+    {
+      "id": "nanogeneration",
+      "name": "NanoGeneration — AI-примерка одежды и фотосессии",
+      "category": "Прототипы",
+      "purpose": "Веб-приложение и Telegram Mini App для генерации изображений по фотографии пользователя.",
+      "problem": "Показать примерку одежды, новые образы и аватары без физической фотосессии.",
+      "solution": "Каталог референсов → загрузка фотографии → экран генерации и результата. Клиент включает историю, баланс, paywall и админку; API пока представлен mock-клиентом и seed-данными.",
+      "technologies": [
+        "@nanogeneration/shared",
+        "@tanstack/react-query",
+        "@telegram-apps/sdk-react",
+        "@telegram-apps/telegram-ui",
+        "next",
+        "react"
+      ],
+      "features": [
+        "Виртуальная примерка",
+        "AI-фотосессии",
+        "Аватары",
+        "Before/after slider",
+        "Каталог референсов",
+        "Баланс и пакеты"
+      ],
+      "public_repositories": [],
+      "summary_en": "A web and Telegram interface for virtual clothing try-on, photo styles and avatars. Generation and payments currently rely on mock API data."
+    },
+    {
+      "id": "nastyaland",
+      "name": "Nastyaland — сайт консультаций и расчётов",
+      "category": "Сайты и дизайн",
+      "purpose": "Сайт консультаций по натальной карте, Таро и матрице судьбы с расчётами на сайте. Название и назначение подтверждены metadata приложения.",
+      "problem": "Представить консультационные услуги и расчёты в одном сайте.",
+      "solution": "Страницы консультаций и клиентские расчёты дополняют информацию о натальной карте, Таро и матрице судьбы.",
+      "technologies": [
+        "next",
+        "react",
+        "tailwindcss",
+        "three",
+        "typescript"
+      ],
+      "features": [
+        "Описание услуг",
+        "Натальная карта",
+        "Таро",
+        "Матрица судьбы",
+        "Расчёты"
+      ],
+      "public_repositories": [],
+      "summary_en": "A consultation website with service information and interactive calculations."
+    },
+    {
+      "id": "nexo",
+      "name": "Nexo — прототип витрины пополнений и подписок",
+      "category": "Сайты и дизайн",
+      "purpose": "Витрина игровых пополнений, gift cards и AI-подписок.",
+      "problem": "Собрать цифровые товары в каталог с коротким сценарием заказа.",
+      "solution": "HTML-прототип показывает каталог, карточку товара и checkout.",
+      "technologies": [],
+      "features": [
+        "Каталог",
+        "Карточка товара",
+        "Checkout"
+      ],
+      "public_repositories": [],
+      "summary_en": "A digital-goods storefront prototype with product browsing and a checkout interface; live payment delivery is not verified."
+    },
+    {
+      "id": "officeproxy",
+      "name": "officeproxy — корпоративный SOCKS5-прокси",
+      "category": "Сети и инфраструктура",
+      "purpose": "officeproxy — серверная часть BGD VPN: SOCKS5-прокси на Go с аутентификацией, лимитами на пользователя, ACL и учётом трафика, плюс REST API и админ-панель на React. Исходящий трафик идёт через Xray с балансировщиком leastLoad по узлам подписки, которую обновляют и контролируют таймеры.",
+      "problem": "Управлять офисным proxy-доступом с учётом пользователей и выходных узлов.",
+      "solution": "Go SOCKS5 обеспечивает authentication/ACL/limits/traffic accounting; Xray leastLoad распределяет выходы, таймеры обновляют подписку.",
+      "technologies": [
+        "Docker",
+        "Go",
+        "PostgreSQL",
+        "React",
+        "Vite",
+        "Xray",
+        "systemd"
+      ],
+      "features": [
+        "Учёт трафика",
+        "ACL",
+        "Лимиты",
+        "Балансировка",
+        "Обновление подписки"
+      ],
+      "public_repositories": [],
+      "summary_en": "A managed office proxy with user policies, access controls, traffic accounting and administrative interfaces."
+    },
+    {
+      "id": "ormsownregimemonitoringsystem",
+      "name": "ORMS — мониторинг Честного Знака",
+      "category": "Сети и инфраструктура",
+      "purpose": "Централизованный мониторинг локальных модулей Честного Знака: доступность, статусы магазинов, история проверок и управление списком магазинов.",
+      "problem": "Централизованно контролировать состояние локальных модулей Честного Знака в магазинах.",
+      "solution": "Python и Flask; веб-интерфейс на HTML/Bootstrap, интеграция с API локального модуля, периодические проверки, история статусов и список магазинов.",
+      "technologies": [
+        "Python"
+      ],
+      "features": [],
+      "public_repositories": [],
+      "summary_en": "Centralized monitoring of local product-marking modules, availability, store status and check history."
+    },
+    {
+      "id": "playtron",
+      "name": "PlayTron — интерфейс автоматизации Playerok",
+      "category": "Веб-приложения",
+      "purpose": "Сайт и кабинет управления торговлей на Playerok.ru.",
+      "problem": "Собрать управление товарами, заказами, чатами и автоматизацией магазина.",
+      "solution": "Flask/SQLAlchemy кабинет моделирует магазины, товары, заказы, сообщения и шаблоны автоответов; README прямо указывает заглушки Playerok API.",
+      "technologies": [
+        "HTML"
+      ],
+      "features": [
+        "Кабинет",
+        "Магазины и товары",
+        "Заказы",
+        "Чаты",
+        "Настройки автоответов",
+        "Маркетинговый сайт"
+      ],
+      "public_repositories": [],
+      "summary_en": "A marketplace management dashboard for shops, products, orders and chats. External marketplace operations currently use API stubs."
+    },
+    {
+      "id": "123",
+      "name": "Realtime Telegram Mini App — статьи, мониторинг и криптовалюты",
+      "category": "Неопознанные",
+      "purpose": "Telegram Mini App с чтением статей из Google Drive, мониторингом и криптовалютным разделом.",
+      "problem": "Собрать несколько источников информации в одном интерфейсе Telegram.",
+      "solution": "React-интерфейс переключает разделы, загружает статьи выбранной папки Drive; Express и ws заявлены в зависимостях серверной части.",
+      "technologies": [
+        "@telegram-apps/sdk-react",
+        "clsx",
+        "express",
+        "lucide-react",
+        "react",
+        "react-dom"
+      ],
+      "features": [
+        "Чтение статей",
+        "Выбор папки Google Drive",
+        "Мониторинг",
+        "Криптовалютный раздел"
+      ],
+      "public_repositories": [],
+      "summary_en": "A Telegram interface combining a Google Drive article reader, monitoring screens and cryptocurrency information."
+    },
+    {
+      "id": "defaultproject",
+      "name": "SimpleRequester — клиент HTTP API",
+      "category": "Неопознанные",
+      "purpose": "Настольный клиент для подготовки HTTP-запросов и просмотра ответов.",
+      "problem": "Работать с API без ручной сборки запросов и блокировки интерфейса во время сетевых операций.",
+      "solution": "RequestBuilder, EnvironmentResolver и Validator формируют запрос; NetworkWorker выполняет его в QThreadPool, ResponseParser готовит ответ, JSON-хранилище сохраняет коллекции и историю.",
+      "technologies": [
+        "PyQt5",
+        "httpx",
+        "orjson",
+        "Pygments",
+        "Pillow"
+      ],
+      "features": [
+        "Параметры, заголовки и тело",
+        "Авторизация и cookies",
+        "Окружения и коллекции",
+        "История запросов",
+        "Импорт/экспорт curl",
+        "Подсветка ответов"
+      ],
+      "public_repositories": [],
+      "summary_en": "A desktop HTTP API client with request builders, environment variables, collections, history and asynchronous networking."
+    },
+    {
+      "id": "sshtransfermcp",
+      "name": "SSH Transfer MCP — SSH/SFTP и временные файловые ресурсы",
+      "category": "API и SDK",
+      "purpose": "MCP-сервер удалённых команд и передачи файлов.",
+      "problem": "Передавать большие наборы файлов с возобновлением и управлять доступом к временным ресурсам.",
+      "solution": "AsyncSSH выполняет SSH/SFTP; impacket и WsgiDAV/cheroot поднимают аутентифицированные SMB/WebDAV shares с TTL. JSON audit log маскирует секреты, соединения используют timeout/retry/TOFU.",
+      "technologies": [
+        "mcp",
+        "asyncssh",
+        "impacket",
+        "wsgidav",
+        "cheroot"
+      ],
+      "features": [
+        "SSH exec",
+        "SFTP файлы и деревья",
+        "Временные SMB shares",
+        "Временные WebDAV shares",
+        "TTL",
+        "Audit log"
+      ],
+      "public_repositories": [],
+      "summary_en": "SSH/SFTP operations and temporary authenticated SMB or WebDAV shares with expiry and audit logs."
+    },
+    {
+      "id": "siva",
+      "name": "SÍVA — сайт консультаций и практик",
+      "category": "Сайты и дизайн",
+      "purpose": "SÍVA: сайт консультаций и практик по семи центрам. Название и описание подтверждены metadata приложения; агент сохранён как связанный компонент.",
+      "problem": "Объяснить консультации и практики по семи центрам в последовательном интерфейсе.",
+      "solution": "Сайт организует содержание по семи тематическим блокам; связанный агент и дизайн-материалы сохранены отдельно.",
+      "technologies": [
+        "next",
+        "react",
+        "tailwindcss",
+        "typescript"
+      ],
+      "features": [
+        "Семь центров",
+        "Консультации",
+        "Практики"
+      ],
+      "public_repositories": [],
+      "summary_en": "A consultation and practices website organised into seven thematic centers, with a documented visual design system."
+    },
+    {
+      "id": "tgbotmarkdown",
+      "name": "Telegram Publisher — редактор и публикация постов",
+      "category": "Веб-приложения",
+      "purpose": "SaaS для публикаций в Telegram: визуальный редактор блоков, форматирование сообщений, ИИ-черновики, совместная работа, расписание и аналитика. Назначение подтверждено README.",
+      "problem": "Готовить и публиковать сложные Telegram-сообщения с совместным редактированием.",
+      "solution": "Yjs/AST хранит единый документ для preview и Telegram render; API с idempotency key ставит задачи в BullMQ, worker отправляет и сохраняет message_id.",
+      "technologies": [
+        "typescript"
+      ],
+      "features": [
+        "RichMessage",
+        "HTML preview",
+        "Планирование",
+        "AI-черновики",
+        "Совместная работа",
+        "Аналитика"
+      ],
+      "public_repositories": [],
+      "summary_en": "A collaborative message editor and publishing platform, using a shared document model and queued Telegram delivery."
+    },
+    {
+      "id": "truenasrecovery",
+      "name": "TrueNAS — восстановление сервера хранения",
+      "category": "Сети и инфраструктура",
+      "purpose": "Ошибки виртуального диска привели boot-пул TrueNAS в состояние degraded и отправили middlewared в бесконечный цикл падений — файловые шары и сервисы легли. Пулы с данными были исправны, поэтому систему восстановили из бэкапов конфигурации с ручной доработкой, а заодно нашли и починили маршрутизацию Tailscale, потерянную во время сбоя.",
+      "problem": "Восстановить TrueNAS после деградации boot-пула и падения middlewared.",
+      "solution": "По прежнему кейсу: конфигурация восстановлена из backup с ручными правками; маршруты Tailscale исправлены.",
+      "technologies": [
+        "Docker",
+        "SMB",
+        "Tailscale",
+        "TrueNAS",
+        "ZFS"
+      ],
+      "features": [
+        "Восстановление конфигурации",
+        "Проверка data pools",
+        "Исправление маршрутов"
+      ],
+      "public_repositories": [],
+      "summary_en": "An infrastructure recovery case involving configuration backups, service restoration and network routing."
+    },
+    {
+      "id": "umbra",
+      "name": "Umbra — экспериментальный QUIC-прокси",
+      "category": "Сети и инфраструктура",
+      "purpose": "Экспериментальный QUIC-прокси на Go с HTTP/3 и ECH. README отмечает раннюю стадию; пригодность для эксплуатации не подтверждена.",
+      "problem": "Исследовать QUIC-прокси, похожий на обычный HTTP/3-трафик.",
+      "solution": "Проект использует реальный HTTP/3/TLS 1.3, ECH для SNI, fingerprint profiles и traffic shaping; redteam harness предназначен для self-detection.",
+      "technologies": [
+        "github.com/quic-go/quic-go",
+        "go.uber.org/goleak",
+        "github.com/quic-go/qpack",
+        "golang.org/x/crypto",
+        "golang.org/x/net",
+        "golang.org/x/sys"
+      ],
+      "features": [
+        "QUIC transport",
+        "ECH",
+        "Traffic shaping",
+        "Fuzz/benchmark gates в документации"
+      ],
+      "public_repositories": [],
+      "summary_en": "An early Go networking research project around QUIC, HTTP/3 and transport testing. It is not ready for production."
+    },
+    {
+      "id": "votn",
+      "name": "VOTN — дизайн и Flutter-прототип VPN-клиента",
+      "category": "Прототипы",
+      "purpose": "Кроссплатформенный интерфейс VPN с онбордингом, статистикой и устройствами.",
+      "problem": "Проверить интерфейс подключения и отказов до подключения реального сервера.",
+      "solution": "AppState и TransportState отделены от экранов; FakeRepository воспроизводит восемь сценариев отказа. Дизайн-система реализует Liquid Glass через BackdropFilter.",
+      "technologies": [
+        "flutter",
+        "cupertino_icons",
+        "flutter_animate",
+        "animated_text_kit",
+        "qr_flutter",
+        "window_manager"
+      ],
+      "features": [
+        "Шесть шагов онбординга",
+        "VPN и выбор локации",
+        "Статистика",
+        "Устройства",
+        "Настройки",
+        "QR-привязка"
+      ],
+      "public_repositories": [],
+      "summary_en": "A Flutter VPN interface prototype with onboarding, device screens and a Liquid Glass design system. Network behavior is simulated."
+    },
+    {
+      "id": "votsivpnclient",
+      "name": "VOTSI / BGD — VPN-клиент на Xray",
+      "category": "Сети и инфраструктура",
+      "purpose": "Десктоп-клиент для Windows под подписки Marzban на ядре Xray: из одной кодовой базы собираются два брендированных приложения, VOTSI и BGD. В отличие от upstream-проекта, ядро встроено для работы офлайн и обновляется в фоне с откатом, TUN-режим работает через вспомогательную службу без запросов UAC, а российские сайты можно одним нажатием пустить мимо VPN.",
+      "problem": "Адаптировать Windows VPN-клиент под два бренда и подписки Marzban.",
+      "solution": "Форк Nabzram переносится на Windows; README задаёт bundled Xray, helper service, обновления с rollback и routing switch как работы текущего этапа.",
+      "technologies": [
+        "Nuitka",
+        "Python",
+        "React",
+        "TypeScript",
+        "Vite",
+        "Xray",
+        "pywebview"
+      ],
+      "features": [
+        "Две брендированные сборки",
+        "Marzban subscriptions",
+        "Xray integration",
+        "Русификация в разработке",
+        "Liquid Glass theme в разработке"
+      ],
+      "public_repositories": [],
+      "summary_en": "A Windows adaptation of the open-source Nabzram client. Bundled runtime, helper service, themes and localization are works in progress."
+    },
+    {
+      "id": "votsiportfolio",
+      "name": "VOTSI — портфолио votsi.ru",
+      "category": "Сайты и дизайн",
+      "purpose": "Портфолио, цифры в котором не вбиты руками: локальный коллектор читает транскрипты AI, базы Codex, экспорты ChatGPT и историю git, вычищает секреты и пишет JSON, из которого собирается сайт. Сам сайт — на Next.js, в стиле aurora glass и на 12 языках.",
+      "problem": "Собрать портфолио и показатели работы из локальных источников.",
+      "solution": "Коллектор читает экспорты разговоров, базы Codex и Git, очищает секреты и формирует JSON для Next.js-сайта.",
+      "technologies": [
+        "Next.js",
+        "Node.js",
+        "Tailwind CSS",
+        "TypeScript",
+        "shadcn/ui"
+      ],
+      "features": [
+        "Сбор доказательств",
+        "Очистка секретов",
+        "JSON-каталог",
+        "12 языков в прежнем описании"
+      ],
+      "public_repositories": [],
+      "summary_en": "A local evidence collector producing sanitized JSON for a multilingual portfolio website."
+    },
+    {
+      "id": "votsiproxy",
+      "name": "VOTSINET — VPN, Proxy и офисная Mesh-сеть",
+      "category": "Сети и инфраструктура",
+      "purpose": "B2B-платформа доступа к офисной сети и внешним выходным узлам.",
+      "problem": "Совместить доступ к офисным подсетям, VPN и выдачу локального proxy другим устройствам.",
+      "solution": "Go-компоненты core/agent/pop/control разделяют управление и передачу трафика; JSON-контракт связывает Flutter-клиент и консоль. Документация проектирует AmneziaWG внутри альтернативных транспортов и split tunneling.",
+      "technologies": [],
+      "features": [
+        "VPN-режим",
+        "SOCKS5/HTTP proxy в LAN",
+        "Mesh и офисный gateway",
+        "Разделение трафика по приложениям и адресам",
+        "Панель администратора"
+      ],
+      "public_repositories": [],
+      "summary_en": "A Go and Flutter platform design combining office mesh access, VPN and local proxy sharing. The admin interface currently uses a mock engine."
+    },
+    {
+      "id": "vpnmulti",
+      "name": "VPN Multi — две VPN-панели с AmneziaWG",
+      "category": "Сети и инфраструктура",
+      "purpose": "Инфраструктура для двух отдельных VPN-сервисов, у каждого своя панель Marzban. Клиенты подключаются по VLESS + Reality, а каждый inbound уходит через локальный SOCKS5-шлюз в собственный туннель AmneziaWG до зарубежного выходного сервера. В проект также вошли IPv6 на выходах, переход на AmneziaWG 2.0 и письменный разбор инцидента.",
+      "problem": "Поддерживать два VPN-сервиса с отдельными панелями и зарубежными выходами.",
+      "solution": "VLESS/Reality inbound → локальный SOCKS5 → выделенный AmneziaWG tunnel → exit server; документация прежнего кейса включает IPv6 и миграцию AWG.",
+      "technologies": [
+        "AmneziaWG",
+        "Debian",
+        "Docker",
+        "Marzban",
+        "PowerShell",
+        "Ubuntu",
+        "Xray"
+      ],
+      "features": [
+        "Раздельные сервисы",
+        "Foreign egress",
+        "IPv6",
+        "Разбор инцидента"
+      ],
+      "public_repositories": [],
+      "summary_en": "An infrastructure project for isolated service management and multiple network exit paths."
+    },
+    {
+      "id": "zabbixautomation",
+      "name": "Zabbix — восстановление и автоматизация мониторинга",
+      "category": "Сети и инфраструктура",
+      "purpose": "Офисный Zabbix умер из-за переполненного диска, и никто этого не заметил: хост сервера был отключён, в действии оповещения — сломанное условие, а Telegram заблокирован. Сервер пересобран на Zabbix 7.0 с PostgreSQL и TimescaleDB, и теперь набор скриптов каждую ночь обходит сеть, классифицирует устройства, даёт им имена и поддерживает сервисы и дашборды в актуальном виде.",
+      "problem": "Мониторинг несколько дней лежал, и никто об этом не знал, так что аварии проходили незамеченными.",
+      "solution": "Сервер пересобран, оповещения починены, добавлена TimescaleDB и написана автоматизация обнаружения, классификации, дашбордов и отчётов.",
+      "technologies": [
+        "PostgreSQL 16",
+        "Python",
+        "SNMP",
+        "TimescaleDB",
+        "Ubuntu",
+        "Zabbix 7.0"
+      ],
+      "features": [
+        "Сетевое обнаружение нашло 214 хостов, из них 37 SNMP-устройств",
+        "Ночное автообнаружение: SNMP-устройства, камеры, Wi-Fi и телефоны, чистка шума, имена и сервисы",
+        "8 дашбордов: для NOC, SLA для руководства и по каждой площадке; еженедельный PDF-отчёт в Telegram",
+        "Оповещения в Telegram идут через relay, потому что API с сервера заблокирован",
+        "Сжатие TimescaleDB и дашборды проверены рендером в PDF"
+      ],
+      "public_repositories": [],
+      "summary_en": "A monitoring recovery and automation case covering network discovery, device classification and dashboard maintenance."
+    },
+    {
+      "id": "famreload",
+      "name": "ZVUCH — музыкальный плеер (FAM Reload)",
+      "category": "Веб-приложения",
+      "purpose": "Веб-интерфейс поиска и воспроизведения музыки.",
+      "problem": "Дать единый интерфейс поиска, загрузки и прослушивания треков.",
+      "solution": "Сервер содержит обработчики поиска, скачивания и потоковой передачи; клиент и серверный HTML используют название ZVUCH.",
+      "technologies": [
+        "Python"
+      ],
+      "features": [
+        "Поиск треков",
+        "Потоковое воспроизведение",
+        "Скачивание"
+      ],
+      "public_repositories": [],
+      "summary_en": "A music player project with search, downloads and streaming endpoints."
+    },
+    {
+      "id": "domainmasscheckeraigenerator",
+      "name": "Генератор и проверка доменных имён",
+      "category": "Инструменты разработчика",
+      "purpose": "Генерация доменных имён по ключевому слову и проверка доступности доменов.",
+      "problem": "Находить доступные доменные имена по тематике.",
+      "solution": "Генерация вариантов по ключевому слову и проверка их доступности.",
+      "technologies": [
+        "Python"
+      ],
+      "features": [
+        "Генерация имён",
+        "Проверка доступности"
+      ],
+      "public_repositories": [],
+      "summary_en": "Keyword-driven domain name generation and availability checks."
+    },
+    {
+      "id": "priglos",
+      "name": "Свадебное приглашение — сайт на Next.js",
+      "category": "Сайты и дизайн",
+      "purpose": "Сайт свадебного приглашения. Назначение подтверждено metadata Next.js; архив svadba отдельно сохранён, связь между ними не доказана.",
+      "problem": "Представить сведения о свадьбе в виде веб-приглашения.",
+      "solution": "Next.js-сайт рендерит приглашение из wedding data; связь с отдельным архивом svadba не доказана.",
+      "technologies": [
+        "TypeScript",
+        "next",
+        "react",
+        "tailwindcss",
+        "typescript"
+      ],
+      "features": [
+        "Веб-приглашение"
+      ],
+      "public_repositories": [],
+      "summary_en": "A data-driven Next.js wedding invitation website."
+    },
+    {
+      "id": "coincurrencies",
+      "name": "Сервис курсов USDT, TON и RUB",
+      "category": "API и SDK",
+      "purpose": "Мини-сервер получения курсов USDT, TON и RUB.",
+      "problem": "Получать курсы USDT, TON и RUB через единый серверный интерфейс.",
+      "solution": "Небольшой сервер предоставляет получение курсов; точная схема источников требует проверки.",
+      "technologies": [
+        "Python"
+      ],
+      "features": [
+        "Получение валютных курсов"
+      ],
+      "public_repositories": [],
+      "summary_en": "A small server providing USDT, TON and RUB exchange rates."
+    },
+    {
+      "id": "sibadisearchprepods",
+      "name": "СибАДИ — Telegram-поиск преподавателей и расписания",
+      "category": "ИИ и автоматизация",
+      "purpose": "Telegram-бот поиска преподавателей по предмету и просмотра расписания.",
+      "problem": "Сократить ручной поиск преподавателя и его занятий.",
+      "solution": "Функции search_teacher/get_teacher_schedule_text читают расписание; обработчики find_teacher_by_subject/schedule/button выводят результат, split_message разбивает длинный ответ.",
+      "technologies": [
+        "Python"
+      ],
+      "features": [
+        "Поиск преподавателя",
+        "Поиск по предмету",
+        "Расписание",
+        "Разбиение длинных сообщений"
+      ],
+      "public_repositories": [],
+      "summary_en": "A Telegram assistant for finding teachers by subject and displaying timetable information."
+    },
+    {
+      "id": "aidevenvironment",
+      "name": "Среда разработки с ИИ-агентами",
+      "category": "Инструменты разработчика",
+      "purpose": "Среда разработки: агентные инструменты, память между сессиями, MCP-сервисы и локальная модель для типизированных решений.",
+      "problem": "Собрать согласованную среду работы с несколькими AI-инструментами.",
+      "solution": "Среда разработки: агентные инструменты, память между сессиями, MCP-сервисы и локальная модель для типизированных решений.",
+      "technologies": [
+        "AI",
+        "MCP",
+        "PowerShell",
+        "oh-my-AIcode",
+        "tmux",
+        "uv"
+      ],
+      "features": [
+        "Команды агентов",
+        "HUD",
+        "Память",
+        "SSH/browser MCP",
+        "Локальные решения Laya"
+      ],
+      "public_repositories": [],
+      "summary_en": "A local development environment connecting agent tools, persistent memory, MCP services and a decision-model server."
+    },
+    {
+      "id": "first",
+      "name": "Стилист — Telegram-запись на услуги",
+      "category": "Веб-приложения",
+      "purpose": "Telegram-бот и Mini App для организации визитов стилистов. Диалоги записи через FSM, работа с расписанием и отдельный веб-интерфейс.",
+      "problem": "Организовать запись и последовательность действий посетителя в Telegram.",
+      "solution": "Telegram-бот и Mini App для организации визитов стилистов. Диалоги записи через FSM, работа с расписанием и отдельный веб-интерфейс.",
+      "technologies": [
+        "Python"
+      ],
+      "features": [
+        "Диалоги записи",
+        "Состояния пользовательского сценария",
+        "Планировщик",
+        "Веб-интерфейс стилистов"
+      ],
+      "public_repositories": [],
+      "summary_en": "A Telegram bot and Mini App for managing stylist visits, with dialog states, scheduling and a separate web interface."
+    }
+  ]
+}

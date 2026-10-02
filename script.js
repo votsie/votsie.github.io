@@ -27,6 +27,8 @@
     document.title = t("meta.title");
     const md = $('meta[name="description"]');
     if (md) md.content = t("meta.desc");
+    const search = $("#projectSearch");
+    if (search) search.placeholder = t("search.placeholder");
     $$("[data-i18n]").forEach((el) => {
       const val = t(el.dataset.i18n);
       if (val !== undefined) el.textContent = val;
@@ -46,7 +48,7 @@
   );
 
   /* ---------- projects ---------- */
-  let activeFilter = "all";
+  let activeFilter = "featured";
   const starCache = {};
 
   function projectArt(p) {
@@ -76,8 +78,9 @@
     if (p.url) links.push(`<a href="${p.url}" target="_blank" rel="noopener">${p.url2 ? "Frontend" : t("card.repo")}</a>`);
     if (p.url2) links.push(`<a href="${p.url2}" target="_blank" rel="noopener">Backend</a>`);
     if (p.live) links.push(`<a href="${p.live}" target="_blank" rel="noopener">${t("card.live")}</a>`);
+    const details = L.problem ? `<details class="project-case"><summary>${esc(t("case.title"))}</summary><p><strong>${esc(t("case.problem"))}</strong> ${esc(L.problem)}</p><p><strong>${esc(t("case.solution"))}</strong> ${esc(L.solution || L.text)}</p></details>` : "";
     return `
-      <article class="card project reveal${p.featured ? " is-featured" : ""}" data-cat="${p.cat.join(" ")}" data-kind="${p.kind}">
+      <article class="card project reveal${p.featured ? " is-featured" : ""}" data-cat="${p.cat.join(" ")}" data-kind="${p.kind}" data-featured="${!!p.featured}" data-search="${esc([p.ru.title, p.en.title, p.ru.text, p.en.text, ...p.tags].join(' ').toLocaleLowerCase())}">
         <div class="project-media">${projectArt(p)}</div>
         <div class="project-body">
           <div class="project-top">${badge}${stars}</div>
@@ -85,6 +88,7 @@
           <p class="project-tagline">${esc(L.tagline)}</p>
           <p class="project-text">${esc(L.text)}</p>
           ${highlights}
+          ${details}
           <div class="tags">${p.tags.map((x) => `<span class="tag">${esc(x)}</span>`).join("")}</div>
           ${links.length ? `<div class="project-links">${links.join("")}</div>` : ""}
         </div>
@@ -100,11 +104,23 @@
   }
 
   function applyFilter() {
+    const query = ($("#projectSearch")?.value || "").trim().toLocaleLowerCase();
+    let count = 0;
     $$(".project").forEach((el) => {
-      const show =
+      const categoryMatch =
         activeFilter === "all" ||
-        (activeFilter === "oss" ? el.dataset.kind === "oss" : el.dataset.cat.split(" ").includes(activeFilter));
+        (activeFilter === "featured" ? el.dataset.featured === "true" : activeFilter === "oss" ? el.dataset.kind === "oss" : el.dataset.cat.split(" ").includes(activeFilter));
+      const show = categoryMatch && (!query || el.dataset.search.includes(query));
       el.classList.toggle("is-hidden", !show);
+      if (show) count++;
+    });
+    const status = $("#resultCount");
+    if (status) status.textContent = lang === "ru" ? `Показано: ${count} из ${S.projects.length}` : `Showing ${count} of ${S.projects.length}`;
+    const empty = $("#emptyResults");
+    if (empty) empty.hidden = count > 0;
+    $$(".chip[data-filter]").forEach((c) => {
+      c.classList.toggle("is-active", c.dataset.filter === activeFilter);
+      c.setAttribute("aria-pressed", String(c.dataset.filter === activeFilter));
     });
   }
   $$(".chip[data-filter]").forEach((chip) =>
@@ -114,6 +130,10 @@
       applyFilter();
     })
   );
+  $("#projectSearch")?.addEventListener("input", () => {
+    activeFilter = "all";
+    applyFilter();
+  });
 
   /* ---------- live GitHub data ---------- */
   async function loadGitHub() {
@@ -270,6 +290,6 @@
     // update repo count stat if we have a real number
     const n = Object.keys(starCache).length;
     const el = $("#statRepos");
-    if (el && n >= 10) el.textContent = Math.floor(n / 10) * 10 + "+";
+    if (el && n > 0) el.textContent = String(n);
   });
 })();
