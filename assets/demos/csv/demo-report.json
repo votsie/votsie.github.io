@@ -1,0 +1,103 @@
+{
+  "key_column": "sku",
+  "comparison": "Exact strings; no implicit numeric, date or whitespace conversion",
+  "input_columns": {
+    "left": [
+      "sku",
+      "name",
+      "quantity",
+      "price"
+    ],
+    "right": [
+      "sku",
+      "name",
+      "quantity",
+      "price"
+    ]
+  },
+  "summary": {
+    "identical_keys": 1,
+    "difference_keys": 4,
+    "left_issue_groups": 2,
+    "right_issue_groups": 0
+  },
+  "differences": [
+    {
+      "key": "002",
+      "status": "changed",
+      "fields": {
+        "price": {
+          "left": "120.00",
+          "right": "125.00"
+        },
+        "quantity": {
+          "left": "5",
+          "right": "8"
+        }
+      }
+    },
+    {
+      "key": "003",
+      "status": "left_only",
+      "left": {
+        "sku": "003",
+        "name": "Какао",
+        "quantity": "7",
+        "price": "300.00"
+      }
+    },
+    {
+      "key": "004",
+      "status": "ambiguous_duplicate"
+    },
+    {
+      "key": "005",
+      "status": "right_only",
+      "right": {
+        "sku": "005",
+        "name": "Вода",
+        "quantity": "20",
+        "price": "50.00"
+      }
+    }
+  ],
+  "issues": {
+    "left": [
+      {
+        "kind": "empty_key",
+        "row_number": 7,
+        "row": {
+          "sku": "",
+          "name": "Незаполненный артикул",
+          "quantity": "1",
+          "price": "100.00"
+        }
+      },
+      {
+        "kind": "duplicate_key",
+        "key": "004",
+        "rows": [
+          {
+            "row_number": 5,
+            "row": {
+              "sku": "004",
+              "name": "Сироп",
+              "quantity": "2",
+              "price": "400.00"
+            }
+          },
+          {
+            "row_number": 6,
+            "row": {
+              "sku": "004",
+              "name": "Сироп",
+              "quantity": "3",
+              "price": "400.00"
+            }
+          }
+        ]
+      }
+    ],
+    "right": []
+  }
+}

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Сверка двух CSV — пример отчёта и услуга | Алексей Феклистов</title>
+  <meta name="description" content="Пример сверки двух CSV по артикулу: изменения, пропуски, дубликаты и ведущие нули. Согласованный этап обработки данных — 3 500 ₽.">
+  <meta property="og:title" content="Сверка двух CSV: увидеть расхождения">
+  <meta property="og:description" content="Собственная демонстрация на вымышленных товарах. Пример результата и предложение ограниченного этапа за 3 500 ₽.">
+  <meta property="og:url" content="https://votsie.github.io/csv-reconcile-demo.html">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <style>
+    :root{color-scheme:light;--paper:#f6f5f0;--ink:#172734;--muted:#56645d;--line:#c8cfc5;--green:#174d3b}
+    *{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper);font:17px/1.6 system-ui,sans-serif}
+    a{color:var(--green);text-underline-offset:4px}a:focus-visible,.table-scroll:focus-visible{outline:3px solid #174d3b;outline-offset:5px}
+    header,main,footer{max-width:1160px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;gap:24px;font-size:14px;border-bottom:1px solid var(--line)}
+    main{padding-top:42px;display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,1fr);gap:52px;align-items:start}article,aside{min-width:0}
+    h1{font:normal clamp(36px,4.6vw,60px)/1.08 Georgia,serif;letter-spacing:-.02em;margin:10px 0 24px}h2{font-size:21px;margin:30px 0 12px}
+    p{margin:0 0 16px;max-width:64ch}.eyebrow{font:13px/1.5 ui-monospace,monospace;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+    .lead{font-size:20px}.note{font-size:14px;color:var(--muted)}.result{border-top:2px solid var(--green);padding-top:20px;margin-top:32px}
+    .table-scroll{overflow-x:auto;padding:2px;max-width:100%}table{border-collapse:collapse;width:100%;font-size:15px;text-align:left;min-width:390px}caption{text-align:left;font-size:14px;color:var(--muted);padding:0 0 12px}th,td{border-bottom:1px solid var(--line);padding:12px 8px;vertical-align:top}th{font-size:13px;font-weight:600}th:first-child,td:first-child{padding-left:0}code{font:14px/1.5 ui-monospace,monospace}.downloads{display:flex;flex-wrap:wrap;gap:12px 20px;font-size:15px;margin:20px 0}
+    aside{border-top:2px solid var(--ink);padding-top:20px}aside h2{margin:0 0 14px}.price{font:normal 42px/1.1 Georgia,serif;margin:12px 0}.contact{display:inline-block;background:var(--green);color:white;padding:13px 20px;text-decoration:none;margin:12px 0 16px;font-weight:600}.contact:focus-visible{outline-offset:5px}
+    ul{padding-left:22px;margin:0 0 20px}li{margin:8px 0}footer{border-top:1px solid var(--line);margin-top:30px;font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+    @media(max-width:760px){main{grid-template-columns:1fr;gap:32px;padding-top:28px}header,main,footer{padding-left:20px;padding-right:20px}header{align-items:flex-start}h1{font-size:40px}.lead{font-size:18px}table{font-size:14px}.price{font-size:38px}}
+  </style>
+</head>
+<body>
+  <header><a href="./">Вернуться к портфолио</a><span>Алексей Феклистов · Python / API</span></header>
+  <main>
+    <article>
+      <p class="eyebrow">Пример обработки данных</p>
+      <h1>Две выгрузки.<br>Расхождения — в одном отчёте.</h1>
+      <p class="lead">Сверка по артикулу показывает, что изменилось, где не хватает строк и какие дубли требуют проверки.</p>
+      <p class="note">Собственная демонстрация на вымышленных товарах. Это не клиентский заказ; экономия времени и коммерческий эффект не измерялись.</p>
+      <section class="result" aria-labelledby="result-title">
+        <h2 id="result-title">Что найдено в примере</h2>
+        <div class="table-scroll" tabindex="0" aria-label="Пример отчёта; таблицу можно прокрутить по горизонтали">
+          <table>
+            <caption>Ключ — sku. Значения сравниваются точно как строки.</caption>
+            <thead><tr><th scope="col">Артикул</th><th scope="col">Результат</th><th scope="col">Подробности</th></tr></thead>
+            <tbody>
+              <tr><th scope="row"><code>001</code></th><td>Совпадение</td><td>Кофе: все поля совпали; нули сохранены.</td></tr>
+              <tr><th scope="row"><code>002</code></th><td>Изменение</td><td>Чай: количество 5 → 8; цена 120.00 → 125.00.</td></tr>
+              <tr><th scope="row"><code>003</code></th><td>Только слева</td><td>Какао отсутствует во второй выгрузке.</td></tr>
+              <tr><th scope="row"><code>004</code></th><td>Неоднозначный дубль</td><td>Две строки слева. Скрипт сохраняет обе и не выбирает одну произвольно.</td></tr>
+              <tr><th scope="row"><code>005</code></th><td>Только справа</td><td>Вода есть лишь во второй выгрузке.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">Дополнительно отмечена строка с пустым артикулом. Итого: один совпавший ключ, четыре ключа с расхождениями и две группы проблем в левом файле.</p>
+        <div class="downloads">
+          <a href="assets/demos/csv/demo-left.csv" download>Первая CSV</a>
+          <a href="assets/demos/csv/demo-right.csv" download>Вторая CSV</a>
+          <a href="assets/demos/csv/demo-report.json" download>Полный JSON-отчёт</a>
+        </div>
+      </section>
+      <h2>Правила сверки</h2>
+      <p>Исходные файлы только читаются. Ведущие нули остаются в идентификаторах. Пустые ключи и дубликаты выводятся отдельно.</p>
+      <p>Сравнение точное: <code>250.00</code> и <code>250</code> считаются разными значениями. Даты, валюты и пробелы автоматически не преобразуются.</p>
+    </article>
+    <aside aria-labelledby="offer-title">
+      <p class="eyebrow">Согласованный этап</p>
+      <h2 id="offer-title">Сверить ваши две CSV</h2>
+      <p class="price">3 500 ₽</p>
+      <p>Два файла UTF-8 с разделителем «запятая», один общий ключ, до 10 000 строк в каждом.</p>
+      <p><strong>Результат:</strong> JSON-отчёт, Python-скрипт для повторного запуска и инструкция. Одна серия исправлений ошибок в согласованных правилах входит в цену.</p>
+      <p><strong>Приёмка:</strong> контрольные строки правильно показывают совпадения, изменения, пропуски и дубли; итоговые числа сверены, исходники сохранены без изменений.</p>
+      <p><strong>Срок:</strong> подтверждается после проверки обезличенных образцов и ожидаемого результата, до начала работы. Цена базового объёма действует до 15 октября 2026.</p>
+      <p class="note">Excel, API, сопоставление похожих названий, изменение форматов, сервер и регулярные запуски согласуются отдельно. Если образцы выходят за базовый объём, цену и срок уточняем до работы.</p>
+      <h2>Для оценки задачи</h2>
+      <ul>
+        <li>Два небольших обезличенных образца.</li>
+        <li>Название общего ключа и пример нужного результата.</li>
+        <li>Плательщик и способ оплаты.</li>
+      </ul>
+      <p>До старта согласуем объём, срок, приёмку и защиту оплаты: безопасную сделку или оплату этапа. Для расчёта в РФ доступен СБП.</p>
+      <a class="contact" href="mailto:aafeklisto@gmail.com?subject=Сверка%20двух%20CSV">Обсудить сверку по почте</a>
+      <p class="note">Переписку и выполнение в рамках проекта ведёт AI-помощник Алексея. Не присылайте пароли, платёжные данные или полные рабочие выгрузки до согласования защищённого способа передачи.</p>
+    </aside>
+  </main>
+  <footer><span>Собственная демонстрация · 8 октября 2026</span><a href="https://t.me/votsi_e">Связаться в Telegram</a></footer>
+</body>
+</html>
